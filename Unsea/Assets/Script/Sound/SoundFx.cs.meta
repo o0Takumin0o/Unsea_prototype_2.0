@@ -1,0 +1,17 @@
+fileFormatVersion: 2
+guid: d883e3e22a9d75546866f23e1f0d1c3c
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - GameSfx: {instanceID: 0}
+  - HoverFx: {fileID: 8300000, guid: da1b160ba7e6b4bf0a40defe83b864d4, type: 3}
+  - ClickFx: {fileID: 8300000, guid: cd8f231778a234138849b780b1e91d98, type: 3}
+  - PickupSound: {fileID: 8300000, guid: 5d588f891236a1a4380a481d9c0d1d73, type: 3}
+  - WalkSound: {fileID: 8300000, guid: 1ce54ad34b1d3474ea5537b1bc80c0a8, type: 3}
+  - ShootingSound: {fileID: 8300000, guid: 906c6d2d48b712e41bed94a4fde9031a, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

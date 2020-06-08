@@ -1,0 +1,23 @@
+fileFormatVersion: 2
+guid: bcaf394c17851824a9f534534e014112
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Cute Jellyfish
+  fontNames:
+  - Cute Jellyfish
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: 5c0cd9a2ece47cc4fb4810457a4a667b, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
