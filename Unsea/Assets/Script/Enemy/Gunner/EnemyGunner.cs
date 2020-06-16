@@ -49,21 +49,7 @@ public class EnemyGunner : EnemyCtrl
             if (follow)
             {
                 float random = Random.Range(0.0f, 1.0f);
-                /*if (random > (1.0f - AttackProbability) && dist < AttackDistance)
-                {
-                    if (fireCountdown <= 0f)
-                    {
-                        Shoot();
-                        soundFX.ShootSound();
-                        fireCountdown = 1f/ fireRate;
-                    }
-                    fireCountdown -= Time.deltaTime;
-                    
-                    
-                    Shoot();
-                    soundFX.ShootSound();
-                    shoot = true;
-                }*/
+             
                 if (playerVisibleTimer >= timeToSpotPlayer)
                 {
                     if (fireCountdown <= 0f)
@@ -71,6 +57,7 @@ public class EnemyGunner : EnemyCtrl
                         Shoot();
                         soundFX.ShootSound();
                         //fireCountdown = 1f / fireRate;
+                        //put shooting wvent here
                         fireCountdown = 1f / 1;
                     }
                     fireCountdown -= Time.deltaTime;
@@ -110,24 +97,5 @@ public class EnemyGunner : EnemyCtrl
         Debug.Log("Shoot");
     }
 
-    /*public void ShootEvent()
-    {
-        if (gameSoundFx != null)
-        {
-            gameSoundFx.ShootSound();
-            //gameSoundFx.PlayOneShot(ShootSound);
-        }
-
-        float random = Random.Range(0.0f, 1.0f);
-
-        // The higher the accuracy is, the more likely the player will be hit
-        bool isHit = random > 1.0f - HitAccuracy;
-
-        if (isHit)
-        {
-            Player.SendMessage("Hit", DamagePoints,
-                SendMessageOptions.DontRequireReceiver);
-        }
-    }*/
     
 }

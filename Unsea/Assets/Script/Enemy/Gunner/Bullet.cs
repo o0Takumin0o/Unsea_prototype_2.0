@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
-{
+{   //still not work
     private Transform target;
     public float speed = 70f;
     public GameObject impactEffect;

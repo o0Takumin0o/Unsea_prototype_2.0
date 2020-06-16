@@ -45,7 +45,7 @@ public class Timer : MonoBehaviour
 
     }
     public void OnEndLevel()
-    {
+    {    // stii no working
         ReachEndLevel = true;
         if(PlayerPrefs.GetFloat("BestTimer") > TheTime)
         {

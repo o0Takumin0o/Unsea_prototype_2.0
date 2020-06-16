@@ -12,7 +12,7 @@ public class SettingMenu : MonoBehaviour
 
     // Start is called before the first frame update
     void Start()
-    {
+    {    //get eery resolution that screen can use
         resolutions = Screen.resolutions;
         resolutionDropdown.ClearOptions();
         List<string> options = new List<string>();

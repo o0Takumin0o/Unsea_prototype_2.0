@@ -70,7 +70,8 @@ public class EnemyCtrl : MonoBehaviour
     
     public bool CanSeePlayer()
     {
-        if (Vector3.Distance(transform.position, PlayerLocation) < viewDistance)//if player in racast angle = AI can see player
+        if (Vector3.Distance(transform.position, PlayerLocation) < viewDistance)
+            //if player in racast angle = AI can see player
         {
 
             Vector3 dirToPlayer = (PlayerLocation - transform.position).normalized;

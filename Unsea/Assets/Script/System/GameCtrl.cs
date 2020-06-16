@@ -10,13 +10,7 @@ public class GameCtrl : MonoBehaviour
     public float isTime = 0.25f;
     public bool Endlevel = false;
 
-    public void UpdatePoint()
-    {
-        Point += 1;
-        Score.text = Point.ToString();
-    }
     
-
     void Update()
     {
         slowtime();

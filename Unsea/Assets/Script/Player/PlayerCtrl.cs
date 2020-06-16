@@ -18,7 +18,7 @@ public class PlayerCtrl : MonoBehaviour
     Rigidbody rigidbody;
     public Rigidbody Rigidbody { get => rigidbody; set => rigidbody = value; }
     bool disabled;
-    //float timeStamp;
+    
     //public float SoundCoolDown;
 
     [Header("Refferent")]
