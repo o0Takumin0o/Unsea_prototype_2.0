@@ -1,5 +1,5 @@
 # Unesa_prototype_2.0
-![](image/Unsea-Prototype.png)
+![](Image/Unsea-Prototype.png)
 Type game : Stealth
 Program : Unity
 Language : C#
