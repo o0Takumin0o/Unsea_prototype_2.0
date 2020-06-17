@@ -17,7 +17,6 @@ public class Timer : MonoBehaviour
     int minutesInt;
     int secondsInt;
     int seconds100Int;
-    //private bool timestop = false;
     private float startTime;
     private float TheTime;
     private float stopTime;
@@ -106,7 +105,7 @@ public class Timer : MonoBehaviour
             TimerSeconds100 = (seconds100Int < 10) ? "0" + seconds100Int
                 : seconds100Int.ToString("00");
         }
-
+        //another way to count time in 60 sec.
         /*time = Time.time - startTime;
         minutes = ((int)time / 60).ToString();
         seconds = (time % 60).ToString("f1");*/

@@ -104,7 +104,7 @@ public class PlayerCtrl : MonoBehaviour
 
     void OnTriggerEnter(Collider hitCollider)
     {
-        if (hitCollider.tag == "Finnish")
+        if (hitCollider.tag == "Finishing_Goal")
         {
             Disable();
             WinScreen.SetActive(true);//active win screen

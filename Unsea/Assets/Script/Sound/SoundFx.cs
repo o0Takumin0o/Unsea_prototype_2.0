@@ -14,33 +14,19 @@ public class SoundFx : MonoBehaviour
     [Header("GamePlay")]
     public AudioClip ShootingSound;
     private float coolDown = 1.5f;
-    //private bool isPlaying = false;
+  
     float timeStamp;
-    
-    /*public static MenuFx instance;
-    private void Awake()
-    {
-        if (instance == null)
-            instance = this;
-        else
-        {
-            Destroy(gameObject);
-        }
-        DontDestroyOnLoad(gameObject);
-    }*/
 
     public void HoverSound()
     {
         GameSfx.PlayOneShot(HoverFx);
     }
 
-
     public void ClickSound()
     {
         GameSfx.PlayOneShot(ClickFx);
     }
     
-
     public void CheckSound()
     {
         GameSfx.PlayOneShot(HoverFx);

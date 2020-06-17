@@ -6,9 +6,9 @@ TagManager:
   tags:
   - Enemy
   - VfxWin
-  - Finnish
   - KeyItem
   - CollectorItem
+  - Finishing_Goal
   layers:
   - Default
   - TransparentFX

@@ -22,7 +22,6 @@ public class SubCollector : MonoBehaviour
     public void UpdatecollectorPoint()
     {
         collectorPoint += 1;
-        //HightScoretxt.text = collectorPoint.ToString();
     }
     public void HightScore()
     {
@@ -30,8 +29,7 @@ public class SubCollector : MonoBehaviour
         {
             PlayerPrefs.SetInt("HightScore", collectorPoint);
             HightScoretxt.text = PlayerPrefs.GetInt("HightScore").ToString();
-        }
-        //PlayerPrefs.Save();
+        }       
     }
     public void ResetHightScore()
     {
