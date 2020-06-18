@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
-{
+{//save checkpoint
     private GameManager GM;
     public Transform Checkpoint;
 
@@ -20,5 +20,4 @@ public class CheckPoint : MonoBehaviour
             print("Hit");
         }
     }
-
 }

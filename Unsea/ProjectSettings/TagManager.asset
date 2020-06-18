@@ -8,7 +8,7 @@ TagManager:
   - VfxWin
   - KeyItem
   - CollectorItem
-  - Finishing_Goal
+  - Finish_Goal
   layers:
   - Default
   - TransparentFX

@@ -14,8 +14,6 @@ public class SoundFx : MonoBehaviour
     [Header("GamePlay")]
     public AudioClip ShootingSound;
     private float coolDown = 1.5f;
-  
-    float timeStamp;
 
     public void HoverSound()
     {
@@ -26,7 +24,7 @@ public class SoundFx : MonoBehaviour
     {
         GameSfx.PlayOneShot(ClickFx);
     }
-    
+
     public void CheckSound()
     {
         GameSfx.PlayOneShot(HoverFx);
@@ -36,10 +34,12 @@ public class SoundFx : MonoBehaviour
     {
         GameSfx.PlayOneShot(PickupSound);
     }
+
     public void swimSound()
     {
         GameSfx.PlayOneShot(SwimSound);
     }
+
     public void ShootSound()
     {
         GameSfx.PlayOneShot(ShootingSound);

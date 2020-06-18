@@ -3,14 +3,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Collector : MonoBehaviour
-{//use for key item
-    [SerializeField] public int mainPoint;
+public class Point_Collector : MonoBehaviour
+{
+    [SerializeField] public int Point;
     public Text Score;
 
     public void UpdatePoint()
     {
-        mainPoint += 1;
-        Score.text = mainPoint.ToString();
+        Point += 1;
+        Score.text = Point.ToString();
     }
 }

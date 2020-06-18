@@ -5,12 +5,11 @@ using UnityEngine.Audio;
 using UnityEngine.UI;
 
 public class MixerCtrl : MonoBehaviour
-{
+{//Set music and sound effect volume
     public AudioMixer audioMixer;
     [Space(10)]//creat sapce between list in inspecter make it easyer to look
     public Slider musicSlider;
     public Slider sfxSlider;
-
 
     public void SetMusicVolume(float volume)
     {

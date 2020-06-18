@@ -18,8 +18,6 @@ public class PlayerCtrl : MonoBehaviour
     Rigidbody rigidbody;
     public Rigidbody Rigidbody { get => rigidbody; set => rigidbody = value; }
     bool disabled;
-    
-    //public float SoundCoolDown;
 
     [Header("Refferent")]
     public Collector collector;
@@ -37,7 +35,6 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject GameplayUI;
     private float SoundCountdown = 0f;
 
-    // Start is called before the first frame update
     void Start()
     {
         Rigidbody = GetComponent<Rigidbody>();
@@ -67,27 +64,23 @@ public class PlayerCtrl : MonoBehaviour
             || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             animator.SetInteger("Walk", 1);
-            
-          
+                  
             if (SoundCountdown <= 0f)
             {
                 soundFX.swimSound();
                 SoundCountdown = 1.5f / 1;
             }
             SoundCountdown -= Time.deltaTime;
-
         }
         else
         {
             animator.SetInteger("Walk", 0);
             SoundCountdown = 0;
         }
-
     }
 
     void FixedUpdate()
     {
-        
         Rigidbody.MoveRotation(Quaternion.Euler(Vector3.up * angle));
         Rigidbody.MovePosition(GetComponent<Rigidbody>().position + velocity * Time.deltaTime);
     }
@@ -99,12 +92,12 @@ public class PlayerCtrl : MonoBehaviour
 
     void OnDestroy()
     {
-        EnemyCtrl.OnGuardHasSpottedPlayer -= Disable;//if AI see mor than ... sec. stop player movement
+        EnemyCtrl.OnGuardHasSpottedPlayer -= Disable;//if AI see more than ... sec. stop player movement
     }
 
     void OnTriggerEnter(Collider hitCollider)
     {
-        if (hitCollider.tag == "Finishing_Goal")
+        if (hitCollider.tag == "Finnish")
         {
             Disable();
             WinScreen.SetActive(true);//active win screen
@@ -114,15 +107,13 @@ public class PlayerCtrl : MonoBehaviour
             LevelEnd = true;
             
             timer.ReachEndLevel = true;
-            //timer.TimerStop();
 
             if (OnReachedEndOfLevel != null)
             {
                 OnReachedEndOfLevel();
             }
-            GameObject.Find("Player").SendMessage("Finnish");
+            GameObject.Find("Player").SendMessage("Finish_Goal");
         }
-
 
         if (hitCollider.tag == "KeyItem")
         {
@@ -150,7 +141,6 @@ public class PlayerCtrl : MonoBehaviour
         {
             enemyCtrl.EmenyDetection();
         }
-        
     }
     public void TimeSpeedReset()
     {

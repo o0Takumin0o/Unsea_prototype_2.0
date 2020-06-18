@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class ObjectRotation : MonoBehaviour
-{
+{// put in item that can be pick up
     public ParticleSystem deathParticle;
     float speed = 2.0f;
     
@@ -15,6 +15,5 @@ public class ObjectRotation : MonoBehaviour
     void Destroy()
     {
         Instantiate(deathParticle, transform.position, Quaternion.identity);
-
     }
 }

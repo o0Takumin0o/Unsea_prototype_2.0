@@ -10,7 +10,6 @@ public class GameCtrl : MonoBehaviour
     public float isTime = 0.25f;
     public bool Endlevel = false;
 
-    
     void Update()
     {
         slowtime();

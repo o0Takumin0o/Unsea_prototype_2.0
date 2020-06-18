@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class GameManager : MonoBehaviour
-{
+{//  last check point position
     public Vector3 lastCheckPointPos;
     public static GameManager Instance
     {

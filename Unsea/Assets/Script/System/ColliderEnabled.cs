@@ -20,7 +20,7 @@ public class ColliderEnabled : MonoBehaviour
         {
             //enable collider when player get 3 point
             F_Collider.enabled = true;
-           Debug.Log("Collider.enabled = true");
+            Debug.Log("Collider.enabled = true");
             VfxWin.SetActive(true);
         }
     }
