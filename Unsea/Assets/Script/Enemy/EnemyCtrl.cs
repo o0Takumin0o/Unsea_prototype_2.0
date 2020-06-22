@@ -53,7 +53,7 @@ public class EnemyCtrl : MonoBehaviour
 
     void Start()
     {
-        //anim.SetInteger("Stage", 0);
+        //anim.SetInteger("Stage", 0);//sue when has model
         viewAngle = spotlight.spotAngle;
         originalSpotlightColour = spotlight.color;
     }
@@ -71,7 +71,7 @@ public class EnemyCtrl : MonoBehaviour
     public bool CanSeePlayer()
     {
         if (Vector3.Distance(transform.position, PlayerLocation) < viewDistance)
-            //if player in racast angle = AI can see player
+        //if player in raycast angle = AI can see player
         {
 
             Vector3 dirToPlayer = (PlayerLocation - transform.position).normalized;

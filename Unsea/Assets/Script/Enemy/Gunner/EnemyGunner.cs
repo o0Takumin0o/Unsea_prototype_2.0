@@ -5,8 +5,7 @@ using UnityEngine.AI;
 
 public class EnemyGunner : EnemyCtrl 
 {
-
-
+  
     public float AttackDistance = 10.0f;
 
     public float FollowDistance = 20.0f;
@@ -21,9 +20,8 @@ public class EnemyGunner : EnemyCtrl
 
     public AudioClip ShootSound = null;
     
-    //guner
-    //public float fireRate = 1f;
     private float fireCountdown = 0f;
+
     public SoundFx soundFX;
 
     void Update()
@@ -62,7 +60,6 @@ public class EnemyGunner : EnemyCtrl
                     }
                     fireCountdown -= Time.deltaTime;
                 }
-
                 navMeshAgent.SetDestination(Player.transform.position);
                 EmenyDetection();
             }
@@ -90,8 +87,6 @@ public class EnemyGunner : EnemyCtrl
 
         }
     }
-
-    //gunner
     void Shoot()
     {
         Debug.Log("Shoot");

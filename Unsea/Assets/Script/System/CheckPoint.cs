@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class CheckPoint : MonoBehaviour
-{//save checkpoint
+{
     private GameManager GM;
     public Transform Checkpoint;
 
@@ -15,7 +15,7 @@ public class CheckPoint : MonoBehaviour
     void OnTriggerEnter(Collider other)
     {
         if(other.CompareTag("Player"))
-        {
+        {//if player walk pass checkpoint save checkpoint
             GM.lastCheckPointPos = Checkpoint.transform.position;
             print("Hit");
         }
