@@ -24,15 +24,15 @@ public class SubCollector : MonoBehaviour
         collectorPoint += 1;
     }
     public void HightScore()
-    {
-        if(PlayerPrefs.GetInt("HightScore") < collectorPoint )
+    {//get HightScore
+        if (PlayerPrefs.GetInt("HightScore") < collectorPoint )
         {
             PlayerPrefs.SetInt("HightScore", collectorPoint);
             HightScoretxt.text = PlayerPrefs.GetInt("HightScore").ToString();
         }
     }
     public void ResetHightScore()
-    {
+    {//ResetHightScore
         PlayerPrefs.DeleteKey("HightScore");
     }
 }

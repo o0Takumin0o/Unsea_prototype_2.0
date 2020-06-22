@@ -6,13 +6,13 @@ public class EnemyCharger : EnemyCtrl
 {
     void Update()
     {
-        NpcAction();
+        NpcAction();//what npc will do
         EmenyDetection();
         PlayerLocation = GameObject.Find("Player").transform.position;
         //position of player use in can see player
     }
     public void NpcAction()
-    {
+    {//move to player when detect player
         if (navMeshAgent.enabled)
         {
             float dist = Vector3.Distance(Player.transform.position,

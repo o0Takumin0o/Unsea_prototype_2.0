@@ -8,8 +8,7 @@ public class ColliderEnabled : MonoBehaviour
     public Collector collector;
     public GameObject VfxWin;
     void Start()
-    {
-        //Fetch the GameObject's Collider 
+    {//Fetch the GameObject's Collider 
         F_Collider = GetComponent<Collider>();
         VfxWin.SetActive(false);
     }
@@ -17,8 +16,7 @@ public class ColliderEnabled : MonoBehaviour
     void Update()
     {
         if (collector.mainPoint == 3)
-        {
-            //enable collider when player get 3 point
+        {//enable collider when player get 3 point
             F_Collider.enabled = true;
             Debug.Log("Collider.enabled = true");
             VfxWin.SetActive(true);

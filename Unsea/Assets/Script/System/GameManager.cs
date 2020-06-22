@@ -12,13 +12,13 @@ public class GameManager : MonoBehaviour
     }
     private void Awake()
     {
-        if (Instance == null)// gameobject will destroy itself between scenes and dont reset infomation;
-        {
+        if (Instance == null)
+        {// gameobject will destroy itself between scenes and dont reset infomation;
             Instance = this;
             DontDestroyOnLoad(this);
         }
-        else//if alrady have gameobject so it donhave multiple game object
-        {
+        else
+        {//if alrady have gameobject so it donhave multiple game object
             Destroy(gameObject);
         }
 

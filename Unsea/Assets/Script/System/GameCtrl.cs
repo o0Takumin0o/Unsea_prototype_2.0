@@ -15,8 +15,8 @@ public class GameCtrl : MonoBehaviour
         slowtime();
     }
 
-    void slowtime()//slow down scale of time to 0.05
-    {
+    void slowtime()
+    {//slow down scale of time to 0.05
         if (Endlevel == false)
         {
             Time.timeScale -= 0.05f;

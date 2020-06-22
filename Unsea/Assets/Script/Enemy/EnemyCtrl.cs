@@ -41,8 +41,6 @@ public class EnemyCtrl : MonoBehaviour
 
     void Awake()//protected override
     {
-        //base.Awake();
-
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.speed = speed;//set speed of agent
         anim = GetComponent<Animator>();
@@ -53,7 +51,7 @@ public class EnemyCtrl : MonoBehaviour
 
     void Start()
     {
-        //anim.SetInteger("Stage", 0);//sue when has model
+        //anim.SetInteger("Stage", 0);//use when has model
         viewAngle = spotlight.spotAngle;
         originalSpotlightColour = spotlight.color;
     }
@@ -106,8 +104,7 @@ public class EnemyCtrl : MonoBehaviour
         spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
 
         if (playerVisibleTimer >= timeToSpotPlayer)
-        {
-            //GameObject.Find("Player").SendMessage("Finnish");
+        {//GameObject.Find("Player").SendMessage("Finnish");
             if (OnGuardHasSpottedPlayer != null)
             {
                 OnGuardHasSpottedPlayer();
@@ -124,8 +121,8 @@ public class EnemyCtrl : MonoBehaviour
         }
     }
 
-    void OnDrawGizmos()//make waypoint visible 
-    {
+    void OnDrawGizmos()
+    {//make waypoint visible 
         Vector3 startPosition = pathHolder.GetChild(0).position;
         Vector3 previousPosition = startPosition;
 
@@ -152,9 +149,8 @@ public class EnemyCtrl : MonoBehaviour
         }
     }
     public void Respawn()
-    {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//reload current scene
-    
+    {//reload current scene
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     
 

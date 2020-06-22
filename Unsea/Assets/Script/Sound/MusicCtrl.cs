@@ -9,7 +9,8 @@ public class MusicCtrl : MonoBehaviour
     public AudioClip PanicSound;
  
     public void panicSound()
-    {
+    {//did not use yet 
+     //will use to make dynamic sound
         MusicVolume.PlayOneShot(PanicSound);
     }
 }

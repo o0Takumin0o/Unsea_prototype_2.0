@@ -4,7 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Collector : MonoBehaviour
-{//use for key item
+{//use for key item collector
     [SerializeField] public int mainPoint;
     public Text Score;
 

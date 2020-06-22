@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Bullet : MonoBehaviour
 {   //still not work
+    //will be use to spawn and move bullet to player
     private Transform target;
     public float speed = 70f;
     public GameObject impactEffect;

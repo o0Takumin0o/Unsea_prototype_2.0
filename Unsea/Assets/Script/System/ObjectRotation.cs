@@ -8,8 +8,7 @@ public class ObjectRotation : MonoBehaviour
     float speed = 2.0f;
     
     void Update()
-    {
-        //transform.Rotate(speed, speed, speed);
+    {//transform.Rotate(speed, speed, speed);
         transform.Rotate(0, speed,0);
     }
     void Destroy()

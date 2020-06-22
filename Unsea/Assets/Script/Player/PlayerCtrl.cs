@@ -91,8 +91,8 @@ public class PlayerCtrl : MonoBehaviour
     }
 
     void OnDestroy()
-    {
-        EnemyCtrl.OnGuardHasSpottedPlayer -= Disable;//if AI see more than ... sec. stop player movement
+    {//if AI see more than ... sec. stop player movement
+        EnemyCtrl.OnGuardHasSpottedPlayer -= Disable;
     }
 
     void OnTriggerEnter(Collider hitCollider)
@@ -143,7 +143,7 @@ public class PlayerCtrl : MonoBehaviour
         }
     }
     public void TimeSpeedReset()
-    {
+    {//reset time to defalt speed
         slowTime.Endlevel = false;
     }
 }

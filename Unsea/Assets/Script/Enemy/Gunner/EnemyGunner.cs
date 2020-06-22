@@ -26,7 +26,7 @@ public class EnemyGunner : EnemyCtrl
 
     void Update()
     {
-        NpcAction();
+        NpcAction();//what npc will do
         EmenyDetection();
         PlayerLocation = GameObject.Find("Player").transform.position;//position of player use in can see player
     }
@@ -37,19 +37,16 @@ public class EnemyGunner : EnemyCtrl
         {
             float dist = Vector3.Distance(Player.transform.position, this.transform.position);
 
-
             bool shoot = false;
             bool patrol = false;
             bool follow = base.CanSeePlayer(); 
 
-
-
             if (follow)
-            {
+            {//follow player
                 float random = Random.Range(0.0f, 1.0f);
              
                 if (playerVisibleTimer >= timeToSpotPlayer)
-                {
+                {//shoot player
                     if (fireCountdown <= 0f)
                     {
                         Shoot();
@@ -80,7 +77,7 @@ public class EnemyGunner : EnemyCtrl
                     //anim.SetInteger("Stage", 1);
                 }
                 if (navMeshAgent.remainingDistance < 0.001f)
-                {
+                {//stop walking animation when not have other point to move
                     //anim.SetInteger("Stage", 0);
                 }
             }
