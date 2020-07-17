@@ -9,6 +9,8 @@ TagManager:
   - KeyItem
   - CollectorItem
   - Finish_Goal
+  - Finnish
+  - HidingSpots
   layers:
   - Default
   - TransparentFX

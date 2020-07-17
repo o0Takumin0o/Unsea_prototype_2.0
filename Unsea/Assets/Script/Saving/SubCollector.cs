@@ -31,9 +31,5 @@ public class SubCollector : MonoBehaviour
             HightScoretxt.text = PlayerPrefs.GetInt("HightScore").ToString();
         }
     }
-    public void ResetHightScore()
-    {//ResetHightScore
-        PlayerPrefs.DeleteKey("HightScore");
-    }
 }
 

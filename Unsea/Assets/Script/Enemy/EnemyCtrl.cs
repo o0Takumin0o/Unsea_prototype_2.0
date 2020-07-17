@@ -11,6 +11,7 @@ public class EnemyCtrl : MonoBehaviour
     public NavMeshAgent navMeshAgent;
 
     public GameObject Player;
+    PlayerCtrl playerCtrl;
     public SlowTime slowTime;
     [Space(10)]
     public Transform[] patrolPoints;
@@ -38,15 +39,13 @@ public class EnemyCtrl : MonoBehaviour
     public float waitToRespawn; 
     
 
-
     void Awake()//protected override
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.speed = speed;//set speed of agent
         anim = GetComponent<Animator>();
-
         MoveToNextPatrolPoint();
-
+        playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
     }
 
     void Start()
@@ -54,9 +53,10 @@ public class EnemyCtrl : MonoBehaviour
         //anim.SetInteger("Stage", 0);//use when has model
         viewAngle = spotlight.spotAngle;
         originalSpotlightColour = spotlight.color;
+       
     }
-
    
+
 
     public void OnTriggerEnter(Collider hitCollider)
     {
@@ -68,7 +68,7 @@ public class EnemyCtrl : MonoBehaviour
     
     public bool CanSeePlayer()
     {
-        if (Vector3.Distance(transform.position, PlayerLocation) < viewDistance)
+        if (playerCtrl.PlayerVisible == true && Vector3.Distance(transform.position, PlayerLocation) < viewDistance)
         //if player in raycast angle = AI can see player
         {
 

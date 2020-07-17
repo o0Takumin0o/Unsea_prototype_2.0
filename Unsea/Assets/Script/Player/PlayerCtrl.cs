@@ -30,6 +30,8 @@ public class PlayerCtrl : MonoBehaviour
     public event System.Action OnReachedEndOfLevel;
     [SerializeField]
     public bool LevelEnd = false;
+    [SerializeField]
+    public bool PlayerVisible = true;
     [Header("UI")]
     public GameObject WinScreen;
     public GameObject GameplayUI;
@@ -77,6 +79,7 @@ public class PlayerCtrl : MonoBehaviour
             animator.SetInteger("Walk", 0);
             SoundCountdown = 0;
         }
+
     }
 
     void FixedUpdate()
@@ -94,7 +97,13 @@ public class PlayerCtrl : MonoBehaviour
     {//if AI see more than ... sec. stop player movement
         EnemyCtrl.OnGuardHasSpottedPlayer -= Disable;
     }
-
+    private void OnTriggerExit(Collider hitCollider)
+    {
+        if (hitCollider.tag == "HidingSpots")
+        {
+            PlayerVisible = true;
+        }
+    }
     void OnTriggerEnter(Collider hitCollider)
     {
         if (hitCollider.tag == "Finnish")
@@ -105,7 +114,6 @@ public class PlayerCtrl : MonoBehaviour
             slowTime.Endlevel = true;//slowtime
             timer.levelEnd();//stop timer
             LevelEnd = true;
-            
             timer.ReachEndLevel = true;
 
             if (OnReachedEndOfLevel != null)
@@ -115,6 +123,10 @@ public class PlayerCtrl : MonoBehaviour
             GameObject.Find("Player").SendMessage("Finish_Goal");
         }
 
+        if (hitCollider.tag == "HidingSpots")
+        {
+            PlayerVisible = false;
+        }
         if (hitCollider.tag == "KeyItem")
         {
             collector.UpdatePoint();
