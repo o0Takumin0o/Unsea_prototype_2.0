@@ -13,21 +13,14 @@ public class Timer : MonoBehaviour
 
     string TimerMinutes;
     string TimerSeconds;
-    //string TimerSeconds100;
-    string BestMinutes;
-    string BestSeconds;
-
+    string TimerSeconds100;
     int minutesInt;
     int secondsInt;
-    //int seconds100Int;
-    int BestMinutesInt;
-    int BestSecondsInt;
-
+    int seconds100Int;
     //private bool timestop = false;
     private float startTime;
     private float TheTime;
     private float stopTime;
-    private float BestTime;
     private bool isRunning = false;
     public bool ReachEndLevel = false;
 
@@ -41,6 +34,7 @@ public class Timer : MonoBehaviour
         //if (timestop) return;
 
         time60Sec();
+<<<<<<< HEAD:Unsea/Assets/Script/System/Timer.cs
         BestTime60Sec();
         timerText.text = TimerMinutes + ":" + TimerSeconds; 
             //+":" + TimerSeconds100;
@@ -60,19 +54,32 @@ public class Timer : MonoBehaviour
     public void SaveBestTime()
     {
         //SaveHightScore();
+=======
+
+        timerText.text = TimerMinutes + ":" + TimerSeconds +
+            ":" + TimerSeconds100;
+        
+        WinTimer.text = timerText.text;
+        bestTimer.text = timerText.text;
+        
+
+
+    }
+    public void OnEndLevel()
+    {    // stii no working
+>>>>>>> parent of e738c73... hiding mechanics:Unsea/Assets/Script/UI/Timer.cs
         ReachEndLevel = true;
-        if(PlayerPrefs.GetFloat("BestTime") > TheTime)
+        if(PlayerPrefs.GetFloat("BestTimer") > TheTime)
         {
-            PlayerPrefs.SetFloat("BestTime", TheTime);
+            PlayerPrefs.SetFloat("BestTimer", float.Parse
+                (TimerMinutes + ":" + TimerSeconds + ":" + TimerSeconds100));
         }
         
-        if (PlayerPrefs.GetFloat("BestTime") <= 0)
+        if (PlayerPrefs.GetFloat("BestTimer") <= 0)
         {
-            PlayerPrefs.SetFloat("BestTime", TheTime); 
-        }
-        else
-        {
-            BestTime = PlayerPrefs.GetFloat("BestTime");
+            //PlayerPrefs.SetFloat("BestTimer", TheTime);
+            PlayerPrefs.SetFloat("BestTimer", float.Parse(TimerMinutes + 
+                ":" + TimerSeconds + ":" + TimerSeconds100));
         }
         PlayerPrefs.Save();
 
@@ -80,7 +87,7 @@ public class Timer : MonoBehaviour
 
     public void ResetBestTimer()
     {
-        PlayerPrefs.DeleteKey("BestTime");
+        PlayerPrefs.DeleteKey("BestTimer");
         
     }
     public void TimerStart()
@@ -105,7 +112,7 @@ public class Timer : MonoBehaviour
         TheTime = stopTime + (Time.time - startTime);
         minutesInt = (int)TheTime / 60;
         secondsInt = (int)TheTime % 60;
-        //seconds100Int = (int)(Mathf.Floor((TheTime - (secondsInt + minutesInt * 60)) * 100));
+        seconds100Int = (int)(Mathf.Floor((TheTime - (secondsInt + minutesInt * 60)) * 100));
 
         if (isRunning)
         {
@@ -113,8 +120,8 @@ public class Timer : MonoBehaviour
                 : minutesInt.ToString();
             TimerSeconds = (secondsInt < 10) ? "0" + secondsInt 
                 : secondsInt.ToString("00");
-            /*TimerSeconds100 = (seconds100Int < 10) ? "0" + seconds100Int
-                : seconds100Int.ToString("00");*/
+            TimerSeconds100 = (seconds100Int < 10) ? "0" + seconds100Int
+                : seconds100Int.ToString("00");
         }
 
         /*time = Time.time - startTime;
@@ -126,6 +133,7 @@ public class Timer : MonoBehaviour
         seconds = (TheTime % 60).ToString("00");
         seconds100Int = (int)(Mathf.Floor((TheTime - seconds + minutes * 60)) * 100);*/
     }
+<<<<<<< HEAD:Unsea/Assets/Script/System/Timer.cs
     public void BestTime60Sec()
     {
         float bestTime = PlayerPrefs.GetFloat("BestTime");
@@ -142,4 +150,6 @@ public class Timer : MonoBehaviour
         }
 
     }
+=======
+>>>>>>> parent of e738c73... hiding mechanics:Unsea/Assets/Script/UI/Timer.cs
 }
