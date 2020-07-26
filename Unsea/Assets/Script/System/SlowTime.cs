@@ -6,14 +6,18 @@ public class SlowTime : MonoBehaviour
 {
     public float isTime = 0.25f;
     public bool Endlevel = false;
+    float slowMotionSpeed;
     private void Awake()
     {//reset time to nomal speed
         Endlevel = false;
-        Time.timeScale = 1f; 
+        //Time.timeScale = 1f;
+        slowMotionSpeed = 1f;
+        Time.fixedDeltaTime = slowMotionSpeed * 0.02f;
     }
 
     void Update()
-    { 
+    {
+        Time.timeScale = slowMotionSpeed;
         slowMotion();
     }
 
@@ -22,21 +26,25 @@ public class SlowTime : MonoBehaviour
         
         if (Endlevel == true)
         {
-            Time.timeScale -= 0.05f;       
+            slowMotionSpeed -= 0.05f;
+
+            //Time.timeScale -= 0.05f;       
         }
-        if (Time.timeScale == isTime)
+        if (slowMotionSpeed == isTime)//(Time.timeScale == isTime)
         {
             Endlevel = false;
         }
     }
     private void OnDisable()
     {//reset time to nomal speed
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
+        slowMotionSpeed = 1f;
     }
     public void TimeSpeedReset()
     {//reset time to nomal speed
         Endlevel = false;
-        Time.timeScale = 1f;
+        //Time.timeScale = 1f;
+        slowMotionSpeed = 1f;
     }
     
 }

@@ -42,6 +42,8 @@ public class PlayerCtrl : MonoBehaviour
         Rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         EnemyCtrl.OnGuardHasSpottedPlayer += Disable;
+
+        //slowTime = (SlowTime)FindObjectOfType(typeof(SlowTime)); //useto find code that been instance when change scene
     }
     void Update()
     {
@@ -109,12 +111,12 @@ public class PlayerCtrl : MonoBehaviour
         if (hitCollider.tag == "Finnish")
         {
             Disable();
+            timer.levelEnd();//stop timer
+            timer.ReachEndLevel = true;
             WinScreen.SetActive(true);//active win screen
             GameplayUI.SetActive(false);//hide in game ui
-            slowTime.Endlevel = true;//slowtime
-            timer.levelEnd();//stop timer
+            slowTime.Endlevel = true;//slowtime      
             LevelEnd = true;
-            timer.ReachEndLevel = true;
 
             if (OnReachedEndOfLevel != null)
             {

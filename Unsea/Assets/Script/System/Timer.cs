@@ -35,22 +35,31 @@ public class Timer : MonoBehaviour
     {
         TimerStart();
     }
-
-    void Update()
+    
+    void FixedUpdate()
     {
         //if (timestop) return;
 
         time60Sec();
-
+        BestTime60Sec();
         timerText.text = TimerMinutes + ":" + TimerSeconds; 
             //+":" + TimerSeconds100;
         
         WinTimer.text = timerText.text;
-        bestTimer.text = PlayerPrefs.GetFloat("BestTime").ToString();
-        //bestTimer.text = BestMinutes + ":" + BestSeconds;
+        //bestTimer.text = PlayerPrefs.GetFloat("BestTime").ToString();
+        bestTimer.text = BestMinutes + ":" + BestSeconds;
+        Debug.Log(BestMinutes + ":" + BestSeconds);
     }
-    public void OnEndLevel()
-    {   
+    public void levelEnd()
+    {
+        //timestop = true;
+        timerText.color = Color.yellow;
+        TimerStop();
+        SaveBestTime();
+    }
+    public void SaveBestTime()
+    {
+        //SaveHightScore();
         ReachEndLevel = true;
         if(PlayerPrefs.GetFloat("BestTime") > TheTime)
         {
@@ -68,6 +77,7 @@ public class Timer : MonoBehaviour
         PlayerPrefs.Save();
 
     }
+
     public void ResetBestTimer()
     {
         PlayerPrefs.DeleteKey("BestTime");
@@ -89,13 +99,7 @@ public class Timer : MonoBehaviour
             stopTime = Time.time;
         }
     }
-    public void levelEnd()
-    {
-        //timestop = true;
-        timerText.color = Color.yellow;
-        TimerStop();
-        OnEndLevel();
-    }
+    
     public void time60Sec()
     {
         TheTime = stopTime + (Time.time - startTime);
@@ -124,7 +128,7 @@ public class Timer : MonoBehaviour
     }
     public void BestTime60Sec()
     {
-        float bestTime =PlayerPrefs.GetFloat("BestTime");
+        float bestTime = PlayerPrefs.GetFloat("BestTime");
         //TheTime = stopTime + (Time.time - startTime);
         BestMinutesInt = (int)bestTime / 60;
         BestSecondsInt = (int)bestTime % 60;
