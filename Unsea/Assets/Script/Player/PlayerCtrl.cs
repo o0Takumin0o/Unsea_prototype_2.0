@@ -19,7 +19,7 @@ public class PlayerCtrl : MonoBehaviour
     public Rigidbody Rigidbody { get => rigidbody; set => rigidbody = value; }
     bool disabled;
 
-    [Header("Refferent")]
+    [Header("Reference")]
     public Collector collector;
     public SubCollector subcCollector;
     public SlowTime slowTime;
@@ -36,6 +36,7 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject WinScreen;
     public GameObject GameplayUI;
     private float SoundCountdown = 0f;
+    
 
     void Start()
     {
@@ -108,15 +109,16 @@ public class PlayerCtrl : MonoBehaviour
     }
     void OnTriggerEnter(Collider hitCollider)
     {
-        if (hitCollider.tag == "Finnish")
+        if (hitCollider.tag == "Finish_Goal")
         {
             Disable();
-            timer.levelEnd();//stop timer
-            timer.ReachEndLevel = true;
             WinScreen.SetActive(true);//active win screen
             GameplayUI.SetActive(false);//hide in game ui
-            slowTime.Endlevel = true;//slowtime      
+            slowTime.Endlevel = true;//slowtime
+            timer.levelEnd();//stop timer
             LevelEnd = true;
+            timer.ReachEndLevel = true;
+            
 
             if (OnReachedEndOfLevel != null)
             {

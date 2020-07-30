@@ -16,7 +16,8 @@ public class LevelSelection : MonoBehaviour
         for (int i = 0; i < lvlButtons.Length; i++)
         {
             if (i + 2 > levelAt)
-                lvlButtons[i].interactable = false;
+                //lvlButtons[i].interactable = false;
+                lvlButtons[i].enabled = false;
         }
     }
 

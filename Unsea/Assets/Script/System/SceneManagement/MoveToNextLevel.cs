@@ -6,12 +6,13 @@ using UnityEngine.SceneManagement;
 
 public class MoveToNextLevel : MonoBehaviour
 {
-    public int nextSceneLoad;
+    //public int nextSceneLoad;
+    int nextSceneLoad;
 
     // Start is called before the first frame update
     void Start()
     {
-        nextSceneLoad = SceneManager.GetActiveScene().buildIndex + 1;
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex +1;
     }
 
     public void OnTriggerEnter(Collider other)
@@ -23,6 +24,7 @@ public class MoveToNextLevel : MonoBehaviour
             {
                 PlayerPrefs.SetInt("levelAt", nextSceneLoad);
             }
+            Debug.Log(nextSceneLoad);
         }
     }
     /*public void OnTriggerEnter(Collider other)

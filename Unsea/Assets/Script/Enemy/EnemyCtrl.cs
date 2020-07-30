@@ -6,7 +6,8 @@ using UnityEngine.SceneManagement;
 [SerializeField]
 public class EnemyCtrl : MonoBehaviour
 {
-    private Animator anim;
+    [HideInInspector]
+    public Animator anim;
     [HideInInspector]
     public NavMeshAgent navMeshAgent;
 
@@ -50,13 +51,10 @@ public class EnemyCtrl : MonoBehaviour
 
     void Start()
     {
-        //anim.SetInteger("Stage", 0);//use when has model
+        anim.SetInteger("Stage", 0);//use when has model
         viewAngle = spotlight.spotAngle;
         originalSpotlightColour = spotlight.color;
-       
     }
-   
-
 
     public void OnTriggerEnter(Collider hitCollider)
     {
@@ -92,7 +90,7 @@ public class EnemyCtrl : MonoBehaviour
             playerVisibleTimer += Time.deltaTime;
             navMeshAgent.speed = RunSpeed;
             navMeshAgent.SetDestination(Player.transform.position);
-            //anim.SetInteger("Stage", 1);
+            anim.SetInteger("Stage", 2);
 
         }
         else
@@ -152,9 +150,5 @@ public class EnemyCtrl : MonoBehaviour
     {//reload current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
-    
-
-
-
 
 }
