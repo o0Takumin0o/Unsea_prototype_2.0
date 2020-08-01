@@ -11,6 +11,15 @@ public class MixerCtrl : MonoBehaviour
     public Slider musicSlider;
     public Slider sfxSlider;
 
+    void Start()
+    {
+        musicSlider = GameObject.Find("MusicSlider").GetComponent<Slider>();
+        sfxSlider = GameObject.Find("SfxSlider").GetComponent<Slider>();
+
+        musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0);
+        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 0);
+    }
+
     public void SetMusicVolume(float volume)
     {//change  0.001 to 1 of slider value to -80 and 0 of mixer 
         audioMixer.SetFloat("musicVolume", volume);
@@ -21,12 +30,6 @@ public class MixerCtrl : MonoBehaviour
         audioMixer.SetFloat("sfxVolume", volume);
     }
 
-    void Start()
-    {
-        musicSlider.value = PlayerPrefs.GetFloat("musicVolume", 0);
-        sfxSlider.value = PlayerPrefs.GetFloat("sfxVolume", 0);
-    }
-    
     private void OnDisable()
     {//only save when exit scene
         float musicVolume = 0;

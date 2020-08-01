@@ -19,6 +19,7 @@ Texture2D:
   m_TextureFormat: 1
   m_MipCount: 1
   m_IsReadable: 1
+  m_IgnoreMasterTextureLimit: 0
   m_StreamingMipmaps: 0
   m_StreamingMipmapsPriority: 0
   m_AlphaIsTransparency: 0
@@ -52,9 +53,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 71c1514a6bd24e1e882cebbe1904ce04, type: 3}
   m_Name: BubbleBobble-rg3rx SDF
   m_EditorClassIdentifier: 
-  hashCode: 0
+  hashCode: 217420650
   material: {fileID: 9005129803775045681}
-  materialHashCode: 0
+  materialHashCode: 1767729825
   m_Version: 1.1.0
   m_SourceFontFileGUID: 3cb00cc6d14cec24693bd272a39dddd2
   m_SourceFontFile_EditorRef: {fileID: 0}

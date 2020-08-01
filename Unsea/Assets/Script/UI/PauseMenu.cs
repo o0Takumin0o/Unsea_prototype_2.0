@@ -6,11 +6,17 @@ using UnityEngine.SceneManagement;
 public class PauseMenu : MonoBehaviour
 {
     public static bool GameIsPause = false;
-
+    
     public GameObject pauseMenuUI;
+    SlowTime slowTime;
     // Update is called once per frame
+    private void Start()
+    {
+        slowTime = GameObject.Find("TimeManager").GetComponent<SlowTime>();
+    }
     void Update()
     {
+
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             if (GameIsPause)
@@ -26,22 +32,23 @@ public class PauseMenu : MonoBehaviour
     public void Resume ()
     {
         pauseMenuUI.SetActive(false);
-        Time.timeScale = 1f;
+        slowTime.TimeStart();
+        //Time.timeScale = 1f;
         GameIsPause = false;
     }
 
     void Pause ()
     {
         pauseMenuUI.SetActive(true);
-        Time.timeScale = 0f;
+        slowTime.TimeStop();
+        //Time.timeScale = 0f;
         GameIsPause = true;
     }
     public void end ()
     {
-        
-        Time.timeScale = 0f;
+        slowTime.TimeStop();
+        //Time.timeScale = 0f;
         GameIsPause = true;
     }
 
-  
 }

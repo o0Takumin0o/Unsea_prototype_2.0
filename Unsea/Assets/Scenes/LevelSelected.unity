@@ -279,7 +279,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &357320798
 RectTransform:
   m_ObjectHideFlags: 0
@@ -475,16 +475,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Starboard Bow
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 21e64946a51ebfd4d89e5320c4bd85e0, type: 2}
-  m_sharedMaterial: {fileID: 9005129803775045681, guid: 21e64946a51ebfd4d89e5320c4bd85e0,
+  m_fontAsset: {fileID: 11400000, guid: 9d343fc2e417a344f8178fe749164aed, type: 2}
+  m_sharedMaterial: {fileID: 319714930301884037, guid: 9d343fc2e417a344f8178fe749164aed,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 3623878655
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.84313726}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -922,16 +922,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Back
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0c8230dbcb381fc49a6aeef04067740c, type: 2}
-  m_sharedMaterial: {fileID: -1062570654180068723, guid: 0c8230dbcb381fc49a6aeef04067740c,
+  m_fontAsset: {fileID: 11400000, guid: 9d343fc2e417a344f8178fe749164aed, type: 2}
+  m_sharedMaterial: {fileID: 319714930301884037, guid: 9d343fc2e417a344f8178fe749164aed,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 3623878655
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.84313726}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1246,16 +1246,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Reef Zones
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 21e64946a51ebfd4d89e5320c4bd85e0, type: 2}
-  m_sharedMaterial: {fileID: 9005129803775045681, guid: 21e64946a51ebfd4d89e5320c4bd85e0,
+  m_fontAsset: {fileID: 11400000, guid: 9d343fc2e417a344f8178fe749164aed, type: 2}
+  m_sharedMaterial: {fileID: 319714930301884037, guid: 9d343fc2e417a344f8178fe749164aed,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 3623878655
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.84313726}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -1481,8 +1481,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: Select Level
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 0832d09df48e6ea43a276f4bc284d135, type: 2}
-  m_sharedMaterial: {fileID: 4980885531948468559, guid: 0832d09df48e6ea43a276f4bc284d135,
+  m_fontAsset: {fileID: 11400000, guid: 9d343fc2e417a344f8178fe749164aed, type: 2}
+  m_sharedMaterial: {fileID: 319714930301884037, guid: 9d343fc2e417a344f8178fe749164aed,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -1615,7 +1615,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 216.8, y: -213.4}
+  m_AnchoredPosition: {x: 208, y: -234}
   m_SizeDelta: {x: 100, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1186452881
@@ -1638,8 +1638,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3cb00cc6d14cec24693bd272a39dddd2, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 231afc4b00cfdbc438ea687c2ee5bd13, type: 3}
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -1716,8 +1716,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3cb00cc6d14cec24693bd272a39dddd2, type: 3}
-    m_FontSize: 40
+    m_Font: {fileID: 12800000, guid: 231afc4b00cfdbc438ea687c2ee5bd13, type: 3}
+    m_FontSize: 35
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 3
@@ -1796,16 +1796,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Stern Trawler
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 21e64946a51ebfd4d89e5320c4bd85e0, type: 2}
-  m_sharedMaterial: {fileID: 9005129803775045681, guid: 21e64946a51ebfd4d89e5320c4bd85e0,
+  m_fontAsset: {fileID: 11400000, guid: 9d343fc2e417a344f8178fe749164aed, type: 2}
+  m_sharedMaterial: {fileID: 319714930301884037, guid: 9d343fc2e417a344f8178fe749164aed,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 3623878655
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.84313726}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3175,7 +3175,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_FontData:
-    m_Font: {fileID: 12800000, guid: 3cb00cc6d14cec24693bd272a39dddd2, type: 3}
+    m_Font: {fileID: 12800000, guid: 231afc4b00cfdbc438ea687c2ee5bd13, type: 3}
     m_FontSize: 40
     m_FontStyle: 0
     m_BestFit: 0
@@ -3258,16 +3258,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Coral Reef
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 21e64946a51ebfd4d89e5320c4bd85e0, type: 2}
-  m_sharedMaterial: {fileID: 9005129803775045681, guid: 21e64946a51ebfd4d89e5320c4bd85e0,
+  m_fontAsset: {fileID: 11400000, guid: 9d343fc2e417a344f8178fe749164aed, type: 2}
+  m_sharedMaterial: {fileID: 319714930301884037, guid: 9d343fc2e417a344f8178fe749164aed,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 3623878655
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.84313726}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3638,16 +3638,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: Deep Sea
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 21e64946a51ebfd4d89e5320c4bd85e0, type: 2}
-  m_sharedMaterial: {fileID: 9005129803775045681, guid: 21e64946a51ebfd4d89e5320c4bd85e0,
+  m_fontAsset: {fileID: 11400000, guid: 9d343fc2e417a344f8178fe749164aed, type: 2}
+  m_sharedMaterial: {fileID: 319714930301884037, guid: 9d343fc2e417a344f8178fe749164aed,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 3372220415
+  m_fontColor: {r: 1, g: 1, b: 1, a: 0.78431374}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -3851,6 +3851,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: SoundCtrl
+      objectReference: {fileID: 0}
+    - target: {fileID: 4279597076429252487, guid: 301feb6e5597d7d4e86ffced0cde5f3f,
+        type: 3}
+      propertyPath: Bgm
+      value: 
+      objectReference: {fileID: 8300000, guid: 199014824c1d3db4fb2bc3dfe99bcaa9, type: 3}
+    - target: {fileID: 4279597076429252487, guid: 301feb6e5597d7d4e86ffced0cde5f3f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202472324502222451, guid: 301feb6e5597d7d4e86ffced0cde5f3f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 301feb6e5597d7d4e86ffced0cde5f3f, type: 3}

@@ -210,7 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicVolume: {fileID: 7202472324502222451}
   Bgm: {fileID: 8300000, guid: 6d9c3781e7449e9439bd74e459d35d30, type: 3}
-  PanicSound: {fileID: 8300000, guid: 6e401fc82fee5c844aeeb88151317057, type: 3}
+  PanicSound: {fileID: 8300000, guid: f0714b969c4142f4aba8bb59dbb7b97e, type: 3}
 --- !u!1 &2146998730540960723
 GameObject:
   m_ObjectHideFlags: 0
@@ -253,7 +253,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 7827566981658002028, guid: a2293e0225afdd842a7f1ba572b342dc,
     type: 2}
-  m_audioClip: {fileID: 8300000, guid: 6d9c3781e7449e9439bd74e459d35d30, type: 3}
+  m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1

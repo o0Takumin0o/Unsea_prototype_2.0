@@ -9,7 +9,7 @@ public class Timer : MonoBehaviour
     public Text WinTimer;
     public Text bestTimer;
     
-    public PlayerCtrl playerCtrl;
+    PlayerCtrl playerCtrl;
     Achievement achievement;
     [HideInInspector]
     public bool WinBeforeTimeOut;
@@ -42,6 +42,7 @@ public class Timer : MonoBehaviour
         TimerStart();
         //achievement = GameObject.Find("Canvas").GetComponent<Achievement>();
         WinBeforeTimeOut = false;
+        playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
     }
 
     void Update()
@@ -55,7 +56,7 @@ public class Timer : MonoBehaviour
             WinIntime();
         }
 
-        timerText.text = TimerMinutes + ":" + TimerSeconds; 
+        timerText.text = TimerMinutes + " : " + TimerSeconds; 
             //+":" + TimerSeconds100;
         
         WinTimer.text = timerText.text;

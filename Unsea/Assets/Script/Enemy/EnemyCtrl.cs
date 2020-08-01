@@ -15,9 +15,9 @@ public class EnemyCtrl : MonoBehaviour
     PlayerCtrl playerCtrl;
     public SlowTime slowTime;
     [Space(10)]
-    public Transform[] patrolPoints;
-    [Space(10)]
     public Transform pathHolder;
+    public Transform[] patrolPoints;
+    
     
     [Header("Movement")]
     public float speed; //speed of npc
@@ -37,8 +37,9 @@ public class EnemyCtrl : MonoBehaviour
     private int currentControlPointIndex = 0;
     public Vector3 PlayerLocation;
     [HideInInspector]
-    public float waitToRespawn; 
-    
+    public float waitToRespawn;
+    MusicCtrl musicCtrl;
+
 
     void Awake()//protected override
     {
@@ -47,6 +48,7 @@ public class EnemyCtrl : MonoBehaviour
         anim = GetComponent<Animator>();
         MoveToNextPatrolPoint();
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
+        musicCtrl = GameObject.Find("SoundCtrl").GetComponent<MusicCtrl>();
     }
 
     void Start()
@@ -91,12 +93,14 @@ public class EnemyCtrl : MonoBehaviour
             navMeshAgent.speed = RunSpeed;
             navMeshAgent.SetDestination(Player.transform.position);
             anim.SetInteger("Stage", 2);
+            musicCtrl.PlayPanicSound();
 
         }
         else
         {
             playerVisibleTimer -= Time.deltaTime;
             navMeshAgent.speed = speed;//set speed of agent
+            
         }
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
         spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);

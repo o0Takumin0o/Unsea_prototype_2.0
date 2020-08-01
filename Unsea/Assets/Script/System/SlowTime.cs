@@ -38,13 +38,23 @@ public class SlowTime : MonoBehaviour
     private void OnDisable()
     {//reset time to nomal speed
         //Time.timeScale = 1f;
-        slowMotionSpeed = 1f;
+        TimeStart();
+        //slowMotionSpeed = 1f;
     }
     public void TimeSpeedReset()
     {//reset time to nomal speed
         Endlevel = false;
         //Time.timeScale = 1f;
+        TimeStart();
+        //slowMotionSpeed = 1f;
+    }
+    public void TimeStop()
+    {
+        slowMotionSpeed = 0f;
+    }
+    public void TimeStart()
+    {
         slowMotionSpeed = 1f;
     }
-    
+
 }

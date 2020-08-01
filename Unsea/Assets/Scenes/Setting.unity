@@ -553,6 +553,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SoundCtrl
       objectReference: {fileID: 0}
+    - target: {fileID: 4279597076429252487, guid: 301feb6e5597d7d4e86ffced0cde5f3f,
+        type: 3}
+      propertyPath: Bgm
+      value: 
+      objectReference: {fileID: 8300000, guid: 199014824c1d3db4fb2bc3dfe99bcaa9, type: 3}
+    - target: {fileID: 4279597076429252487, guid: 301feb6e5597d7d4e86ffced0cde5f3f,
+        type: 3}
+      propertyPath: m_Enabled
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7202472324502222451, guid: 301feb6e5597d7d4e86ffced0cde5f3f,
+        type: 3}
+      propertyPath: m_audioClip
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 8833576726728057703, guid: 301feb6e5597d7d4e86ffced0cde5f3f,
         type: 3}
       propertyPath: musicSlider
