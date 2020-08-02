@@ -50,7 +50,7 @@ public class Timer : MonoBehaviour
         //if (timestop) return;
         bestTime = PlayerPrefs.GetFloat("BestTime");
         time60Sec();
-        BestTime60Sec();
+        //BestTime60Sec();
         if (ReachEndLevel == true)
         {
             WinIntime();
@@ -60,23 +60,23 @@ public class Timer : MonoBehaviour
             //+":" + TimerSeconds100;
         
         WinTimer.text = timerText.text;
-        bestTimer.text = PlayerPrefs.GetFloat("BestTime").ToString();//real time display this work
-        //bestTimer.text = BestMinutes + ":" + BestSeconds;//for now need to en level toupdate timer
-        //Debug.Log(BestMinutes + ":" + BestSeconds);
+        //bestTimer.text = PlayerPrefs.GetFloat("BestTime").ToString();//real time display this work
+        bestTimer.text = BestMinutes + ":" + BestSeconds;//for now need to en level toupdate timer
+        Debug.Log(BestMinutes + ":" + BestSeconds);
     }
     public void OnEndLevel()
     {
         ReachEndLevel = true;
-        
+        if (PlayerPrefs.GetFloat("BestTime") <= 0)
+        {
+            PlayerPrefs.SetFloat("BestTime", TheTime);
+        }
+
         if (PlayerPrefs.GetFloat("BestTime") > TheTime)
         {
             PlayerPrefs.SetFloat("BestTime", TheTime);
         }
-        
-        if (PlayerPrefs.GetFloat("BestTime") <= 0)
-        {
-            PlayerPrefs.SetFloat("BestTime", TheTime); 
-        }
+
         else
         {
             BestTime = PlayerPrefs.GetFloat("BestTime");
@@ -135,14 +135,17 @@ public class Timer : MonoBehaviour
 
         BestMinutesInt = (int)bestTime / 60;
         BestSecondsInt = (int)bestTime % 60;
-        
-        if (isRunning)
+        BestMinutes = (BestMinutesInt < 10) ? "0" + BestMinutesInt
+                : BestMinutesInt.ToString();
+        BestSeconds = (BestSecondsInt < 10) ? "0" + BestSecondsInt
+            : BestSecondsInt.ToString("00");
+        /*if (isRunning)
         {
             BestMinutes = (BestMinutesInt < 10) ? "0" + BestMinutesInt
                 : BestMinutesInt.ToString();
             BestSeconds = (BestSecondsInt < 10) ? "0" + BestSecondsInt
                 : BestSecondsInt.ToString("00");  
-        }
+        }*/
 
     }
     public void WinIntime()

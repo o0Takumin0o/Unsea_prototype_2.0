@@ -12,7 +12,7 @@ public class MoveToNextLevel : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        nextSceneLoad = SceneManager.GetActiveScene().buildIndex +1;
+        nextSceneLoad = SceneManager.GetActiveScene().buildIndex;// +1;
     }
 
     public void OnTriggerEnter(Collider other)

@@ -118,7 +118,7 @@ public class PlayerCtrl : MonoBehaviour
             timer.levelEnd();//stop timer
             LevelEnd = true;
             timer.ReachEndLevel = true;
-            
+            timer.BestTime60Sec();
 
             if (OnReachedEndOfLevel != null)
             {
