@@ -63,6 +63,11 @@ public class PlayerCtrl : MonoBehaviour
 
         velocity = transform.forward * moveSpeed * smoothInputMagnitude;
 
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            PlayerPrefs.DeleteAll();
+        }
+
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)
             || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)
             || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A)

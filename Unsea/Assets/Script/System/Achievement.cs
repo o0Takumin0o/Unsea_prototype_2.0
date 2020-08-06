@@ -28,7 +28,6 @@ public class Achievement : MonoBehaviour
         GetAllPoint_Icon.SetActive(false);
         WinInTime_Icon.SetActive(false);
         FinishLevel_Icon.SetActive(false);
-
     }
 
     // Update is called once per frame
@@ -44,8 +43,7 @@ public class Achievement : MonoBehaviour
             EndBeforeTimer();
         }
         AllPointGet();
-        
-        
+
     }
     void AllPointGet()
     {

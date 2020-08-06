@@ -1,0 +1,536 @@
+fileFormatVersion: 2
+guid: 828387c547934214aa390deb7ab56e29
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3475439698935679224
+    second: complete IconV3_0
+  - first:
+      213: -8817200098095299238
+    second: complete IconV3_1
+  - first:
+      213: 2618613901388244534
+    second: complete IconV3_2
+  - first:
+      213: -6206569610732930563
+    second: complete IconV3_3
+  - first:
+      213: 1222975276288621760
+    second: complete IconV3_4
+  - first:
+      213: 4074455717662373339
+    second: complete IconV3_5
+  - first:
+      213: 6285054935510430954
+    second: complete IconV3_6
+  - first:
+      213: 8482502401004645167
+    second: complete IconV3_7
+  - first:
+      213: 4001957891667992200
+    second: complete IconV3_8
+  - first:
+      213: 6461607983649851579
+    second: complete IconV3_9
+  - first:
+      213: -2271467318775839020
+    second: complete IconV3_10
+  - first:
+      213: -5046203573982868669
+    second: complete IconV3_11
+  - first:
+      213: 3801269023651014417
+    second: complete IconV3_12
+  - first:
+      213: 819813139694987911
+    second: complete IconV3_13
+  - first:
+      213: 7822038703907299135
+    second: complete IconV3_14
+  - first:
+      213: -1178642971686795320
+    second: complete IconV3_15
+  - first:
+      213: 3904339803711788635
+    second: complete IconV3_16
+  - first:
+      213: -3884880522808678707
+    second: complete IconV3_17
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: complete IconV3_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 3259
+        width: 847
+        height: 831
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8f80a551efd3b3030800000000000000
+      internalID: 3475439698935679224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_1
+      rect:
+        serializedVersion: 2
+        x: 1005
+        y: 3265
+        width: 825
+        height: 825
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a558d7fe93303a580800000000000000
+      internalID: -8817200098095299238
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_2
+      rect:
+        serializedVersion: 2
+        x: 2008
+        y: 3253
+        width: 825
+        height: 825
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6366524287f275420800000000000000
+      internalID: 2618613901388244534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_3
+      rect:
+        serializedVersion: 2
+        x: 2985
+        y: 3265
+        width: 858
+        height: 852
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: df97786a2d5ddd9a0800000000000000
+      internalID: -6206569610732930563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_4
+      rect:
+        serializedVersion: 2
+        x: 4017
+        y: 3270
+        width: 839
+        height: 839
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0ccb440c881e8f010800000000000000
+      internalID: 1222975276288621760
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_5
+      rect:
+        serializedVersion: 2
+        x: 5055
+        y: 3273
+        width: 832
+        height: 834
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bd5335843ef5b8830800000000000000
+      internalID: 4074455717662373339
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_6
+      rect:
+        serializedVersion: 2
+        x: 19
+        y: 2207
+        width: 846
+        height: 833
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ae43ae80a20093750800000000000000
+      internalID: 6285054935510430954
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_7
+      rect:
+        serializedVersion: 2
+        x: 1022
+        y: 2215
+        width: 825
+        height: 825
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f2ba742ddf6e7b570800000000000000
+      internalID: 8482502401004645167
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_8
+      rect:
+        serializedVersion: 2
+        x: 2025
+        y: 2204
+        width: 825
+        height: 825
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 88e11facf7fc98730800000000000000
+      internalID: 4001957891667992200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_9
+      rect:
+        serializedVersion: 2
+        x: 3037
+        y: 2224
+        width: 848
+        height: 831
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bb8074fd93e3ca950800000000000000
+      internalID: 6461607983649851579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_10
+      rect:
+        serializedVersion: 2
+        x: 4040
+        y: 2232
+        width: 825
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d6057122802a70e0800000000000000
+      internalID: -2271467318775839020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_11
+      rect:
+        serializedVersion: 2
+        x: 5043
+        y: 2220
+        width: 825
+        height: 823
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 34bc17cd59848f9b0800000000000000
+      internalID: -5046203573982868669
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1146
+        width: 844
+        height: 831
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1172a6a7902d0c430800000000000000
+      internalID: 3801269023651014417
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_13
+      rect:
+        serializedVersion: 2
+        x: 999
+        y: 1151
+        width: 825
+        height: 826
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 78aa7bdf4bf806b00800000000000000
+      internalID: 819813139694987911
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_14
+      rect:
+        serializedVersion: 2
+        x: 2002
+        y: 1140
+        width: 825
+        height: 825
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f3f50cd12c67d8c60800000000000000
+      internalID: 7822038703907299135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_15
+      rect:
+        serializedVersion: 2
+        x: 3048
+        y: 0
+        width: 846
+        height: 2017
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8c70993467e94afe0800000000000000
+      internalID: -1178642971686795320
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_16
+      rect:
+        serializedVersion: 2
+        x: 4052
+        y: 1192
+        width: 825
+        height: 825
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b56d8aa8d500f2630800000000000000
+      internalID: 3904339803711788635
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: complete IconV3_17
+      rect:
+        serializedVersion: 2
+        x: 5055
+        y: 1180
+        width: 832
+        height: 825
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dc6a72b5fb1261ac0800000000000000
+      internalID: -3884880522808678707
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 1570c679e34393e48ac5940ef266f6fa
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

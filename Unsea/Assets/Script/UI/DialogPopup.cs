@@ -42,6 +42,7 @@ public class DialogPopup : MonoBehaviour
         if (collision.tag == "Player")
         {
             GuideTxt.gameObject.SetActive(false);
+            pushButtonText.gameObject.SetActive(false);
             isInRange = false;
             //pushButtonText.gameObject.SetActive(false);
             //GuideTxt.gameObject.SetActive(false);
