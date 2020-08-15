@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyCharger : EnemyCtrl
+public class EnemyDrone : EnemyCtrl
 {
     void Update()
     {
@@ -26,9 +26,9 @@ public class EnemyCharger : EnemyCtrl
                 EnemyDetection();
             }
 
-            patrol = !follow  && patrolPoints.Length > 0;
+            patrol = !follow && patrolPoints.Length > 0;
 
-            if ((!follow ) && !patrol)
+            if ((!follow) && !patrol)
             {
                 navMeshAgent.SetDestination(transform.position);
                 anim.SetInteger("Stage", 2);
@@ -45,7 +45,7 @@ public class EnemyCharger : EnemyCtrl
                 if (navMeshAgent.remainingDistance < 0.01f)
                 {
                     anim.SetInteger("Stage", 0);
-                    //LookAtTarget();
+                    LookAtTarget();
                 }
             }
 

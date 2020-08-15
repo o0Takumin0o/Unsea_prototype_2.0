@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
-[SerializeField]
+
+//[SerializeField]
 public class EnemyCtrl : MonoBehaviour
 {
     [HideInInspector]
@@ -14,12 +15,13 @@ public class EnemyCtrl : MonoBehaviour
     public GameObject Player;
     PlayerCtrl playerCtrl;
     public SlowTime slowTime;
+    public Transform LookAt;
+    public float LookRotationSpeed = 5f;
     [Space(10)]
     public Transform pathHolder;
     public Transform[] patrolPoints;
-    
-    
-    [Header("Movement")]
+
+   [Header("Movement")]
     public float speed; //speed of npc
     public float RunSpeed;
     [Header("Sense")]
@@ -63,6 +65,14 @@ public class EnemyCtrl : MonoBehaviour
         if (hitCollider.tag == "Player")
         {
             navMeshAgent.SetDestination(Player.transform.position);
+            LookAtPlayer();
+            anim.SetInteger("Stage", 2);
+        }
+        //neet to make enemy go to noise
+        if (hitCollider.tag == "NoiseMaker")
+        {
+            navMeshAgent.SetDestination(GameObject.FindGameObjectWithTag("NoiseMaker").transform.position);
+            anim.SetInteger("Stage", 1);
         }
     }
     
@@ -85,7 +95,7 @@ public class EnemyCtrl : MonoBehaviour
         return false;
     }
 
-    public void EmenyDetection()
+    public void EnemyDetection()
     {
         if (CanSeePlayer())
         {
@@ -94,14 +104,13 @@ public class EnemyCtrl : MonoBehaviour
             navMeshAgent.SetDestination(Player.transform.position);
             anim.SetInteger("Stage", 2);
             musicCtrl.PlayPanicSound();
-
         }
         else
         {
             playerVisibleTimer -= Time.deltaTime;
             navMeshAgent.speed = speed;//set speed of agent
-            
         }
+
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
         spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
 
@@ -138,6 +147,8 @@ public class EnemyCtrl : MonoBehaviour
 
         Gizmos.color = Color.red;
         Gizmos.DrawRay(transform.position, transform.forward * viewDistance);
+
+        Gizmos.DrawSphere(LookAt.position, .5f);
     }
 
     public void MoveToNextPatrolPoint()
@@ -153,6 +164,18 @@ public class EnemyCtrl : MonoBehaviour
     public void Respawn()
     {//reload current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+    }
+    public void LookAtTarget()
+    {      
+        Vector3 direction = LookAt.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, LookRotationSpeed * Time.deltaTime);
+    }
+    public void LookAtPlayer()
+    {
+        Vector3 direction = Player.transform.position - transform.position;
+        Quaternion rotation = Quaternion.LookRotation(direction);
+        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, LookRotationSpeed * Time.deltaTime);
     }
 
 }

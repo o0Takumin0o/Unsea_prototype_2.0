@@ -151,17 +151,13 @@ public class PlayerCtrl : MonoBehaviour
             soundFX.Pickup();
         }
 
-        if (hitCollider.tag == "Enemy")
+        /*if (hitCollider.tag == "Enemy")
         {
-            GameObject.Find("Player").SendMessage("Finnish");
+            //GameObject.Find("Player").SendMessage("Finnish");
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//reload current scene
             slowTime.Endlevel = true;
             timer.levelEnd();
-        }
-        if (hitCollider.tag == "Hearing")
-        {
-            enemyCtrl.EmenyDetection();
-        }
+        }*/
     }
     public void TimeSpeedReset()
     {//reset time to defalt speed

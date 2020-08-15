@@ -11,6 +11,7 @@ TagManager:
   - Finish_Goal
   - HidingSpots
   - Finnish
+  - NoiseMaker
   layers:
   - Default
   - TransparentFX

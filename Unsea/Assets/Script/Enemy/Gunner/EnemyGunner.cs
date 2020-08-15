@@ -27,7 +27,7 @@ public class EnemyGunner : EnemyCtrl
     void Update()
     {
         NpcAction();//what npc will do
-        EmenyDetection();
+        EnemyDetection();
         PlayerLocation = GameObject.Find("Player").transform.position;//position of player use in can see player
     }
 
@@ -58,7 +58,7 @@ public class EnemyGunner : EnemyCtrl
                     fireCountdown -= Time.deltaTime;
                 }
                 navMeshAgent.SetDestination(Player.transform.position);
-                EmenyDetection();
+                EnemyDetection();
             }
 
             patrol = !follow && !shoot && patrolPoints.Length > 0;
