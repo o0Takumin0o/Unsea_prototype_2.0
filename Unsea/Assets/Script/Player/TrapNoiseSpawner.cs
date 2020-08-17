@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerNoiseSpawner : MonoBehaviour
+public class TrapNoiseSpawner : MonoBehaviour
 {
     public GameObject NoiseMakerPrefab;
     // Start is called before the first frame update
@@ -11,16 +11,18 @@ public class PlayerNoiseSpawner : MonoBehaviour
     public int DestroyAfter;
 
 
-    // Update is called once per frame
-    void Update()
+    void OnTriggerEnter(Collider hitCollider)
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (hitCollider.tag == "Player")
         {
             spawnNoiseMaker();
         }
     }
+ 
+    // Update is called once per frame
+    
     public void spawnNoiseMaker()
-    { 
+    {
         Vector3 spawnPosition = spawnPoint.position;
 
         NoiseMaker = (GameObject)Instantiate(NoiseMakerPrefab, spawnPosition, Quaternion.identity);

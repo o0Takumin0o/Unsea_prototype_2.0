@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerNoiseSpawner : MonoBehaviour
+public class NoiseSpawner : MonoBehaviour
 {
     public GameObject NoiseMakerPrefab;
     // Start is called before the first frame update

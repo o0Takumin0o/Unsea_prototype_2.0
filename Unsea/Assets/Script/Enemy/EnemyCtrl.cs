@@ -51,13 +51,14 @@ public class EnemyCtrl : MonoBehaviour
         MoveToNextPatrolPoint();
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
         musicCtrl = GameObject.Find("SoundCtrl").GetComponent<MusicCtrl>();
+        originalSpotlightColour = spotlight.color;
     }
 
     void Start()
     {
         anim.SetInteger("Stage", 0);//use when has model
         viewAngle = spotlight.spotAngle;
-        originalSpotlightColour = spotlight.color;
+        
     }
 
     public void OnTriggerEnter(Collider hitCollider)

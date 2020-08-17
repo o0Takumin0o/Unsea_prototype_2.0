@@ -18,11 +18,6 @@ public class NoiseMaker : MonoBehaviour
         MakeNoise();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-
-    }
     public void MakeNoise()
     {
         NoiseCollider.enabled = true;

@@ -11,7 +11,7 @@ public class EnemyDrone : EnemyCtrl
         PlayerLocation = GameObject.Find("Player").transform.position;
         //position of player use in can see player
     }
-    public void NpcAction()
+    void NpcAction()
     {//move to player when detect player
         if (navMeshAgent.enabled)
         {
