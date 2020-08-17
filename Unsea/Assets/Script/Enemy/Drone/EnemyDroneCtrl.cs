@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.SceneManagement;
 
-//[SerializeField]
-public class EnemyCtrl : MonoBehaviour
+public class EnemyDroneCtrl : MonoBehaviour
 {
     [HideInInspector]
     public Animator anim;
@@ -21,7 +20,7 @@ public class EnemyCtrl : MonoBehaviour
     public Transform pathHolder;
     public Transform[] patrolPoints;
 
-   [Header("Movement")]
+    [Header("Movement")]
     public float speed; //speed of npc
     public float RunSpeed;
     [Header("Sense")]
@@ -42,6 +41,12 @@ public class EnemyCtrl : MonoBehaviour
     public float waitToRespawn;
     MusicCtrl musicCtrl;
 
+    [Space(10)]
+    public GameObject NoiseMakerPrefab;
+    public Transform spawnPoint;
+    GameObject NoiseMaker;
+    public int DestroyAfter;
+
 
     void Awake()//protected override
     {
@@ -58,7 +63,7 @@ public class EnemyCtrl : MonoBehaviour
     {
         anim.SetInteger("Stage", 0);//use when has model
         viewAngle = spotlight.spotAngle;
-        
+
     }
 
     public void OnTriggerEnter(Collider hitCollider)
@@ -76,7 +81,7 @@ public class EnemyCtrl : MonoBehaviour
             anim.SetInteger("Stage", 1);
         }
     }
-    
+
     public bool CanSeePlayer()
     {//need animater to sea player
         if (playerCtrl.PlayerVisible == true && Vector3.Distance(transform.position, PlayerLocation) < viewDistance)
@@ -103,6 +108,7 @@ public class EnemyCtrl : MonoBehaviour
             playerVisibleTimer += Time.deltaTime;
             navMeshAgent.speed = RunSpeed;
             navMeshAgent.SetDestination(Player.transform.position);
+            spawnNoiseMaker();
             anim.SetInteger("Stage", 2);
             musicCtrl.PlayPanicSound();
         }
@@ -115,23 +121,32 @@ public class EnemyCtrl : MonoBehaviour
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
         spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
 
-        if (playerVisibleTimer >= timeToSpotPlayer)
+        /*if (playerVisibleTimer >= timeToSpotPlayer)
         {//GameObject.Find("Player").SendMessage("Finnish");
             if (OnGuardHasSpottedPlayer != null)
             {
                 OnGuardHasSpottedPlayer();
-                
+
                 slowTime.Endlevel = false;
 
                 if (waitToRespawn <= 0f)
                 {
-                    Respawn();
+                    //Respawn();
+                    spawnNoiseMaker();
                     slowTime.TimeSpeedReset();
                 }
-                waitToRespawn  -= Time.deltaTime;
+                waitToRespawn -= Time.deltaTime;
             }
-        }
+        }*/
     }
+    public void spawnNoiseMaker()
+    {
+        Vector3 spawnPosition = spawnPoint.position;
+
+        NoiseMaker = (GameObject)Instantiate(NoiseMakerPrefab, spawnPosition, Quaternion.identity);
+        Destroy(NoiseMaker, DestroyAfter);
+    }
+
 
     void OnDrawGizmos()
     {//make waypoint visible 
@@ -169,7 +184,7 @@ public class EnemyCtrl : MonoBehaviour
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
     public void LookAtTarget()
-    {      
+    {
         Vector3 direction = LookAt.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, LookRotationSpeed * Time.deltaTime);
@@ -180,5 +195,4 @@ public class EnemyCtrl : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, LookRotationSpeed * Time.deltaTime);
     }
-
 }

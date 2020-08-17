@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class EnemyDrone : EnemyCtrl
+public class EnemyDrone : EnemyDroneCtrl
 {
     void Update()
     {

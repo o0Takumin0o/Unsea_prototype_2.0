@@ -9,7 +9,7 @@ public class EnemyCharger : EnemyCtrl
         NpcAction();//what npc will do
         EnemyDetection();
         PlayerLocation = GameObject.Find("Player").transform.position;
-        Debug.Log(PlayerLocation);
+        
         //position of player use in can see player
     }
     void NpcAction()
