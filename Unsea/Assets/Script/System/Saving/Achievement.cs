@@ -8,7 +8,7 @@ public class Achievement : MonoBehaviour
     SubCollector subCollector;
     PlayerCtrl playerCtrl;
     Timer timer;
-
+    
     int collectAllPoint;
     [HideInInspector] // hide this from inspecter
     public int FinishInTime;
@@ -27,6 +27,7 @@ public class Achievement : MonoBehaviour
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
         timer = GameObject.Find("TimeManager").GetComponent<Timer>();
         CurrentLevel = SceneManager.GetActiveScene().buildIndex;
+        
         GetAllPoint_Icon.SetActive(false);
         WinInTime_Icon.SetActive(false);
         FinishLevel_Icon.SetActive(false);
@@ -38,6 +39,7 @@ public class Achievement : MonoBehaviour
         FinishInTime = PlayerPrefs.GetInt("FinishInTime" + CurrentLevel.ToString());
         collectAllPoint = PlayerPrefs.GetInt("collectAllPoint" + CurrentLevel.ToString());
         WinLevel = PlayerPrefs.GetInt("WinLevel" + CurrentLevel.ToString());
+        Debug.Log("CurrentLevel = " + CurrentLevel);
 
         finishLevel();
         if (playerCtrl.LevelEnd == true|| FinishInTime == 1)
@@ -53,7 +55,7 @@ public class Achievement : MonoBehaviour
         {
             GetAllPoint_Icon.SetActive(true);
             PlayerPrefs.SetInt("collectAllPoint" + CurrentLevel.ToString(), 1);
-            Debug.Log("AllPointGet");
+            //Debug.Log("AllPointGet");
             if (playerCtrl.LevelEnd == true )
             {
                 PlayerPrefs.Save();
@@ -66,7 +68,7 @@ public class Achievement : MonoBehaviour
         {
            WinInTime_Icon.SetActive(true);
            PlayerPrefs.SetInt("FinishInTime" + CurrentLevel.ToString(), 1);
-           Debug.Log("FinishInTime");
+           //Debug.Log("FinishInTime");
 
            PlayerPrefs.Save();    
         }
@@ -77,7 +79,7 @@ public class Achievement : MonoBehaviour
         {
             FinishLevel_Icon.SetActive(true);
             PlayerPrefs.SetInt("WinLevel" + CurrentLevel.ToString(), 1);
-            Debug.Log("finishLevel");
+            //Debug.Log("finishLevel");
             PlayerPrefs.Save();
         }
     }

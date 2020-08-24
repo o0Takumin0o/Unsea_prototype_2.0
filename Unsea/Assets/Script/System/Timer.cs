@@ -62,7 +62,7 @@ public class Timer : MonoBehaviour
         WinTimer.text = timerText.text;
         //bestTimer.text = PlayerPrefs.GetFloat("BestTime").ToString();//real time display this work
         bestTimer.text = BestMinutes + ":" + BestSeconds;//for now need to en level toupdate timer
-        Debug.Log(BestMinutes + ":" + BestSeconds);
+        //Debug.Log(BestMinutes + ":" + BestSeconds);
     }
     public void OnEndLevel()
     {

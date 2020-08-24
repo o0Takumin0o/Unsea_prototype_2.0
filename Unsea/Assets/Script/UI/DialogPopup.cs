@@ -6,6 +6,7 @@ public class DialogPopup : MonoBehaviour
 {
     public GameObject GuideTxt;
     public GameObject pushButtonText;
+    public DialogueTrigger dialogueTrigger;
     private bool isInRange;
     private void Start()
     {
@@ -17,8 +18,9 @@ public class DialogPopup : MonoBehaviour
         if (isInRange && Input.GetKeyDown(KeyCode.E))
         {
             Debug.Log("E key was pressed.");
-            GuideTxt.gameObject.SetActive(true);
+            //GuideTxt.gameObject.SetActive(true);
             pushButtonText.gameObject.SetActive(false);
+            dialogueTrigger.TriggerDialogue();
         }
     }
     private void OnTriggerEnter(Collider collision)

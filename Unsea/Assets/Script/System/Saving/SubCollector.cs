@@ -24,7 +24,7 @@ public class SubCollector : MonoBehaviour
         CurrenScoretxt.text = collectorPoint.ToString();
         HightScore = PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString());
         HightScoretxt.text = PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString()).ToString();
-        Debug.Log("HightScore = "+ HightScore + CurrentLevel.ToString());
+        Debug.Log("HightScore = "+ HightScore);
     }
     
     public void UpdatecollectorPoint()
