@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class ObjectRotation : MonoBehaviour
 {// put in item that can be pick up
-    public ParticleSystem deathParticle;
+    public GameObject DestroyParticle;
     float speed = 2.0f;
     
     void Update()
     {//transform.Rotate(speed, speed, speed);
         transform.Rotate(0, speed,0);
     }
-    void Destroy()
+    
+    public void OnDestroy()
     {
-        Instantiate(deathParticle, transform.position, Quaternion.identity);
+        GameObject DestroyEffect = (GameObject) Instantiate(DestroyParticle, transform.position, Quaternion.identity);
+        Destroy(DestroyEffect, 3f);
     }
 }

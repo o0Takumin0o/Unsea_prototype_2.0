@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class SubCollector : MonoBehaviour
 {
@@ -11,14 +12,19 @@ public class SubCollector : MonoBehaviour
     //float TotalHightScore;
     public Text HightScoretxt;
     public Text CurrenScoretxt;
+    int CurrentLevel;
 
+    private void Start()
+    {
+        CurrentLevel = SceneManager.GetActiveScene().buildIndex;
+    }
     private void Update()
     {
         saveHightScore();
         CurrenScoretxt.text = collectorPoint.ToString();
-        HightScore = PlayerPrefs.GetInt("HightScore");
-        HightScoretxt.text = PlayerPrefs.GetInt("HightScore").ToString();
-        Debug.Log("HightScore = "+ HightScore);
+        HightScore = PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString());
+        HightScoretxt.text = PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString()).ToString();
+        Debug.Log("HightScore = "+ HightScore + CurrentLevel.ToString());
     }
     
     public void UpdatecollectorPoint()
@@ -27,10 +33,10 @@ public class SubCollector : MonoBehaviour
     }
     public void saveHightScore()
     {//get HightScore
-        if (PlayerPrefs.GetInt("HightScore") < collectorPoint )
+        if (PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString()) < collectorPoint )
         {
-            PlayerPrefs.SetInt("HightScore", collectorPoint);
-            HightScoretxt.text = PlayerPrefs.GetInt("HightScore").ToString();
+            PlayerPrefs.SetInt("HightScore" + CurrentLevel.ToString(), collectorPoint);
+            HightScoretxt.text = PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString()).ToString();
         }
     }
 }

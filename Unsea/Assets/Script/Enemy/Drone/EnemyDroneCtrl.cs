@@ -22,7 +22,7 @@ public class EnemyDroneCtrl : MonoBehaviour
 
     [Header("Movement")]
     public float speed; //speed of npc
-    public float RunSpeed;
+    
     [Header("Sense")]
     public float viewDistance;
     public Light spotlight;
@@ -37,15 +37,17 @@ public class EnemyDroneCtrl : MonoBehaviour
     public static event System.Action OnGuardHasSpottedPlayer;
     private int currentControlPointIndex = 0;
     public Vector3 PlayerLocation;
-    [HideInInspector]
-    public float waitToRespawn;
+    
+    
     MusicCtrl musicCtrl;
 
     [Space(10)]
     public GameObject NoiseMakerPrefab;
     public Transform spawnPoint;
     GameObject NoiseMaker;
-    public int DestroyAfter;
+    
+    public float waitToRespawn ;
+    public int DestroyAfter = 3;
 
 
     void Awake()//protected override
@@ -106,38 +108,33 @@ public class EnemyDroneCtrl : MonoBehaviour
         if (CanSeePlayer())
         {
             playerVisibleTimer += Time.deltaTime;
-            navMeshAgent.speed = RunSpeed;
+            
             navMeshAgent.SetDestination(Player.transform.position);
-            spawnNoiseMaker();
+            
             anim.SetInteger("Stage", 2);
             musicCtrl.PlayPanicSound();
+            
         }
         else
         {
             playerVisibleTimer -= Time.deltaTime;
-            navMeshAgent.speed = speed;//set speed of agent
+            
         }
 
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
         spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
 
-        /*if (playerVisibleTimer >= timeToSpotPlayer)
-        {//GameObject.Find("Player").SendMessage("Finnish");
-            if (OnGuardHasSpottedPlayer != null)
+        if (playerVisibleTimer >= timeToSpotPlayer)
+        {
+            if (waitToRespawn <= 0f)
             {
-                OnGuardHasSpottedPlayer();
-
-                slowTime.Endlevel = false;
-
-                if (waitToRespawn <= 0f)
-                {
-                    //Respawn();
-                    spawnNoiseMaker();
-                    slowTime.TimeSpeedReset();
-                }
-                waitToRespawn -= Time.deltaTime;
+                spawnNoiseMaker();
+                waitToRespawn = 5f;
+                
             }
-        }*/
+            waitToRespawn -= Time.deltaTime;
+
+        }
     }
     public void spawnNoiseMaker()
     {

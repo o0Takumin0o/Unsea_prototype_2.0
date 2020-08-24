@@ -5,12 +5,13 @@ using UnityEngine;
 public class Bullet : MonoBehaviour
 {   //still not work
     //will be use to spawn and move bullet to player
-    private Transform target;
+    Transform target;
     public float speed = 70f;
     public GameObject impactEffect;
-    public void Seek (Transform player)
+
+    public void Seek (Transform Player)
     {
-        target = player;
+        target = Player;
     }
 
     // Update is called once per frame
@@ -34,7 +35,9 @@ public class Bullet : MonoBehaviour
     }
     void HitTarget()
     {
-        Instantiate(impactEffect, transform.position, transform.rotation);
+        //Instantiate(impactEffect, transform.position, transform.rotation);
+        GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
+        Destroy(effectIns, 2f);
         Destroy(gameObject);
     }
 }

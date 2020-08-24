@@ -6,22 +6,18 @@ using UnityEngine.AI;
 public class EnemyGunner : EnemyCtrl 
 {
   
-    public float AttackDistance = 10.0f;
+    //public float AttackDistance = 10.0f;
 
-    public float FollowDistance = 20.0f;
+    //public float FollowDistance = 20.0f;
 
-    [Range(0.0f, 1.0f)]
-    public float AttackProbability = 0.5f;
-
-    [Range(0.0f, 1.0f)]
-    public float HitAccuracy = 0.5f;
-
-    public float DamagePoints = 2.0f;
+    
 
     public AudioClip ShootSound = null;
-    
+    public float fireRate = 1f;
     private float fireCountdown = 0f;
-
+    public Transform target;
+    public GameObject bulletPrefab;
+    public Transform firePoint;
     public SoundFx soundFX;
 
     void Update()
@@ -43,42 +39,42 @@ public class EnemyGunner : EnemyCtrl
 
             if (follow)
             {//follow player
-                float random = Random.Range(0.0f, 1.0f);
-             
-                if (playerVisibleTimer >= timeToSpotPlayer)
-                {//shoot player
-                    if (fireCountdown <= 0f)
-                    {
-                        Shoot();
-                        soundFX.ShootSound();
-                        //fireCountdown = 1f / fireRate;
-                        //put shooting wvent here
-                        fireCountdown = 1f / 1;
-                    }
-                    fireCountdown -= Time.deltaTime;
-                }
-                navMeshAgent.SetDestination(Player.transform.position);
                 EnemyDetection();
+
+                if (fireCountdown <= 0f)
+                {
+                    Shoot();
+                    soundFX.ShootSound();
+                    fireCountdown = 1f / fireRate;
+                    //put shooting wvent here
+                    //fireCountdown = 1f / 1;
+                }
+                fireCountdown -= Time.deltaTime;
+                /*navMeshAgent.SetDestination(Player.transform.position);
+                float random = Random.Range(0.0f, 1.0f);*/
+
             }
 
-            patrol = !follow && !shoot && patrolPoints.Length > 0;
+            patrol = !follow && patrolPoints.Length > 0;
 
-            if ((!follow || shoot) && !patrol)
+            if ((!follow) && !patrol)
             {
                 navMeshAgent.SetDestination(transform.position);
-                //anim.SetInteger("Stage", 1);
+                anim.SetInteger("Stage", 2);
             }
 
             if (patrol)
             {
-                if (!navMeshAgent.pathPending && navMeshAgent.remainingDistance < 0.5f)
+                if (!navMeshAgent.pathPending && navMeshAgent.
+                    remainingDistance < 0.5f)
                 {
                     MoveToNextPatrolPoint();
-                    //anim.SetInteger("Stage", 1);
+                    anim.SetInteger("Stage", 1);
                 }
-                if (navMeshAgent.remainingDistance < 0.001f)
-                {//stop walking animation when not have other point to move
-                    //anim.SetInteger("Stage", 0);
+                if (navMeshAgent.remainingDistance < 0.01f)
+                {
+                    anim.SetInteger("Stage", 0);
+                    LookAtTarget();
                 }
             }
 
@@ -87,7 +83,17 @@ public class EnemyGunner : EnemyCtrl
     void Shoot()
     {
         Debug.Log("Shoot");
+        //Instantiate(bulletPrefab, firePoint.position, firePoint.rotation);
+        GameObject bulletGo = (GameObject)Instantiate(bulletPrefab, 
+                                firePoint.position, firePoint.rotation);
+        Bullet bullet = bulletGo.GetComponent<Bullet>();
+        if (bullet != null)
+            bullet.Seek(target);
+        
     }
 
-    
+    private void OnDrawGizmos()
+    {
+        Gizmos.DrawSphere(firePoint.position, .3f);
+    }
 }
