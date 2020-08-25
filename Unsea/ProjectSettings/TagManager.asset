@@ -12,6 +12,7 @@ TagManager:
   - HidingSpots
   - Finnish
   - NoiseMaker
+  - GameManager
   layers:
   - Default
   - TransparentFX

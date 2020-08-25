@@ -9,7 +9,7 @@ public class CheckPoint : MonoBehaviour
 
     private void Start()
     {
-        GM = GameObject.FindGameObjectWithTag("GM").GetComponent<GameManager>();
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     void OnTriggerEnter(Collider other)
@@ -17,7 +17,7 @@ public class CheckPoint : MonoBehaviour
         if(other.CompareTag("Player"))
         {//if player walk pass checkpoint save checkpoint
             GM.lastCheckPointPos = Checkpoint.transform.position;
-            print("Hit");
+            print("SpawnPointSet =" + Checkpoint.transform.position);
         }
     }
 }
