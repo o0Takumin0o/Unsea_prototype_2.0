@@ -21,6 +21,6 @@ public class GameManager : MonoBehaviour
         {//if alrady have gameobject so it donhave multiple game object
             Destroy(gameObject);
         }
-
+        
     }
 }
