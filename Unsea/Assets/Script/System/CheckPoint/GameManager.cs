@@ -21,6 +21,9 @@ public class GameManager : MonoBehaviour
         {//if alrady have gameobject so it donhave multiple game object
             Destroy(gameObject);
         }
-        
+    }
+    public void resetCheckPoint()
+    {
+        lastCheckPointPos = new Vector3(0, 0, 0);
     }
 }
