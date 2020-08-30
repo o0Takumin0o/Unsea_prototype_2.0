@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 3605629057449277637}
   - component: {fileID: 7004590477724664892}
   - component: {fileID: 731965746540330298}
-  - component: {fileID: 731965746540330294}
+  - component: {fileID: 4573602907469692443}
+  - component: {fileID: 7431256570324009865}
   m_Layer: 0
   m_Name: Shell
   m_TagString: KeyItem
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8721673547276021984}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -17.3, y: -0.33000004, z: -1}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_Children: []
@@ -94,7 +95,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 5.996196, y: 5.7908587, z: 1.4352828}
   m_Center: {x: 0.00038969517, y: 0.76790357, z: 0.41528267}
---- !u!114 &731965746540330294
+--- !u!114 &4573602907469692443
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -103,8 +104,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 8721673547276021984}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41daec15e7bd19241b39bb919b7c5043, type: 3}
+  m_Script: {fileID: 11500000, guid: 80ba1bd8cb7fe5244a1d854f00d9bdf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: KeyItem
   DestroyParticle: {fileID: 307046023595182972, guid: b758e5650e88b874abea41f0e74de3d4,
     type: 3}
+--- !u!114 &7431256570324009865
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8721673547276021984}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f625fc0ef75d9b48a9fb81e0a4fc9bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

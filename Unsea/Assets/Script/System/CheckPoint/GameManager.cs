@@ -5,6 +5,7 @@ using UnityEngine;
 public class GameManager : MonoBehaviour
 {//  last check point position
     public Vector3 lastCheckPointPos;
+    //public float TimeWhenHitCheckpoints;
     public static GameManager Instance
     {
         get;

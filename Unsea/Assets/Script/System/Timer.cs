@@ -8,8 +8,9 @@ public class Timer : MonoBehaviour
     public Text timerText;
     public Text WinTimer;
     public Text bestTimer;
-    
-    PlayerCtrl playerCtrl;
+    public Text TimeLimit;
+
+   PlayerCtrl playerCtrl;
     Achievement achievement;
     CheckPoint checkPoint;
     [HideInInspector]
@@ -37,6 +38,7 @@ public class Timer : MonoBehaviour
     float TimeWhenHitCheckpoint;
 
     float bestTime;
+    float checkpointTime;
     public float TimeMarker;//time limite
     private bool isRunning = false;
     public bool ReachEndLevel = false;
@@ -49,16 +51,9 @@ public class Timer : MonoBehaviour
     }
     void Start()
     {
-        //TimerStart();
+        TimerStart();
 
-        if (checkPoint.CheckPointReatch == false)
-        {
-            TimerStart();
-        }
-        else
-        {
-            TimeStartCheckpoint();
-        }
+        
         //achievement = GameObject.Find("Canvas").GetComponent<Achievement>();
         /*WinBeforeTimeOut = false;
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
@@ -69,6 +64,7 @@ public class Timer : MonoBehaviour
     {
         //if (timestop) return;
         bestTime = PlayerPrefs.GetFloat("BestTime");
+        checkpointTime = PlayerPrefs.GetFloat("TimeWhenHitCheckpoint");
         time60Sec();
         //BestTime60Sec();
         if (ReachEndLevel == true)
@@ -82,7 +78,8 @@ public class Timer : MonoBehaviour
         WinTimer.text = timerText.text;
         //bestTimer.text = PlayerPrefs.GetFloat("BestTime").ToString();//real time display this work
         bestTimer.text = BestMinutes + ":" + BestSeconds;//for now need to en level toupdate timer
-        //Debug.Log(BestMinutes + ":" + BestSeconds);
+        WinTimer.text = TimeMarker.ToString();
+        TimerCheckpoint();
     }
     public void OnEndLevel()
     {
@@ -116,14 +113,7 @@ public class Timer : MonoBehaviour
             startTime = Time.time;
         }
     }
-    public void TimeStartCheckpoint() //checkpoint
-    {
-        if (!isRunning)
-        {
-            isRunning = true;
-            startTime = Time.time+ PlayerPrefs.GetFloat("TimeWhenHitCheckpoint");
-        }
-    }
+   
     public void TimerStop()
     {
         if (isRunning)
@@ -135,6 +125,7 @@ public class Timer : MonoBehaviour
     public void TimerCheckpoint()
     {
         PlayerPrefs.SetFloat("TimeWhenHitCheckpoint", TheTime);
+        PlayerPrefs.Save();
         Debug.Log("TimeWhenHitCheckpoint=" + TimeWhenHitCheckpoint);
     }
     public void levelEnd()

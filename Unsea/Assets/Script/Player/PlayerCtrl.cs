@@ -36,13 +36,15 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject WinScreen;
     public GameObject GameplayUI;
     private float SoundCountdown = 0f;
-    
+
+    Game game;
 
     void Start()
     {
         Rigidbody = GetComponent<Rigidbody>();
         animator = GetComponent<Animator>();
         EnemyCtrl.OnGuardHasSpottedPlayer += Disable;
+        game = GameObject.Find("Game").GetComponent<Game>();
 
         //slowTime = (SlowTime)FindObjectOfType(typeof(SlowTime)); //useto find code that been instance when change scene
     }
@@ -124,6 +126,7 @@ public class PlayerCtrl : MonoBehaviour
             LevelEnd = true;
             timer.ReachEndLevel = true;
             timer.BestTime60Sec();
+            game.DeleteAllProgress();
 
             if (OnReachedEndOfLevel != null)
             {

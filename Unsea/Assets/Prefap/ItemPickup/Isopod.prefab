@@ -12,7 +12,8 @@ GameObject:
   - component: {fileID: 2503556375714230325}
   - component: {fileID: 8179348539740490956}
   - component: {fileID: 1918490782898086471}
-  - component: {fileID: 1918490782898086470}
+  - component: {fileID: 393192237422804037}
+  - component: {fileID: 7064347998269924679}
   m_Layer: 0
   m_Name: Isopod
   m_TagString: CollectorItem
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7619584955638986768}
-  m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 9.4, y: 0.98, z: -0.6}
   m_LocalScale: {x: 0.2, y: 0.2, z: 0.2}
   m_Children: []
@@ -97,7 +98,7 @@ SphereCollider:
   serializedVersion: 2
   m_Radius: 4.2369757
   m_Center: {x: 0.07811403, y: -0.35055196, z: 0.076478004}
---- !u!114 &1918490782898086470
+--- !u!114 &393192237422804037
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -106,8 +107,21 @@ MonoBehaviour:
   m_GameObject: {fileID: 7619584955638986768}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 41daec15e7bd19241b39bb919b7c5043, type: 3}
+  m_Script: {fileID: 11500000, guid: 80ba1bd8cb7fe5244a1d854f00d9bdf2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  itemName: Isopod
   DestroyParticle: {fileID: 4469700419787731855, guid: da34883055fc7f94292492e0ad714880,
     type: 3}
+--- !u!114 &7064347998269924679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7619584955638986768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f625fc0ef75d9b48a9fb81e0a4fc9bc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
