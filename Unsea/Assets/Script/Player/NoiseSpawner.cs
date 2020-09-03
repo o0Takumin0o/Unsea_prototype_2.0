@@ -2,23 +2,23 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerNoiseSpawner : MonoBehaviour
+public class NoiseSpawner : MonoBehaviour
 {
     public GameObject NoiseMakerPrefab;
     // Start is called before the first frame update
     public Transform spawnPoint;
     GameObject NoiseMaker;
-    public int DestroyAfter;
+    public float DestroyAfter;
 
 
     // Update is called once per frame
-    void Update()
+    /*void Update()
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
             spawnNoiseMaker();
         }
-    }
+    }*/
     public void spawnNoiseMaker()
     { 
         Vector3 spawnPosition = spawnPoint.position;

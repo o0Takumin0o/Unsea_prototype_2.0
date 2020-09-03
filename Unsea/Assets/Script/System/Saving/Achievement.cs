@@ -18,17 +18,17 @@ public class Achievement : MonoBehaviour
     public GameObject FinishLevel_Icon;
     public GameObject WinInTime_Icon;
     public GameObject GetAllPoint_Icon;
-    //int CurrentLevel;
-    Game game;
+    int CurrentLevel;
+    
 
     // Start is called before the first frame update
     void Start()
     {
-        subCollector = GameObject.Find("Collector").GetComponent<SubCollector>();
+        subCollector = GameObject.Find("CollectorManager").GetComponent<SubCollector>();
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
         timer = GameObject.Find("TimeManager").GetComponent<Timer>();
-        //CurrentLevel = SceneManager.GetActiveScene().buildIndex;
-        game = GameObject.Find("Game").GetComponent<Game>();
+        CurrentLevel = SceneManager.GetActiveScene().buildIndex;
+        //game = GameObject.Find("Game").GetComponent<Game>();
         
         
         GetAllPoint_Icon.SetActive(false);
@@ -39,10 +39,10 @@ public class Achievement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        FinishInTime = PlayerPrefs.GetInt("FinishInTime" + game.CurrentLevel.ToString());
-        collectAllPoint = PlayerPrefs.GetInt("collectAllPoint" + game.CurrentLevel.ToString());
-        WinLevel = PlayerPrefs.GetInt("WinLevel" + game.CurrentLevel.ToString());
-        Debug.Log("CurrentLevel = " + game.CurrentLevel);
+        FinishInTime = PlayerPrefs.GetInt("FinishInTime" + CurrentLevel.ToString());
+        collectAllPoint = PlayerPrefs.GetInt("collectAllPoint" + CurrentLevel.ToString());
+        WinLevel = PlayerPrefs.GetInt("WinLevel" + CurrentLevel.ToString());
+        //Debug.Log("CurrentLevel = " + CurrentLevel);
 
         finishLevel();
         if (playerCtrl.LevelEnd == true|| FinishInTime == 1)
@@ -57,8 +57,8 @@ public class Achievement : MonoBehaviour
         if(subCollector.HightScore == 10|| collectAllPoint == 1)
         {
             GetAllPoint_Icon.SetActive(true);
-            PlayerPrefs.SetInt("collectAllPoint" + game.CurrentLevel.ToString(), 1);
-            //Debug.Log("AllPointGet");
+            PlayerPrefs.SetInt("collectAllPoint" + CurrentLevel.ToString(), 1);
+            Debug.Log("AllPointGet");
             if (playerCtrl.LevelEnd == true )
             {
                 PlayerPrefs.Save();
@@ -70,8 +70,8 @@ public class Achievement : MonoBehaviour
         if(timer.WinBeforeTimeOut == true || FinishInTime == 1)
         {
            WinInTime_Icon.SetActive(true);
-           PlayerPrefs.SetInt("FinishInTime" + game.CurrentLevel.ToString(), 1);
-           //Debug.Log("FinishInTime");
+           PlayerPrefs.SetInt("FinishInTime" + CurrentLevel.ToString(), 1);
+           Debug.Log("FinishInTime");
 
            PlayerPrefs.Save();    
         }
@@ -81,8 +81,8 @@ public class Achievement : MonoBehaviour
         if(playerCtrl.LevelEnd == true || WinLevel ==1)
         {
             FinishLevel_Icon.SetActive(true);
-            PlayerPrefs.SetInt("WinLevel" + game.CurrentLevel.ToString(), 1);
-            //Debug.Log("finishLevel");
+            PlayerPrefs.SetInt("WinLevel" + CurrentLevel.ToString(), 1);
+            Debug.Log("finishLevel");
             PlayerPrefs.Save();
         }
     }

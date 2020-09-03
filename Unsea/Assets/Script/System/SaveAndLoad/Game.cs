@@ -5,11 +5,8 @@ using UnityEngine.SceneManagement;
 
 public class Game : MonoBehaviour
 {
-    public int CurrentLevel;
-    private void Start()
-    {
-        CurrentLevel = SceneManager.GetActiveScene().buildIndex;
-    }
+    
+   
 
     private void Update()
     {

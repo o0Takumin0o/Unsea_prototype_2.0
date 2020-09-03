@@ -50,7 +50,7 @@ public class EnemyDroneCtrl : MonoBehaviour
     public int DestroyAfter = 3;
 
 
-    void Awake()//protected override
+    /*void Awake()//protected override
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
         navMeshAgent.speed = speed;//set speed of agent
@@ -59,10 +59,18 @@ public class EnemyDroneCtrl : MonoBehaviour
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
         musicCtrl = GameObject.Find("SoundCtrl").GetComponent<MusicCtrl>();
         originalSpotlightColour = spotlight.color;
-    }
+    }*/
 
     void Start()
     {
+        navMeshAgent = GetComponent<NavMeshAgent>();
+        navMeshAgent.speed = speed;//set speed of agent
+        anim = GetComponent<Animator>();
+        MoveToNextPatrolPoint();
+        playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
+        musicCtrl = GameObject.Find("SoundCtrl").GetComponent<MusicCtrl>();
+        originalSpotlightColour = spotlight.color;
+
         anim.SetInteger("Stage", 0);//use when has model
         viewAngle = spotlight.spotAngle;
 

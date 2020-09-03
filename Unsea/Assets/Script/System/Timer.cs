@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class Timer : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class Timer : MonoBehaviour
     public Text bestTimer;
     public Text TimeLimit;
 
-   PlayerCtrl playerCtrl;
+    PlayerCtrl playerCtrl;
     Achievement achievement;
     CheckPoint checkPoint;
     [HideInInspector]
@@ -35,25 +36,30 @@ public class Timer : MonoBehaviour
     [HideInInspector] // hide this from inspecter
     public float BestTime;
 
-    float TimeWhenHitCheckpoint;
+    //float TimeWhenHitCheckpoint;
 
     float bestTime;
     float checkpointTime;
     public float TimeMarker;//time limite
     private bool isRunning = false;
     public bool ReachEndLevel = false;
+    //Game game;
+    int CurrentLevel;
 
-    private void Awake()
+    /*private void Awake()
     {
         WinBeforeTimeOut = false;
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
         checkPoint = GameObject.Find("CheckPoint").GetComponent<CheckPoint>();
-    }
+    }*/
     void Start()
     {
         TimerStart();
-
-        
+        WinBeforeTimeOut = false;
+        playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
+        checkPoint = GameObject.Find("CheckPoint").GetComponent<CheckPoint>();
+        CurrentLevel = SceneManager.GetActiveScene().buildIndex;
+        //game = GameObject.Find("Game").GetComponent<Game>();
         //achievement = GameObject.Find("Canvas").GetComponent<Achievement>();
         /*WinBeforeTimeOut = false;
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
@@ -63,8 +69,8 @@ public class Timer : MonoBehaviour
     void Update()
     {
         //if (timestop) return;
-        bestTime = PlayerPrefs.GetFloat("BestTime");
-        checkpointTime = PlayerPrefs.GetFloat("TimeWhenHitCheckpoint");
+        bestTime = PlayerPrefs.GetFloat("BestTime" + CurrentLevel.ToString());
+        //checkpointTime = PlayerPrefs.GetFloat("TimeWhenHitCheckpoint");
         time60Sec();
         //BestTime60Sec();
         if (ReachEndLevel == true)
@@ -78,31 +84,31 @@ public class Timer : MonoBehaviour
         WinTimer.text = timerText.text;
         //bestTimer.text = PlayerPrefs.GetFloat("BestTime").ToString();//real time display this work
         bestTimer.text = BestMinutes + ":" + BestSeconds;//for now need to en level toupdate timer
-        WinTimer.text = TimeMarker.ToString();
-        TimerCheckpoint();
+        //WinTimer.text = TimeMarker.ToString();
+        //TimerCheckpoint();
     }
     public void OnEndLevel()
     {
         ReachEndLevel = true;
-        if (PlayerPrefs.GetFloat("BestTime") <= 0)
+        if (PlayerPrefs.GetFloat("BestTime" + CurrentLevel.ToString()) <= 0)
         {
-            PlayerPrefs.SetFloat("BestTime", TheTime);
+            PlayerPrefs.SetFloat("BestTime" + CurrentLevel.ToString(), TheTime);
         }
 
-        if (PlayerPrefs.GetFloat("BestTime") > TheTime)
+        if (PlayerPrefs.GetFloat("BestTime" + CurrentLevel.ToString()) > TheTime)
         {
-            PlayerPrefs.SetFloat("BestTime", TheTime);
+            PlayerPrefs.SetFloat("BestTime" + CurrentLevel.ToString(), TheTime);
         }
         else
         {
-            BestTime = PlayerPrefs.GetFloat("BestTime");
+            BestTime = PlayerPrefs.GetFloat("BestTime" + CurrentLevel.ToString());
         }
         PlayerPrefs.Save();       
     }
 
     public void ResetBestTimer()
     {
-        PlayerPrefs.DeleteKey("BestTime");
+        PlayerPrefs.DeleteKey("BestTime" + CurrentLevel.ToString());
         
     }
     public void TimerStart()
@@ -122,12 +128,12 @@ public class Timer : MonoBehaviour
             stopTime = Time.time;
         }
     }
-    public void TimerCheckpoint()
+    /*public void TimerCheckpoint()
     {
         PlayerPrefs.SetFloat("TimeWhenHitCheckpoint", TheTime);
         PlayerPrefs.Save();
         Debug.Log("TimeWhenHitCheckpoint=" + TimeWhenHitCheckpoint);
-    }
+    }*/
     public void levelEnd()
     {
         //timestop = true;
@@ -166,7 +172,7 @@ public class Timer : MonoBehaviour
     }
     public void WinIntime()
     {
-        if (PlayerPrefs.GetFloat("BestTime") <= TimeMarker) //if (TimeMarker >= BestTime)
+        if (PlayerPrefs.GetFloat("BestTime" + CurrentLevel.ToString()) <= TimeMarker) //if (TimeMarker >= BestTime)
         {
             WinBeforeTimeOut = true;
             //achievement.FinishInTime = 1;

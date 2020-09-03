@@ -37,8 +37,19 @@ public class EnemyCharger : EnemyCtrl
 
             if (patrol)
             {
-                if (!navMeshAgent.pathPending && navMeshAgent.
+                /*if (!navMeshAgent.pathPending && navMeshAgent.
                     remainingDistance < 0.5f)
+                {
+                    MoveToNextPatrolPoint();
+                    anim.SetInteger("Stage", 1);
+                }
+                if (navMeshAgent.remainingDistance < 0.01f)
+                {
+                    anim.SetInteger("Stage", 0);
+                    LookAtTarget();
+                }*/
+                if (!navMeshAgent.pathPending && navMeshAgent.
+                    remainingDistance < 1f)
                 {
                     MoveToNextPatrolPoint();
                     anim.SetInteger("Stage", 1);

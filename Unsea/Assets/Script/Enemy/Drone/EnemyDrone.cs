@@ -37,7 +37,7 @@ public class EnemyDrone : EnemyDroneCtrl
             if (patrol)
             {
                 if (!navMeshAgent.pathPending && navMeshAgent.
-                    remainingDistance < 0.5f)
+                    remainingDistance < 1f)
                 {
                     MoveToNextPatrolPoint();
                     anim.SetInteger("Stage", 1);

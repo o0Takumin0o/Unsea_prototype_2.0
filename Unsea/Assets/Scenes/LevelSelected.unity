@@ -2925,6 +2925,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: GameObject
       objectReference: {fileID: 0}
+    - target: {fileID: 581761585890347230, guid: 6259ed3be90233049b9c8a5fdd8bcacf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 6089530103082999316, guid: 6259ed3be90233049b9c8a5fdd8bcacf,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -3668,36 +3673,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1912898617}
   m_CullTransparentMesh: 0
---- !u!1 &1926363821
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1926363822}
-  m_Layer: 0
-  m_Name: GameObject (1)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1926363822
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1926363821}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 1885.3, y: 631, z: -23}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 9
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1961731310
 GameObject:
   m_ObjectHideFlags: 0
@@ -11887,6 +11862,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PostProsessing
+      objectReference: {fileID: 0}
+    - target: {fileID: 581761585890347230, guid: 6259ed3be90233049b9c8a5fdd8bcacf,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6089530103082999316, guid: 6259ed3be90233049b9c8a5fdd8bcacf,
         type: 3}

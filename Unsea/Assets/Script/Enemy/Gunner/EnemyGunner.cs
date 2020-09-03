@@ -66,7 +66,7 @@ public class EnemyGunner : EnemyCtrl
             if (patrol)
             {
                 if (!navMeshAgent.pathPending && navMeshAgent.
-                    remainingDistance < 0.5f)
+                    remainingDistance < 1f)
                 {
                     MoveToNextPatrolPoint();
                     anim.SetInteger("Stage", 1);
@@ -89,7 +89,8 @@ public class EnemyGunner : EnemyCtrl
         Bullet bullet = bulletGo.GetComponent<Bullet>();
         if (bullet != null)
             bullet.Seek(target);
-        
+        Destroy(bulletGo, 3f);
+
     }
 
     private void OnDrawGizmos()

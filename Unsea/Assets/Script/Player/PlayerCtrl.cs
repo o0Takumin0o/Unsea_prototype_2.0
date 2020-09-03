@@ -132,7 +132,7 @@ public class PlayerCtrl : MonoBehaviour
             {
                 OnReachedEndOfLevel();
             }
-            GameObject.Find("Player").SendMessage("Finish_Goal");
+            //GameObject.Find("Player").SendMessage("Finish_Goal");
         }
 
         if (hitCollider.tag == "HidingSpots")
@@ -149,7 +149,7 @@ public class PlayerCtrl : MonoBehaviour
         if (hitCollider.tag == "CollectorItem")
         {
             subcCollector.UpdatecollectorPoint();
-            Debug.Log("subPointGet");
+            //Debug.Log("subPointGet");
             Destroy(hitCollider.gameObject);
             soundFX.Pickup();
         }

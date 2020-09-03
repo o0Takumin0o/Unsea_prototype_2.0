@@ -9,6 +9,7 @@ public class CheckPoint : MonoBehaviour
     Timer timer;
     SubCollector subCollector;
     Game game;
+    Collector collector;
     //float TimeWhenHitCheckpoint;
     public bool CheckPointReatch;
     private void Start()
@@ -16,6 +17,7 @@ public class CheckPoint : MonoBehaviour
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         timer = GameObject.Find("TimeManager").GetComponent<Timer>();
         subCollector = GameObject.Find("CollectorManager").GetComponent<SubCollector>();
+        collector = GameObject.Find("CollectorManager").GetComponent<Collector>();
         game = GameObject.Find("Game").GetComponent<Game>();
         CheckPointReatch = false;
     }
@@ -25,12 +27,14 @@ public class CheckPoint : MonoBehaviour
         if(other.CompareTag("Player"))
         {//if player walk pass checkpoint save checkpoint
             CheckPointReatch = true;
-            Debug.Log("CheckPointReatch = "+CheckPointReatch);
+            Debug.Log("CheckPointReatch = "+ CheckPointReatch);
             GM.lastCheckPointPos = Checkpoint.transform.position;
             print("SpawnPointSet =" + Checkpoint.transform.position);
             subCollector.saveHightScore();
+            subCollector.SaveCheckpointScore();
+            collector.SaveMainPointScore();
             //save time
-            timer.TimerCheckpoint();
+            //timer.TimerCheckpoint();
 
             //save mainpoint
             game.Save();

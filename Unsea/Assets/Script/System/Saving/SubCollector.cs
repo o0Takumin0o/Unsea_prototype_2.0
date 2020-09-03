@@ -15,61 +15,78 @@ public class SubCollector : MonoBehaviour
     public Text CurrenScoretxt;
     public Text SavedScoretxt;
 
+    int CurrentLevel;
+    //Game game;
+    //CheckPoint CheckPoint;
 
-    Game game;
-    CheckPoint CheckPoint;
-    ItemDatabase itemDatabase;
     private void Start()
-    {        
-        game = GameObject.Find("Game").GetComponent<Game>();
-        CheckPoint = GameObject.Find("CheckPoint").GetComponent<CheckPoint>();
-        
+    {
+        //game = GameObject.Find("Game").GetComponent<Game>();
+        //CheckPoint = GameObject.Find("CheckPoint").GetComponent<CheckPoint>();
+        CurrentLevel = SceneManager.GetActiveScene().buildIndex;
+        collectorPoint = PlayerPrefs.GetInt("SavedScore" + CurrentLevel.ToString());
+        Debug.Log("SavedScore = " + SavedScore);
+        Debug.Log("collectorPoint = " + collectorPoint);
+
     }
     private void Update()
     {
         //saveHightScore();
-        SaveCheckpointHightScore();
-        CurrenScoretxt.text = collectorPoint.ToString();
+        //SaveCheckpointHightScore();
+        if(collectorPoint <= SavedScore)
+        {
+            CurrenScoretxt.text = SavedScore.ToString();
+        }
+        else
+        {
+            CurrenScoretxt.text = collectorPoint.ToString();
+        }
+        //CurrenScoretxt.text = collectorPoint.ToString();
 
-        SavedScore = PlayerPrefs.GetInt("SavedScore" + game.CurrentLevel.ToString());
-        SavedScoretxt.text = PlayerPrefs.GetInt("SavedScore" + game.CurrentLevel.ToString()).ToString();
+        SavedScore = PlayerPrefs.GetInt("SavedScore" + CurrentLevel.ToString());
+        SavedScoretxt.text = PlayerPrefs.GetInt("SavedScore" + CurrentLevel.ToString()).ToString();
 
-        HightScore = PlayerPrefs.GetInt("HightScore" + game.CurrentLevel.ToString());
-        HightScoretxt.text = PlayerPrefs.GetInt("HightScore" + game.CurrentLevel.ToString()).ToString();
-        Debug.Log("HightScore = "+ HightScore);
+        HightScore = PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString());
+        HightScoretxt.text = PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString()).ToString();
+        //Debug.Log("HightScore = "+ HightScore);
     }
     
     public void UpdatecollectorPoint()
     {
         collectorPoint += 1;
-
+        //SavedScore += 1;
+        
     }
-    public void SaveCheckpointHightScore()
+
+    public void SaveCheckpointScore()
     {
-        PlayerPrefs.SetInt("SavedScore" + game.CurrentLevel.ToString(), collectorPoint);
+        PlayerPrefs.SetInt("SavedScore" + CurrentLevel.ToString(), collectorPoint);
         PlayerPrefs.Save();
-        SavedScoretxt.text = PlayerPrefs.GetInt("SavedScore" + game.CurrentLevel.ToString()).ToString();
+        SavedScoretxt.text = PlayerPrefs.GetInt("SavedScore" + CurrentLevel.ToString()).ToString();
+        //Debug.Log("SavedScore = " + SavedScore);
+        /*PlayerPrefs.SetInt("SavedScore", PlayerPrefs.GetInt("SavedScore",0) + 1);
         Debug.Log("SavedScore = " + SavedScore);
+        SavedScoretxt.text = PlayerPrefs.GetInt("SavedScore" + CurrentLevel.ToString()).ToString();*/
 
+
+        //SavedScore = PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString());
+        //PlayerPrefs.SetInt("SavedScore" + CurrentLevel.ToString(),SavedScore);
+        /*if(collectorPoint != 0)
+        {
+            PlayerPrefs.SetInt("SavedScore" + CurrentLevel.ToString(), collectorPoint);
+
+            SavedScoretxt.text = PlayerPrefs.GetInt("SavedScore" + CurrentLevel.ToString()).ToString();
+            Debug.Log("SavedScore = " + SavedScore);
+        }*/
     }
-    /*void ShowScore()
-    {
-        if(CheckPoint.CheckPointReatch == false)
-        {
-            CurrenScoretxt.text = collectorPoint.ToString();
-        }
-        else
-        {
-            CurrenScoretxt.text = PlayerPrefs.GetInt("SavedScore").ToString();
-        }
-    }*/
+   
 
     public void saveHightScore()
     {//get HightScore
-        if (PlayerPrefs.GetInt("HightScore" + game.CurrentLevel.ToString()) < collectorPoint )
+        if (PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString()) < collectorPoint )
         {
-            PlayerPrefs.SetInt("HightScore" + game.CurrentLevel.ToString(), collectorPoint);
-            HightScoretxt.text = PlayerPrefs.GetInt("HightScore" + game.CurrentLevel.ToString()).ToString();
+            PlayerPrefs.SetInt("HightScore" + CurrentLevel.ToString(), collectorPoint);
+            HightScoretxt.text = PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString()).ToString();
         }
     }
 }
