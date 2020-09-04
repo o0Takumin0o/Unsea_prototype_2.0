@@ -24,6 +24,8 @@ public class Collector : MonoBehaviour
         //game = GameObject.Find("Game").GetComponent<Game>();
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
         CurrentLevel = SceneManager.GetActiveScene().buildIndex;
+
+        mainPoint = PlayerPrefs.GetInt("saveMainPoint" + CurrentLevel.ToString());
         //mainPoint = saveMainPoint;
         //mainPoint = mainPoint + PlayerPrefs.GetInt("saveMainPoint" + game.CurrentLevel.ToString());
 
@@ -52,23 +54,14 @@ public class Collector : MonoBehaviour
     }
     public void UpdatePoint()
     {
-        mainPoint += 1;
-        //MainScore.text = mainPoint.ToString();
-        
+        mainPoint += 1; 
     }
     public void SaveMainPointScore()
     {
-        /*if (mainPoint != 0)
-        {
-            PlayerPrefs.SetInt("saveMainPoint" + game.CurrentLevel.ToString(), mainPoint);
-
-            MainScore.text = PlayerPrefs.GetInt("saveMainPoint" + game.CurrentLevel.ToString()).ToString();
-            Debug.Log("saveMainPoint = " + saveMainPoint);
-        }*/
         PlayerPrefs.SetInt("saveMainPoint" + CurrentLevel.ToString(), mainPoint);
-
-        MainScore.text = PlayerPrefs.GetInt("saveMainPoint" +CurrentLevel.ToString()).ToString();
-        //Debug.Log("saveMainPoint = " + saveMainPoint);
+        PlayerPrefs.Save();
+        MainScore.text = PlayerPrefs.GetInt("saveMainPoint" + CurrentLevel.ToString()).ToString();
+        Debug.Log("saveMainPoint = " + saveMainPoint);
     }
 
 }

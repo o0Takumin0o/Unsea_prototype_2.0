@@ -34,7 +34,7 @@ public class CheckPoint : MonoBehaviour
             subCollector.SaveCheckpointScore();
             collector.SaveMainPointScore();
             //save time
-            //timer.TimerCheckpoint();
+            timer.TimerCheckpoint();
 
             //save mainpoint
             game.Save();

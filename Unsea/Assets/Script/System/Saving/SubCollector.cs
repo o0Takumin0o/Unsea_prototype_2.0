@@ -21,13 +21,10 @@ public class SubCollector : MonoBehaviour
 
     private void Start()
     {
-        //game = GameObject.Find("Game").GetComponent<Game>();
-        //CheckPoint = GameObject.Find("CheckPoint").GetComponent<CheckPoint>();
         CurrentLevel = SceneManager.GetActiveScene().buildIndex;
         collectorPoint = PlayerPrefs.GetInt("SavedScore" + CurrentLevel.ToString());
         Debug.Log("SavedScore = " + SavedScore);
         Debug.Log("collectorPoint = " + collectorPoint);
-
     }
     private void Update()
     {
@@ -54,8 +51,6 @@ public class SubCollector : MonoBehaviour
     public void UpdatecollectorPoint()
     {
         collectorPoint += 1;
-        //SavedScore += 1;
-        
     }
 
     public void SaveCheckpointScore()
@@ -63,21 +58,6 @@ public class SubCollector : MonoBehaviour
         PlayerPrefs.SetInt("SavedScore" + CurrentLevel.ToString(), collectorPoint);
         PlayerPrefs.Save();
         SavedScoretxt.text = PlayerPrefs.GetInt("SavedScore" + CurrentLevel.ToString()).ToString();
-        //Debug.Log("SavedScore = " + SavedScore);
-        /*PlayerPrefs.SetInt("SavedScore", PlayerPrefs.GetInt("SavedScore",0) + 1);
-        Debug.Log("SavedScore = " + SavedScore);
-        SavedScoretxt.text = PlayerPrefs.GetInt("SavedScore" + CurrentLevel.ToString()).ToString();*/
-
-
-        //SavedScore = PlayerPrefs.GetInt("HightScore" + CurrentLevel.ToString());
-        //PlayerPrefs.SetInt("SavedScore" + CurrentLevel.ToString(),SavedScore);
-        /*if(collectorPoint != 0)
-        {
-            PlayerPrefs.SetInt("SavedScore" + CurrentLevel.ToString(), collectorPoint);
-
-            SavedScoretxt.text = PlayerPrefs.GetInt("SavedScore" + CurrentLevel.ToString()).ToString();
-            Debug.Log("SavedScore = " + SavedScore);
-        }*/
     }
    
 

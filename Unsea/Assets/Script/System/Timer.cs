@@ -36,7 +36,8 @@ public class Timer : MonoBehaviour
     [HideInInspector] // hide this from inspecter
     public float BestTime;
 
-    //float TimeWhenHitCheckpoint;
+    float TimeWhenHitCheckpoint;
+    float TimeEqual;
 
     float bestTime;
     float checkpointTime;
@@ -46,12 +47,7 @@ public class Timer : MonoBehaviour
     //Game game;
     int CurrentLevel;
 
-    /*private void Awake()
-    {
-        WinBeforeTimeOut = false;
-        playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
-        checkPoint = GameObject.Find("CheckPoint").GetComponent<CheckPoint>();
-    }*/
+   
     void Start()
     {
         TimerStart();
@@ -61,9 +57,8 @@ public class Timer : MonoBehaviour
         CurrentLevel = SceneManager.GetActiveScene().buildIndex;
         //game = GameObject.Find("Game").GetComponent<Game>();
         //achievement = GameObject.Find("Canvas").GetComponent<Achievement>();
-        /*WinBeforeTimeOut = false;
-        playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
-        checkPoint = GameObject.Find("CheckPoint").GetComponent<CheckPoint>();*/
+        TimeWhenHitCheckpoint = PlayerPrefs.GetInt("TimeWhenHitCheckpoint" + CurrentLevel.ToString());
+        TimeEqual = PlayerPrefs.GetInt("TimeWhenHitCheckpoint" + CurrentLevel.ToString());
     }
 
     void Update()
@@ -117,6 +112,7 @@ public class Timer : MonoBehaviour
         {
             isRunning = true;
             startTime = Time.time;
+            
         }
     }
    
@@ -125,15 +121,17 @@ public class Timer : MonoBehaviour
         if (isRunning)
         {
             isRunning = false;
-            stopTime = Time.time;
+            //stopTime = Time.time;
+            stopTime = Time.time + TimeEqual;
+            //stopTime = Time.time + TimeWhenHitCheckpoint;
         }
     }
-    /*public void TimerCheckpoint()
+    public void TimerCheckpoint()
     {
-        PlayerPrefs.SetFloat("TimeWhenHitCheckpoint", TheTime);
+        PlayerPrefs.SetFloat("TimeWhenHitCheckpoint" + CurrentLevel.ToString(), TheTime);
         PlayerPrefs.Save();
-        Debug.Log("TimeWhenHitCheckpoint=" + TimeWhenHitCheckpoint);
-    }*/
+        Debug.Log("TimeWhenHitCheckpoint=" + TimeWhenHitCheckpoint );
+    }
     public void levelEnd()
     {
         //timestop = true;
@@ -146,6 +144,7 @@ public class Timer : MonoBehaviour
         TheTime = stopTime + (Time.time - startTime);
         minutesInt = (int)TheTime / 60;
         secondsInt = (int)TheTime % 60;
+        //Debug.Log("TheTime = " + TheTime);
        
 
         if (isRunning)
@@ -167,7 +166,6 @@ public class Timer : MonoBehaviour
                 : BestMinutesInt.ToString();
         BestSeconds = (BestSecondsInt < 10) ? "0" + BestSecondsInt
             : BestSecondsInt.ToString("00");
-      
 
     }
     public void WinIntime()
