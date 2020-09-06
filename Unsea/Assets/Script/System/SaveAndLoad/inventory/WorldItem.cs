@@ -30,6 +30,7 @@ public class WorldItem : MonoBehaviour
         {
             collectibleItemSet.CollectedItems.Add(uniqueID.ID);
             other.GetComponent<Inventory>().AddItem(itemName);
+            
             //Destroy(gameObject);
         }
     }

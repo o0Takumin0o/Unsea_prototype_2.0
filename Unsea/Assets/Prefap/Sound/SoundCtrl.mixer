@@ -19,6 +19,20 @@ AudioMixerGroupController:
   m_Mute: 0
   m_Solo: 0
   m_BypassEffects: 0
+--- !u!244 &-3822092177818595337
+AudioMixerEffectController:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: 
+  m_EffectID: 6319380d605cf9340a3e1607bd32b554
+  m_EffectName: Attenuation
+  m_MixLevel: 03dc562e2697fe6439ad820e131c467b
+  m_Parameters: []
+  m_SendTarget: {fileID: 0}
+  m_EnableWetMix: 0
+  m_Bypass: 0
 --- !u!244 &-3399748756545543333
 AudioMixerEffectController:
   m_ObjectHideFlags: 3
@@ -33,6 +47,25 @@ AudioMixerEffectController:
   m_SendTarget: {fileID: 0}
   m_EnableWetMix: 0
   m_Bypass: 0
+--- !u!243 &-382564452675197293
+AudioMixerGroupController:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: PaniCMusic
+  m_AudioMixer: {fileID: 24100000}
+  m_GroupID: bd2c07c19bafa914ca7cce7aadc89316
+  m_Children: []
+  m_Volume: 757aeededeb19d04496a51b3621edf35
+  m_Pitch: 9fd17585504fb0f4ab40a1187ee86c29
+  m_Send: 00000000000000000000000000000000
+  m_Effects:
+  - {fileID: -3822092177818595337}
+  m_UserColorIndex: 0
+  m_Mute: 0
+  m_Solo: 0
+  m_BypassEffects: 0
 --- !u!241 &24100000
 AudioMixerController:
   m_ObjectHideFlags: 0
@@ -58,6 +91,7 @@ AudioMixerController:
     - 28eef97ca6fae5741bfaed3ed02741a2
     - 49eff9588f8705f40a2932bd1a0fd627
     - 57c0d6c2f2d61e149a98ae19d676995a
+    - bd2c07c19bafa914ca7cce7aadc89316
     name: View
   m_CurrentViewIndex: 0
   m_TargetSnapshot: {fileID: 24500006}
@@ -130,7 +164,8 @@ AudioMixerGroupController:
   m_Name: Music
   m_AudioMixer: {fileID: 24100000}
   m_GroupID: 57c0d6c2f2d61e149a98ae19d676995a
-  m_Children: []
+  m_Children:
+  - {fileID: -382564452675197293}
   m_Volume: 27eacbece2e32c9428f9d5d2cbff0200
   m_Pitch: 65598a437aad79047a1fca78c47efacb
   m_Send: 00000000000000000000000000000000

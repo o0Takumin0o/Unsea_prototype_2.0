@@ -5,6 +5,7 @@ using UnityEngine;
 public class MusicCtrl : MonoBehaviour
 {
     public AudioSource MusicVolume;
+    public AudioSource panicSound;
     public AudioClip Bgm;
     public AudioClip PanicSound;
     private float PanicSoundCountdown = 0f;
@@ -12,14 +13,18 @@ public class MusicCtrl : MonoBehaviour
     private void Start()
     {
         MusicVolume = GameObject.Find("GameMusic").GetComponent<AudioSource>();
-        MusicVolume.PlayOneShot(Bgm);
+        //MusicVolume.PlayOneShot(Bgm);
+        MusicVolume.clip = Bgm;
+        panicSound.clip = PanicSound;
         //MusicVolume.clip = PanicSound;
+        MusicVolume.Play();
     }
 
     public void PlayPanicSound()
     {
         if (PanicSoundCountdown <= 0f)
         {
+            //panicSound.Play();
             MusicVolume.PlayOneShot(PanicSound);
             PanicSoundCountdown = 33f / 1;
         }
@@ -29,6 +34,6 @@ public class MusicCtrl : MonoBehaviour
     }
     public void StopPanicSound()
     {
-        MusicVolume.Stop();
+        panicSound.Stop();
     }
 }

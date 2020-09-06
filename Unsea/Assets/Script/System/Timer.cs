@@ -57,8 +57,8 @@ public class Timer : MonoBehaviour
         CurrentLevel = SceneManager.GetActiveScene().buildIndex;
         //game = GameObject.Find("Game").GetComponent<Game>();
         //achievement = GameObject.Find("Canvas").GetComponent<Achievement>();
-        TimeWhenHitCheckpoint = PlayerPrefs.GetInt("TimeWhenHitCheckpoint" + CurrentLevel.ToString());
-        TimeEqual = PlayerPrefs.GetInt("TimeWhenHitCheckpoint" + CurrentLevel.ToString());
+        TimeWhenHitCheckpoint = PlayerPrefs.GetFloat("TimeWhenHitCheckpoint" + CurrentLevel.ToString());
+        TimeEqual = PlayerPrefs.GetFloat("TimeWhenHitCheckpoint" + CurrentLevel.ToString());
     }
 
     void Update()
@@ -101,11 +101,11 @@ public class Timer : MonoBehaviour
         PlayerPrefs.Save();       
     }
 
-    public void ResetBestTimer()
+    /*public void ResetBestTimer()
     {
         PlayerPrefs.DeleteKey("BestTime" + CurrentLevel.ToString());
         
-    }
+    }*/
     public void TimerStart()
     {
         if(!isRunning)
@@ -128,9 +128,15 @@ public class Timer : MonoBehaviour
     }
     public void TimerCheckpoint()
     {
-        PlayerPrefs.SetFloat("TimeWhenHitCheckpoint" + CurrentLevel.ToString(), TheTime);
+        if(TimeWhenHitCheckpoint<TheTime)
+        {
+            PlayerPrefs.SetFloat("TimeWhenHitCheckpoint" + CurrentLevel.ToString(), TheTime);
+            PlayerPrefs.Save();
+            Debug.Log("TimeWhenHitCheckpoint=" + TimeWhenHitCheckpoint);
+        }
+        /*PlayerPrefs.SetFloat("TimeWhenHitCheckpoint" + CurrentLevel.ToString(), TheTime);
         PlayerPrefs.Save();
-        Debug.Log("TimeWhenHitCheckpoint=" + TimeWhenHitCheckpoint );
+        Debug.Log("TimeWhenHitCheckpoint=" + TimeWhenHitCheckpoint );*/
     }
     public void levelEnd()
     {
@@ -141,7 +147,7 @@ public class Timer : MonoBehaviour
     }
     public void time60Sec()
     {
-        TheTime = stopTime + (Time.time - startTime);
+        TheTime = stopTime + (Time.time - startTime)+TimeWhenHitCheckpoint;
         minutesInt = (int)TheTime / 60;
         secondsInt = (int)TheTime % 60;
         //Debug.Log("TheTime = " + TheTime);

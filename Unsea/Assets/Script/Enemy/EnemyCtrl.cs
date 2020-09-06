@@ -117,6 +117,7 @@ public class EnemyCtrl : MonoBehaviour
         {
             playerVisibleTimer -= Time.deltaTime;
             navMeshAgent.speed = speed;//set speed of agent
+            musicCtrl.StopPanicSound();
         }
 
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
