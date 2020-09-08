@@ -93,8 +93,8 @@ public class EnemyGunner : EnemyCtrl
 
     }
 
-    private void OnDrawGizmos()
+    /*private void OnDrawGizmos()
     {
         Gizmos.DrawSphere(firePoint.position, .3f);
-    }
+    }*/
 }

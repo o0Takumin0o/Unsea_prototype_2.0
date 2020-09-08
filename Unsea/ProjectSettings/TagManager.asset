@@ -14,6 +14,10 @@ TagManager:
   - NoiseMaker
   - GameManager
   - CrabArmor
+  - StopTarget
+  - Bullet
+  - PlayerNoise
+  - NoiseMakerTrap
   layers:
   - Default
   - TransparentFX

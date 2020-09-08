@@ -15,7 +15,7 @@ public class DialogueEvent : MonoBehaviour
     {
         //dialogStage = 0;
         Collector = GameObject.Find("CollectorManager").GetComponent<Collector>();
-        
+        dialogStage = 0;
     }
 
     // Update is called once per frame
@@ -23,7 +23,7 @@ public class DialogueEvent : MonoBehaviour
     {
         if (ItemNeed == Collector.mainPoint && !onetime)
         {
-            DialogueCtrl();
+            DialogueEventCtrl();
             onetime = true;
         }
         if (Input.GetKeyDown(KeyCode.E))
@@ -32,7 +32,7 @@ public class DialogueEvent : MonoBehaviour
         }
     }
 
-    void DialogueCtrl()
+    void DialogueEventCtrl()
     {
         dialogueTrigger.TriggerDialogue();
         /*if(Input.GetKeyDown(KeyCode.E))

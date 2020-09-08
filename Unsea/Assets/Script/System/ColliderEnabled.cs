@@ -8,11 +8,16 @@ public class ColliderEnabled : MonoBehaviour
     public Collector collector;
     public GameObject VfxWin;
     public GameObject Compass;
+    private GameManager GM;
+    private Game game;
+
     void Start()
     {//Fetch the GameObject's Collider 
         F_Collider = GetComponent<Collider>();
         VfxWin.SetActive(false);
         Compass.SetActive(false);
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
+        game = GameObject.FindGameObjectWithTag("Game").GetComponent<Game>();
     }
 
     void Update()
@@ -23,6 +28,15 @@ public class ColliderEnabled : MonoBehaviour
             //Debug.Log("Collider.enabled = true");
             VfxWin.SetActive(true);
             Compass.SetActive(true);
+        }
+    }
+    public void OnTriggerEnter(Collider hitCollider)
+    {
+        if (hitCollider.tag == "Player")
+        {
+            GM.resetCheckPoint();
+            game.ResetCheckpoint();
+
         }
     }
 }

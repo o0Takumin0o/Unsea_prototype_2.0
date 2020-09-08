@@ -42,7 +42,8 @@ public class EnemyCtrl : MonoBehaviour
     public float waitToRespawn;
     MusicCtrl musicCtrl;
 
-
+    public GameObject StopTarget;
+    GameObject Target;
     /*void Awake()//protected override
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -65,25 +66,65 @@ public class EnemyCtrl : MonoBehaviour
         originalSpotlightColour = spotlight.color;
         anim.SetInteger("Stage", 0);//use when has model
         viewAngle = spotlight.spotAngle;
-        
+
     }
+    
 
     public void OnTriggerEnter(Collider hitCollider)
     {
         if (hitCollider.tag == "Player")
         {
-            navMeshAgent.SetDestination(Player.transform.position);
-            LookAtPlayer();
+            Respawn();
+            /*navMeshAgent.SetDestination(Player.transform.position);
+            LookAtPlayer();*/
             anim.SetInteger("Stage", 2);
         }
         //neet to make enemy go to noise
+        if (hitCollider.tag == "NoiseMakerTrap")
+        {
+            navMeshAgent.SetDestination(GameObject.FindGameObjectWithTag("NoiseMakerTrap").transform.position);
+            
+            anim.SetInteger("Stage", 1);
+            spawnTarget();
+
+        }
         if (hitCollider.tag == "NoiseMaker")
         {
             navMeshAgent.SetDestination(GameObject.FindGameObjectWithTag("NoiseMaker").transform.position);
+
+            anim.SetInteger("Stage", 1);
+
+        }
+
+        if (hitCollider.tag == "PlayerNoise")
+        {
+            navMeshAgent.SetDestination(GameObject.FindGameObjectWithTag("Player").transform.position);
             anim.SetInteger("Stage", 1);
         }
+
+        if (hitCollider.tag == "StopTarget")
+        {
+            //anim.SetInteger("Stage", 0);
+            gameObject.GetComponent<NavMeshAgent>().enabled = false;
+            Destroy(Target);
+
+            StartCoroutine(resetNavmesh());
+        }
     }
-    
+
+   
+    IEnumerator resetNavmesh()
+    {
+        yield return new WaitForSeconds(7);
+        //anim.SetInteger("Stage", 1);
+        gameObject.GetComponent<NavMeshAgent>().enabled = true;
+    }
+
+    void spawnTarget()
+    {
+        Target = (GameObject)Instantiate(StopTarget, GameObject.FindGameObjectWithTag("NoiseMaker").transform.position, Quaternion.identity);
+    }
+
     public bool CanSeePlayer()
     {//need animater to sea player
         if (playerCtrl.PlayerVisible == true && Vector3.Distance(transform.position, PlayerLocation) < viewDistance)
@@ -183,11 +224,11 @@ public class EnemyCtrl : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, LookRotationSpeed * Time.deltaTime);
     }
-    public void LookAtPlayer()
+    /*public void LookAtPlayer()
     {
         Vector3 direction = Player.transform.position - transform.position;
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, LookRotationSpeed * Time.deltaTime);
-    }
+    }*/
 
 }

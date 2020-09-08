@@ -9,6 +9,14 @@ public class WorldItem : MonoBehaviour
     private ItemDatabase database;
     private CollectibleItemSet collectibleItemSet;
     private UniqueID uniqueID;
+    [SerializeField]
+    float height = 0.5f;
+
+    [SerializeField]
+    float period = 1;
+
+    private Vector3 initialPosition;
+    private float offset;
 
     // Start is called before the first frame update
     void Start()
@@ -21,6 +29,9 @@ public class WorldItem : MonoBehaviour
             Destroy(this.gameObject);
             return;
         }
+        initialPosition = transform.position;
+
+        offset = 1 - (Random.value * 2);
 
     }
 
@@ -41,6 +52,7 @@ public class WorldItem : MonoBehaviour
     void Update()
     {//transform.Rotate(speed, speed, speed);
         transform.Rotate(0, speed, 0);
+        transform.position = initialPosition - Vector3.up * Mathf.Sin((Time.time + offset) * period) * height;
     }
 
     public void OnDestroy()

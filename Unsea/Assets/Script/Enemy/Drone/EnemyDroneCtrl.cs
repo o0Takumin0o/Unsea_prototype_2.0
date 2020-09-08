@@ -49,6 +49,9 @@ public class EnemyDroneCtrl : MonoBehaviour
     public float waitToRespawn ;
     public int DestroyAfter = 3;
 
+    public GameObject StopTarget;
+    GameObject Target;
+
 
     /*void Awake()//protected override
     {
@@ -88,8 +91,43 @@ public class EnemyDroneCtrl : MonoBehaviour
         if (hitCollider.tag == "NoiseMaker")
         {
             navMeshAgent.SetDestination(GameObject.FindGameObjectWithTag("NoiseMaker").transform.position);
+
+            anim.SetInteger("Stage", 1);
+
+        }
+        if (hitCollider.tag == "NoiseMakerTrap")
+        {
+            navMeshAgent.SetDestination(GameObject.FindGameObjectWithTag("NoiseMakerTrap").transform.position);
+
+            anim.SetInteger("Stage", 1);
+            spawnTarget();
+
+        }
+        if (hitCollider.tag == "PlayerNoise")
+        {
+            navMeshAgent.SetDestination(GameObject.FindGameObjectWithTag("Player").transform.position);
             anim.SetInteger("Stage", 1);
         }
+        if (hitCollider.tag == "StopTarget")
+        {
+            anim.SetInteger("Stage", 0);
+            gameObject.GetComponent<NavMeshAgent>().enabled = false;
+            Destroy(Target);
+
+            StartCoroutine(resetNavmesh());
+        }
+    }
+
+    IEnumerator resetNavmesh()
+    {
+        yield return new WaitForSeconds(7);
+        anim.SetInteger("Stage", 0);
+        gameObject.GetComponent<NavMeshAgent>().enabled = true;
+    }
+    void spawnTarget()
+    {
+        Target = (GameObject)Instantiate(StopTarget, GameObject.FindGameObjectWithTag("NoiseMaker").transform.position, Quaternion.identity);
+
     }
 
     public bool CanSeePlayer()
@@ -184,10 +222,10 @@ public class EnemyDroneCtrl : MonoBehaviour
             currentControlPointIndex %= patrolPoints.Length;
         }
     }
-    public void Respawn()
+    /*public void Respawn()
     {//reload current scene
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    }*/
     public void LookAtTarget()
     {
         Vector3 direction = LookAt.position - transform.position;

@@ -8,7 +8,7 @@ public class PlayerCtrl : MonoBehaviour
 {
     Animator animator;
     [Header("Movement")]
-    public float moveSpeed = 7;
+    public float moveSpeed = 8;
     public float smoothMoveTime = .1f;
     public float turnSpeed = 8;
     float angle;
@@ -32,10 +32,12 @@ public class PlayerCtrl : MonoBehaviour
     public bool LevelEnd = false;
     [SerializeField]
     public bool PlayerVisible = true;
+    public GameObject playerNoise;
     [Header("UI")]
     public GameObject WinScreen;
     public GameObject GameplayUI;
     private float SoundCountdown = 0f;
+    
 
     Game game;
 
@@ -45,6 +47,7 @@ public class PlayerCtrl : MonoBehaviour
         animator = GetComponent<Animator>();
         EnemyCtrl.OnGuardHasSpottedPlayer += Disable;
         game = GameObject.Find("Game").GetComponent<Game>();
+        playerNoise.SetActive(false);
 
         //slowTime = (SlowTime)FindObjectOfType(typeof(SlowTime)); //useto find code that been instance when change scene
     }
@@ -65,10 +68,7 @@ public class PlayerCtrl : MonoBehaviour
 
         velocity = transform.forward * moveSpeed * smoothInputMagnitude;
 
-        if (Input.GetKeyDown(KeyCode.R))
-        {
-            PlayerPrefs.DeleteAll();
-        }
+        
 
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)
             || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)
@@ -76,21 +76,35 @@ public class PlayerCtrl : MonoBehaviour
             || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
             animator.SetInteger("Walk", 1);
-                  
-            if (SoundCountdown <= 0f)
+            playerNoise.SetActive(true);
+
+
+            //SwiningSound();
+
+            /*if (SoundCountdown <= 0f)
             {
                 soundFX.swimSound();
                 SoundCountdown = 1.5f / 1;
             }
-            SoundCountdown -= Time.deltaTime;
+            SoundCountdown -= Time.deltaTime;*/
         }
         else
         {
             animator.SetInteger("Walk", 0);
             SoundCountdown = 0;
+            playerNoise.SetActive(false);
         }
 
     }
+    /*void SwiningSound()
+    {
+        if (SoundCountdown <= 0f)
+        {
+            soundFX.Swimsound();
+            SoundCountdown = 1.5f / 1;
+        }
+        SoundCountdown -= Time.deltaTime;
+    }*/
 
     void FixedUpdate()
     {
@@ -127,6 +141,7 @@ public class PlayerCtrl : MonoBehaviour
             timer.ReachEndLevel = true;
             timer.BestTime60Sec();
             game.DeleteAllProgress();
+            subcCollector.saveHightScore();
 
             if (OnReachedEndOfLevel != null)
             {
@@ -154,13 +169,17 @@ public class PlayerCtrl : MonoBehaviour
             soundFX.Pickup();
         }
 
-        /*if (hitCollider.tag == "Enemy")
+        if (hitCollider.tag == "Bullet")
         {
-            //GameObject.Find("Player").SendMessage("Finnish");
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);//reload current scene
-            slowTime.Endlevel = true;
-            timer.levelEnd();
-        }*/
+            moveSpeed = 4;
+            StartCoroutine(resetSpeed());
+        }
+    }
+    IEnumerator resetSpeed()
+    {
+        yield return new WaitForSeconds(2);
+
+        moveSpeed = 8;
     }
     public void TimeSpeedReset()
     {//reset time to defalt speed

@@ -29,11 +29,12 @@ public class Game : MonoBehaviour
     {//ResetHightScore
         PlayerPrefs.DeleteKey("HightScore" + CurrentLevel.ToString());
     }
-    private void ResetCheckpoint()
+    public void ResetCheckpoint()
     {
         PlayerPrefs.DeleteKey("saveMainPoint" + CurrentLevel.ToString());
         PlayerPrefs.DeleteKey("SavedScore" + CurrentLevel.ToString());
         PlayerPrefs.DeleteKey("TimeWhenHitCheckpoint" + CurrentLevel.ToString());
+        DeleteAllProgress();
     }
     public void ResetBestTimer()
     {

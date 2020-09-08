@@ -121,8 +121,8 @@ public class Timer : MonoBehaviour
         if (isRunning)
         {
             isRunning = false;
-            //stopTime = Time.time;
-            stopTime = Time.time + TimeEqual;
+            stopTime = Time.time;
+            //stopTime = Time.time + TimeEqual;
             //stopTime = Time.time + TimeWhenHitCheckpoint;
         }
     }
@@ -164,7 +164,7 @@ public class Timer : MonoBehaviour
     }
     public void BestTime60Sec()
     {
-        bestTime = PlayerPrefs.GetFloat("BestTime");
+        bestTime = PlayerPrefs.GetFloat("BestTime" + CurrentLevel.ToString());
 
         BestMinutesInt = (int)bestTime / 60;
         BestSecondsInt = (int)bestTime % 60;

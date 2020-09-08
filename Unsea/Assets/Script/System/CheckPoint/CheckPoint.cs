@@ -11,6 +11,9 @@ public class CheckPoint : MonoBehaviour
     Game game;
     Collector collector;
     //float TimeWhenHitCheckpoint;
+    public GameObject Particle;
+    PlayerNoiseSpawner playerNoiseSpawner;
+
     public bool CheckPointReatch;
     private void Start()
     {
@@ -19,6 +22,7 @@ public class CheckPoint : MonoBehaviour
         subCollector = GameObject.Find("CollectorManager").GetComponent<SubCollector>();
         collector = GameObject.Find("CollectorManager").GetComponent<Collector>();
         game = GameObject.Find("Game").GetComponent<Game>();
+        playerNoiseSpawner = GameObject.Find("Player").GetComponent<PlayerNoiseSpawner>();
         CheckPointReatch = false;
     }
 
@@ -27,19 +31,26 @@ public class CheckPoint : MonoBehaviour
         if(other.CompareTag("Player"))
         {//if player walk pass checkpoint save checkpoint
             CheckPointReatch = true;
-            Debug.Log("CheckPointReatch = "+ CheckPointReatch);
+            //Debug.Log("CheckPointReatch = "+ CheckPointReatch);
             GM.lastCheckPointPos = Checkpoint.transform.position;
-            print("SpawnPointSet =" + Checkpoint.transform.position);
-            subCollector.saveHightScore();
+            
+            //save sub point
             subCollector.SaveCheckpointScore();
+            //save mainpoint
             collector.SaveMainPointScore();
             //save time
             timer.TimerCheckpoint();
-
-            //save mainpoint
+            CheckpointPaticle();
+            playerNoiseSpawner.SaveArmor();
+            
             game.Save();
-            //save sub point
+            
         }
+    }
+    void CheckpointPaticle()
+    {
+        GameObject CheckpointEffect = (GameObject)Instantiate(Particle, transform.position, Quaternion.identity);
+        Destroy(CheckpointEffect, 2f);
     }
     /*void TimerCheckpoint()
     {

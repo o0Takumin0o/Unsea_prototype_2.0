@@ -35,7 +35,7 @@ public class SoundFx : MonoBehaviour
         GameSfx.PlayOneShot(PickupSound);
     }
 
-    public void swimSound()
+    public void Swimsound()
     {
         GameSfx.PlayOneShot(SwimSound);
     }
@@ -43,5 +43,21 @@ public class SoundFx : MonoBehaviour
     public void ShootSound()
     {
         GameSfx.PlayOneShot(ShootingSound);
+    }
+    private float SoundCountdown = 0f;
+    private void Update()
+    {
+        if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)
+            || Input.GetKey(KeyCode.RightArrow) || Input.GetKey(KeyCode.LeftArrow)
+            || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A)
+            || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
+        {
+            if (SoundCountdown <= 0f)
+            {
+                Swimsound();
+                SoundCountdown = 1.5f / 1;
+            }
+            SoundCountdown -= Time.deltaTime;
+        }
     }
 }

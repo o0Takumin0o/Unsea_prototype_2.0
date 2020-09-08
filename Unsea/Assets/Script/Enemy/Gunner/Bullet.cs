@@ -8,9 +8,16 @@ public class Bullet : MonoBehaviour
     Transform target;
     public float speed = 70f;
     public GameObject impactEffect;
-
+     Animator anim;
+    Vector3 offset = new Vector3(0, 3, 0);
+    private void Start()
+    {
+        anim = GetComponent<Animator>();
+        anim.SetInteger("Stage", 1);
+    }
     public void Seek (Transform Player)
     {
+       
         target = Player;
     }
 
@@ -23,11 +30,12 @@ public class Bullet : MonoBehaviour
             return;
         }
 
-        Vector3 dir = target.position - transform.position;
+        Vector3 dir = target.position + offset - transform.position;
         float distanceThisFrame = speed * Time.deltaTime;
         if (dir.magnitude <= distanceThisFrame)
         {
             HitTarget();
+            //anim.SetInteger("Stage", 1);
             return;
         }
 
@@ -39,5 +47,13 @@ public class Bullet : MonoBehaviour
         GameObject effectIns = (GameObject)Instantiate(impactEffect, transform.position, transform.rotation);
         Destroy(effectIns, 2f);
         Destroy(gameObject);
+    }
+    void OnTriggerEnter(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            anim.SetInteger("Stage", 1);
+            
+        }
     }
 }
