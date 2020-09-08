@@ -6737,6 +6737,11 @@ PrefabInstance:
       propertyPath: Compass
       value: 
       objectReference: {fileID: 2081593168}
+    - target: {fileID: 1029508747381873080, guid: b82985a3d30548443bbedc987e0555eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     - target: {fileID: 1029508747814768771, guid: b82985a3d30548443bbedc987e0555eb,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -6796,6 +6801,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Map2 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8134163067281081231, guid: b82985a3d30548443bbedc987e0555eb,
+        type: 3}
+      propertyPath: m_Layer
+      value: 9
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: b82985a3d30548443bbedc987e0555eb, type: 3}

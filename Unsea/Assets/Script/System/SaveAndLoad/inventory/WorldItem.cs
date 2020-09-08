@@ -10,7 +10,7 @@ public class WorldItem : MonoBehaviour
     private CollectibleItemSet collectibleItemSet;
     private UniqueID uniqueID;
     [SerializeField]
-    float height = 0.5f;
+    float height = 1f;
 
     [SerializeField]
     float period = 1;
