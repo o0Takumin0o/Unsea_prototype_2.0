@@ -45,6 +45,7 @@ public class SoundFx : MonoBehaviour
         GameSfx.PlayOneShot(ShootingSound);
     }
     private float SoundCountdown = 0f;
+
     private void Update()
     {
         if (Input.GetKey(KeyCode.UpArrow) || Input.GetKey(KeyCode.DownArrow)

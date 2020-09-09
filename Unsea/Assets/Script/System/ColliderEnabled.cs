@@ -30,7 +30,7 @@ public class ColliderEnabled : MonoBehaviour
             Compass.SetActive(true);
         }
     }
-    public void OnTriggerEnter(Collider hitCollider)
+    /*public void OnTriggerEnter(Collider hitCollider)
     {
         if (hitCollider.tag == "Player")
         {
@@ -38,5 +38,5 @@ public class ColliderEnabled : MonoBehaviour
             game.ResetCheckpoint();
 
         }
-    }
+    }*/
 }

@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class PlayerCtrl : MonoBehaviour
 {
+    private GameManager GM;
     Animator animator;
     [Header("Movement")]
     public float moveSpeed = 8;
@@ -48,7 +49,7 @@ public class PlayerCtrl : MonoBehaviour
         EnemyCtrl.OnGuardHasSpottedPlayer += Disable;
         game = GameObject.Find("Game").GetComponent<Game>();
         playerNoise.SetActive(false);
-
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
         //slowTime = (SlowTime)FindObjectOfType(typeof(SlowTime)); //useto find code that been instance when change scene
     }
     void Update()
@@ -148,6 +149,8 @@ public class PlayerCtrl : MonoBehaviour
                 OnReachedEndOfLevel();
             }
             //GameObject.Find("Player").SendMessage("Finish_Goal");
+            //GM.resetCheckPoint();
+            game.ResetCheckpoint();
         }
 
         if (hitCollider.tag == "HidingSpots")

@@ -122,7 +122,7 @@ public class EnemyCtrl : MonoBehaviour
 
     void spawnTarget()
     {
-        Target = (GameObject)Instantiate(StopTarget, GameObject.FindGameObjectWithTag("NoiseMaker").transform.position, Quaternion.identity);
+        Target = (GameObject)Instantiate(StopTarget, GameObject.FindGameObjectWithTag("NoiseMakerTrap").transform.position, Quaternion.identity);
     }
 
     public bool CanSeePlayer()

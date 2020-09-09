@@ -6,10 +6,13 @@ using UnityEngine.SceneManagement;
 public class Game : MonoBehaviour
 {
     int CurrentLevel;
+    private GameManager GM;
+
 
     private void Start()
     {
         CurrentLevel = SceneManager.GetActiveScene().buildIndex;
+        GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
     }
 
     private void Update()
@@ -34,6 +37,7 @@ public class Game : MonoBehaviour
         PlayerPrefs.DeleteKey("saveMainPoint" + CurrentLevel.ToString());
         PlayerPrefs.DeleteKey("SavedScore" + CurrentLevel.ToString());
         PlayerPrefs.DeleteKey("TimeWhenHitCheckpoint" + CurrentLevel.ToString());
+        GM.resetCheckPoint();
         DeleteAllProgress();
     }
     public void ResetBestTimer()

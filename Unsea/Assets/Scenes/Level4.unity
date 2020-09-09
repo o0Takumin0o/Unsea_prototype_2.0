@@ -693,6 +693,18 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d66f326eda2cb5344b4aea985980e6fb, type: 3}
+--- !u!114 &201539926 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2267190958597445368, guid: d66f326eda2cb5344b4aea985980e6fb,
+    type: 3}
+  m_PrefabInstance: {fileID: 201539925}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: adb415fd4b9528b4d8bb329f8844aac6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &245274310 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 2005405997, guid: 67311af50d3ac634d8c4f7e5ee4594f4,
@@ -9363,6 +9375,17 @@ MonoBehaviour:
             m_StringArgument: 
             m_BoolArgument: 1
           m_CallState: 2
+        - m_Target: {fileID: 201539926}
+          m_MethodName: ResetCheckpoint
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 1
+          m_CallState: 2
 --- !u!1 &1323730066997338980
 GameObject:
   m_ObjectHideFlags: 0
@@ -10084,13 +10107,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
+  m_Color: {r: 0.7169812, g: 0.7169812, b: 0.7169812, a: 0.7058824}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 7028842072390148906, guid: 385780ccb46c2e14d8badf2d3a86b69d,
+  m_Sprite: {fileID: 5049059679262521404, guid: b462edd0e4bc26d458e550935048815b,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -10767,12 +10790,12 @@ MonoBehaviour:
           m_Arguments:
             m_ObjectArgument: {fileID: 0}
             m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-            m_IntArgument: 4
+            m_IntArgument: 6
             m_FloatArgument: 0
             m_StringArgument: Test
             m_BoolArgument: 1
           m_CallState: 2
-        - m_Target: {fileID: 0}
+        - m_Target: {fileID: 245274311}
           m_MethodName: TimeSpeedReset
           m_Mode: 1
           m_Arguments:
@@ -11230,13 +11253,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.7058824}
+  m_Color: {r: 0.7176471, g: 0.7176471, b: 0.7176471, a: 0.7058824}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: -7434782575328720098, guid: 385780ccb46c2e14d8badf2d3a86b69d,
+  m_Sprite: {fileID: 2027735113192278995, guid: b462edd0e4bc26d458e550935048815b,
     type: 3}
   m_Type: 0
   m_PreserveAspect: 0
@@ -11600,6 +11623,11 @@ PrefabInstance:
       objectReference: {fileID: 119069939}
     - target: {fileID: 2990510479366695247, guid: 125a96c300aeff94f9c9d0cb534fa401,
         type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990510479366695247, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 119069939}
@@ -11612,6 +11640,41 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 245274311}
+    - target: {fileID: 2990510479366695247, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TimeSpeedReset
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990510479366695247, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990510479366695247, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990510479366695247, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 201539926}
+    - target: {fileID: 2990510479366695247, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ResetCheckpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 2990510479366695247, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757803094820149697, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.size
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 3757803094820149697, guid: 125a96c300aeff94f9c9d0cb534fa401,
         type: 3}
@@ -11627,6 +11690,36 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_Target
       value: 
+      objectReference: {fileID: 245274311}
+    - target: {fileID: 3757803094820149697, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[1].m_MethodName
+      value: TimeSpeedReset
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757803094820149697, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757803094820149697, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757803094820149697, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Target
+      value: 
+      objectReference: {fileID: 201539926}
+    - target: {fileID: 3757803094820149697, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_MethodName
+      value: ResetCheckpoint
+      objectReference: {fileID: 0}
+    - target: {fileID: 3757803094820149697, guid: 125a96c300aeff94f9c9d0cb534fa401,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[2].callback.m_PersistentCalls.m_Calls.Array.data[2].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 5317337983680353384, guid: 125a96c300aeff94f9c9d0cb534fa401,
         type: 3}
