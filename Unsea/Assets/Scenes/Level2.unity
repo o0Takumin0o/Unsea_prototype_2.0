@@ -213,6 +213,16 @@ PrefabInstance:
       propertyPath: patrolPoints.Array.data[0]
       value: 
       objectReference: {fileID: 353554587}
+    - target: {fileID: 6889196486971942640, guid: f89c3c266ca48c141bedf8fada1cacea,
+        type: 3}
+      propertyPath: speed
+      value: 8.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 6889196486971942640, guid: f89c3c266ca48c141bedf8fada1cacea,
+        type: 3}
+      propertyPath: RunSpeed
+      value: 11
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f89c3c266ca48c141bedf8fada1cacea, type: 3}
 --- !u!4 &6819749 stripped
@@ -7660,7 +7670,7 @@ PrefabInstance:
       objectReference: {fileID: 1731879852}
     - target: {fileID: 2005405997, guid: 67311af50d3ac634d8c4f7e5ee4594f4, type: 3}
       propertyPath: TimeMarker
-      value: 130
+      value: 140
       objectReference: {fileID: 0}
     - target: {fileID: 1440780357570477400, guid: 67311af50d3ac634d8c4f7e5ee4594f4,
         type: 3}

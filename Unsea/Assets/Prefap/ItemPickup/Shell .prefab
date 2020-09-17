@@ -11,9 +11,9 @@ GameObject:
   - component: {fileID: 4624430769352273941}
   - component: {fileID: 4428799815252429347}
   - component: {fileID: 7947385068373423834}
-  - component: {fileID: 385044051894023023}
   - component: {fileID: 1685057105062740703}
   - component: {fileID: 3521516411005647827}
+  - component: {fileID: 4433511060753920827}
   m_Layer: 0
   m_Name: 'Shell '
   m_TagString: KeyItem
@@ -82,19 +82,6 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
---- !u!65 &385044051894023023
-BoxCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8536043749165629958}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_Enabled: 1
-  serializedVersion: 2
-  m_Size: {x: 5.996196, y: 5.7908587, z: 1.4352828}
-  m_Center: {x: 0.00038969517, y: 0.76790357, z: 0.41528267}
 --- !u!114 &1685057105062740703
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -124,3 +111,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2f625fc0ef75d9b48a9fb81e0a4fc9bc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!136 &4433511060753920827
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8536043749165629958}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 2.998098
+  m_Height: 10
+  m_Direction: 1
+  m_Center: {x: 0.00038969517, y: 0.76790357, z: 0.41528267}

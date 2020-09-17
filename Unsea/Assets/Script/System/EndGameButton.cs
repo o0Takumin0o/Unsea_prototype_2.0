@@ -5,8 +5,9 @@ using UnityEngine;
 public class EndGameButton : MonoBehaviour
 {
     public GameObject pushButtonText;
+    EndingCollecter endingCollecter;
     public Animator anim;
-    public int Stage;
+    int Stage;
     private bool isInRange;
     // Start is called before the first frame update
     void Start()
@@ -14,12 +15,13 @@ public class EndGameButton : MonoBehaviour
         pushButtonText.gameObject.SetActive(false);
         anim = GetComponent<Animator>();
         anim.SetInteger("Stage", 0);
+        endingCollecter = GameObject.Find("CollectorManager").GetComponent<EndingCollecter>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (isInRange && Input.GetKeyDown(KeyCode.E))
+        if (endingCollecter.GoodEnd == true && isInRange && Input.GetKeyDown(KeyCode.E))
         {
             pushButtonText.gameObject.SetActive(false);
             anim.SetInteger("Stage", 1);

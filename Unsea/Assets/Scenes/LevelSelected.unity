@@ -464,7 +464,7 @@ MonoBehaviour:
   WinLevel: 0
   Completedlevel_Icon: {fileID: 508973477}
   WinInTime_Icon: {fileID: 899856924}
-  HightScore: 0
+  ThisLevleHightScore: 0
   HightScoretxt: {fileID: 2096908550}
 --- !u!1 &230904567
 GameObject:
@@ -789,7 +789,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &357320798
 RectTransform:
   m_ObjectHideFlags: 0
@@ -868,7 +868,7 @@ MonoBehaviour:
   WinLevel: 0
   Completedlevel_Icon: {fileID: 1038696348}
   WinInTime_Icon: {fileID: 308160019}
-  HightScore: 0
+  ThisLevleHightScore: 0
   HightScoretxt: {fileID: 1222046322}
 --- !u!1 &394857124
 GameObject:
@@ -1203,7 +1203,7 @@ MonoBehaviour:
   WinLevel: 0
   Completedlevel_Icon: {fileID: 475873152}
   WinInTime_Icon: {fileID: 1887438561}
-  HightScore: 0
+  ThisLevleHightScore: 0
   HightScoretxt: {fileID: 939978599}
 --- !u!1 &508973477
 GameObject:
@@ -1383,7 +1383,7 @@ MonoBehaviour:
   WinLevel: 0
   Completedlevel_Icon: {fileID: 888044897}
   WinInTime_Icon: {fileID: 459389274}
-  HightScore: 0
+  ThisLevleHightScore: 0
   HightScoretxt: {fileID: 1547714622}
 --- !u!4 &770859802 stripped
 Transform:
@@ -3016,7 +3016,7 @@ MonoBehaviour:
   WinLevel: 0
   Completedlevel_Icon: {fileID: 1618399035}
   WinInTime_Icon: {fileID: 2039201205}
-  HightScore: 0
+  ThisLevleHightScore: 0
   HightScoretxt: {fileID: 1978278558}
 --- !u!224 &1202306614
 RectTransform:
@@ -13393,7 +13393,8 @@ PrefabInstance:
       propertyPath: m_LocalScale.z
       value: 1
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4221511581373148225, guid: b6489a25772314e4c920bc3bc4ce56bb, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b6489a25772314e4c920bc3bc4ce56bb, type: 3}
 --- !u!4 &8527962213708235976 stripped
 Transform:

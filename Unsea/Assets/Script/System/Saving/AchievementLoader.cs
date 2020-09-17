@@ -20,7 +20,7 @@ public class AchievementLoader : MonoBehaviour
     public GameObject WinInTime_Icon;
     //public GameObject GetAllPoint_Icon;
 
-    public int HightScore;
+    public int ThisLevleHightScore;
     public Text HightScoretxt;
 
 
@@ -32,7 +32,7 @@ public class AchievementLoader : MonoBehaviour
         //GetAllPoint_Icon.SetActive(false);
         WinInTime_Icon.SetActive(false);
         Completedlevel_Icon.SetActive(false);
-
+        ThisLevleHightScore = PlayerPrefs.GetInt("HightScore" + LevelAt.ToString());
     }
 
     // Update is called once per frame

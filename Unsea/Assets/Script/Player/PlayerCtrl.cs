@@ -139,11 +139,11 @@ public class PlayerCtrl : MonoBehaviour
             slowTime.Endlevel = true;//slowtime
             timer.levelEnd();//stop timer
             LevelEnd = true;
-            timer.ReachEndLevel = true;
+            //timer.ReachEndLevel = true;
             timer.BestTime60Sec();
             game.DeleteAllProgress();
             subcCollector.saveHightScore();
-
+            timer.levelEnd();
             if (OnReachedEndOfLevel != null)
             {
                 OnReachedEndOfLevel();

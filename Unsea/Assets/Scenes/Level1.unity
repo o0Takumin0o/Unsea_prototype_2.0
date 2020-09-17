@@ -7890,7 +7890,7 @@ GameObject:
   - component: {fileID: 1228383855}
   m_Layer: 0
   m_Name: GrassHiding
-  m_TagString: Untagged
+  m_TagString: HidingSpots
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
