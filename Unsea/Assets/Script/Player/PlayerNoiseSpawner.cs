@@ -11,29 +11,28 @@ public class PlayerNoiseSpawner : MonoBehaviour
     public GameObject CrabArmor;
     GameObject NoiseMaker;
     public int DestroyAfter;
-    int hasCrabArmor;
-    int NumberOfArmor;
+    public int hasCrabArmor;
+    public int NumberOfArmor;
     int CurrentLevel;
 
     private void Start()
     {
-        //NumberOfArmor = 0;
-        NumberOfArmor = PlayerPrefs.GetInt("hasCrabArmor" + CurrentLevel.ToString());
         CrabArmor.SetActive(false);
         CurrentLevel = SceneManager.GetActiveScene().buildIndex;
+        NumberOfArmor = PlayerPrefs.GetInt("hasCrabArmor" + CurrentLevel.ToString());
     }
     // Update is called once per frame
     void Update()
     {
-        /*if (Input.GetKeyDown(KeyCode.Space))
-        {
-            spawnNoiseMaker();
-        }*/
+        hasCrabArmor = PlayerPrefs.GetInt("hasCrabArmor" + CurrentLevel.ToString());
         Powerunlock();
+        Debug.Log("hasClabArmor=" + hasCrabArmor);
+        Debug.Log("numberofarmor=" + NumberOfArmor);
+        //hasCrabArmor = PlayerPrefs.GetInt("hasCrabArmor" + CurrentLevel.ToString());
     }
     void Powerunlock()
     {
-        if (NumberOfArmor == 1)
+        if (NumberOfArmor >= 1)
         {
             CrabArmor.SetActive(true);
             if (Input.GetKeyDown(KeyCode.Space))
@@ -55,13 +54,16 @@ public class PlayerNoiseSpawner : MonoBehaviour
         if (other.tag == "CrabArmor")
         {
             NumberOfArmor += 1;
-            
             Destroy(other.gameObject);
         }
     }
     public void SaveArmor()
     {
-        PlayerPrefs.SetInt("hasCrabArmor" + CurrentLevel.ToString(), NumberOfArmor);
-        PlayerPrefs.Save();
+        if(hasCrabArmor< NumberOfArmor)
+        {
+            PlayerPrefs.SetInt("hasCrabArmor" + CurrentLevel.ToString(), NumberOfArmor);
+            PlayerPrefs.Save();
+        }
+        
     }
 }

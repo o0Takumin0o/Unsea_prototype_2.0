@@ -14,6 +14,8 @@ public class CheckPoint : MonoBehaviour
     public GameObject Particle;
     PlayerNoiseSpawner playerNoiseSpawner;
 
+    public GameObject CheckpointUi;
+
     public bool CheckPointReatch;
     private void Start()
     {
@@ -24,6 +26,7 @@ public class CheckPoint : MonoBehaviour
         game = GameObject.Find("Game").GetComponent<Game>();
         playerNoiseSpawner = GameObject.Find("Player").GetComponent<PlayerNoiseSpawner>();
         CheckPointReatch = false;
+        CheckpointUi.SetActive(false);
     }
 
     void OnTriggerEnter(Collider other)
@@ -42,7 +45,11 @@ public class CheckPoint : MonoBehaviour
             timer.TimerCheckpoint();
             CheckpointPaticle();
             playerNoiseSpawner.SaveArmor();
+
+            CheckpointUi.SetActive(true);
             
+            StartCoroutine(CheckpointUI());
+
             game.Save();
             
         }
@@ -50,8 +57,15 @@ public class CheckPoint : MonoBehaviour
     void CheckpointPaticle()
     {
         GameObject CheckpointEffect = (GameObject)Instantiate(Particle, transform.position, Quaternion.identity);
-        Destroy(CheckpointEffect, 2f);
+        Destroy(CheckpointEffect, 5f);
     }
+    
+    IEnumerator CheckpointUI()
+    {
+        yield return new WaitForSeconds(1f);
+        CheckpointUi.SetActive(false);
+    }
+    
     /*void TimerCheckpoint()
     {
         //TimeWhenHitCheckpoint = timer.TheTime;

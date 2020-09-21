@@ -17,7 +17,7 @@ public class Game : MonoBehaviour
 
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.R))
+        if (Input.GetKeyDown(KeyCode.Q))
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
@@ -37,6 +37,7 @@ public class Game : MonoBehaviour
         PlayerPrefs.DeleteKey("saveMainPoint" + CurrentLevel.ToString());
         PlayerPrefs.DeleteKey("SavedScore" + CurrentLevel.ToString());
         PlayerPrefs.DeleteKey("TimeWhenHitCheckpoint" + CurrentLevel.ToString());
+        PlayerPrefs.DeleteKey("hasCrabArmor" + CurrentLevel.ToString());
         GM.resetCheckPoint();
         DeleteAllProgress();
     }

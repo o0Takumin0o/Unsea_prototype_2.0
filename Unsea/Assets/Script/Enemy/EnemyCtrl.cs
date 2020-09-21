@@ -14,6 +14,7 @@ public class EnemyCtrl : MonoBehaviour
 
     public GameObject Player;
     PlayerCtrl playerCtrl;
+    public Respawn respawn;
     public SlowTime slowTime;
     public Transform LookAt;
     public float LookRotationSpeed = 5f;
@@ -24,6 +25,8 @@ public class EnemyCtrl : MonoBehaviour
    [Header("Movement")]
     public float speed; //speed of npc
     public float RunSpeed;
+    public float StopSpeed = 0;
+
     [Header("Sense")]
     public float viewDistance;
     public Light spotlight;
@@ -61,6 +64,7 @@ public class EnemyCtrl : MonoBehaviour
         navMeshAgent.speed = speed;//set speed of agent
         anim = GetComponent<Animator>();
         MoveToNextPatrolPoint();
+        respawn = GameObject.Find("Game").GetComponent<Respawn>();
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
         musicCtrl = GameObject.Find("SoundCtrl").GetComponent<MusicCtrl>();
         originalSpotlightColour = spotlight.color;
@@ -74,7 +78,7 @@ public class EnemyCtrl : MonoBehaviour
     {
         if (hitCollider.tag == "Player")
         {
-            Respawn();
+            respawn.RespawnPlayer();
             /*navMeshAgent.SetDestination(Player.transform.position);
             LookAtPlayer();*/
             anim.SetInteger("Stage", 2);
@@ -104,7 +108,8 @@ public class EnemyCtrl : MonoBehaviour
 
         if (hitCollider.tag == "StopTarget")
         {
-            //anim.SetInteger("Stage", 0);
+            //navMeshAgent.speed = StopSpeed;
+            anim.SetInteger("Stage", 0);
             gameObject.GetComponent<NavMeshAgent>().enabled = false;
             Destroy(Target);
 
@@ -116,7 +121,8 @@ public class EnemyCtrl : MonoBehaviour
     IEnumerator resetNavmesh()
     {
         yield return new WaitForSeconds(7);
-        //anim.SetInteger("Stage", 1);
+        anim.SetInteger("Stage", 1);
+        //navMeshAgent.speed = speed;
         gameObject.GetComponent<NavMeshAgent>().enabled = true;
     }
 
@@ -158,7 +164,7 @@ public class EnemyCtrl : MonoBehaviour
         {
             playerVisibleTimer -= Time.deltaTime;
             navMeshAgent.speed = speed;//set speed of agent
-            musicCtrl.StopPanicSound();
+            //musicCtrl.StopPanicSound();
         }
 
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
@@ -169,13 +175,13 @@ public class EnemyCtrl : MonoBehaviour
             if (OnGuardHasSpottedPlayer != null)
             {
                 OnGuardHasSpottedPlayer();
-                
+                musicCtrl.GameOverSound();
                 slowTime.Endlevel = false;
 
                 if (waitToRespawn <= 0f)
                 {
-                    Respawn();
-                    slowTime.TimeSpeedReset();
+                    respawn.RespawnPlayer();
+                    //slowTime.TimeSpeedReset();
                 }
                 waitToRespawn  -= Time.deltaTime;
             }
@@ -214,10 +220,11 @@ public class EnemyCtrl : MonoBehaviour
         }
        
     }
-    public void Respawn()
+    /*public void Respawn()
     {//reload current scene
+        
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
-    }
+    }*/
     public void LookAtTarget()
     {      
         Vector3 direction = LookAt.position - transform.position;

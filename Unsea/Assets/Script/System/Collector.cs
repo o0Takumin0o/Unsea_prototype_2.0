@@ -13,7 +13,7 @@ public class Collector : MonoBehaviour
     PlayerCtrl playerCtrl;
     public Text SavedMainScoretxt;
     int CurrentLevel;
-
+    
     /*private void Awake()
     {
         mainPoint = mainPoint + PlayerPrefs.GetInt("saveMainPoint" + game.CurrentLevel.ToString());
@@ -23,6 +23,7 @@ public class Collector : MonoBehaviour
         
         //game = GameObject.Find("Game").GetComponent<Game>();
         playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
+        
         CurrentLevel = SceneManager.GetActiveScene().buildIndex;
 
         mainPoint = PlayerPrefs.GetInt("saveMainPoint" + CurrentLevel.ToString());
@@ -63,5 +64,5 @@ public class Collector : MonoBehaviour
         MainScore.text = PlayerPrefs.GetInt("saveMainPoint" + CurrentLevel.ToString()).ToString();
         Debug.Log("saveMainPoint = " + saveMainPoint);
     }
-
+    
 }

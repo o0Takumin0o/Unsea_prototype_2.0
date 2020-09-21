@@ -97,12 +97,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8145459a11512d3439eca310e85efea0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  NoiseMakerPrefab: {fileID: 5381985051854142291, guid: 2390d9f9b68792a49ade15626bcfe087,
+  NoiseMakerPrefab: {fileID: 311404867936583104, guid: 3470550aafa40ce40b3a87c37d233281,
     type: 3}
   spawnPoint: {fileID: 6283391054044120024}
   DestroyAfter: 3
   Trash_Trap: {fileID: 3545150344381299708}
-  TrapSound: {fileID: 8300000, guid: 9b6787be38a0d7e44860c6d4e6e1cc19, type: 3}
+  TrapSound: {fileID: 8300000, guid: d9de3733a2e3a5641a8cb4f20452ed6f, type: 3}
 --- !u!95 &3753531254144211680
 Animator:
   serializedVersion: 3
@@ -144,7 +144,8 @@ AudioSource:
   m_GameObject: {fileID: 3449355859790473505}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: -6254173536838133331, guid: a2293e0225afdd842a7f1ba572b342dc,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 9b6787be38a0d7e44860c6d4e6e1cc19, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1

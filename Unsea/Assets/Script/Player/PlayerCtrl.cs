@@ -27,7 +27,8 @@ public class PlayerCtrl : MonoBehaviour
     public Timer timer;
     EnemyCtrl enemyCtrl; 
     public SoundFx soundFX;
-    
+    public PlayerSound playerSound;
+
     public event System.Action OnReachedEndOfLevel;
     [SerializeField]
     public bool LevelEnd = false;
@@ -79,15 +80,6 @@ public class PlayerCtrl : MonoBehaviour
             animator.SetInteger("Walk", 1);
             playerNoise.SetActive(true);
 
-
-            //SwiningSound();
-
-            /*if (SoundCountdown <= 0f)
-            {
-                soundFX.swimSound();
-                SoundCountdown = 1.5f / 1;
-            }
-            SoundCountdown -= Time.deltaTime;*/
         }
         else
         {
@@ -97,15 +89,7 @@ public class PlayerCtrl : MonoBehaviour
         }
 
     }
-    /*void SwiningSound()
-    {
-        if (SoundCountdown <= 0f)
-        {
-            soundFX.Swimsound();
-            SoundCountdown = 1.5f / 1;
-        }
-        SoundCountdown -= Time.deltaTime;
-    }*/
+    
 
     void FixedUpdate()
     {
@@ -151,6 +135,8 @@ public class PlayerCtrl : MonoBehaviour
             //GameObject.Find("Player").SendMessage("Finish_Goal");
             //GM.resetCheckPoint();
             game.ResetCheckpoint();
+            //soundFX.WinLevel();
+            soundFX.CollectedAllpointSound();
         }
 
         if (hitCollider.tag == "HidingSpots")

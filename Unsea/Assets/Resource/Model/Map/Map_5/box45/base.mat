@@ -20,7 +20,7 @@ Material:
     serializedVersion: 3
     m_TexEnvs:
     - _BumpMap:
-        m_Texture: {fileID: 2800000, guid: 59d9609e535fc41498a413ca639e83a6, type: 3}
+        m_Texture: {fileID: 2800000, guid: ccd8ff57d68109d44ab0726715bb53cd, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _DetailAlbedoMap:
@@ -40,7 +40,7 @@ Material:
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MainTex:
-        m_Texture: {fileID: 2800000, guid: 209ec916ca197ae4094d4f23a418e4cd, type: 3}
+        m_Texture: {fileID: 2800000, guid: 3b9c4991539b13f4f97e381e92e4646a, type: 3}
         m_Scale: {x: 1, y: 1}
         m_Offset: {x: 0, y: 0}
     - _MetallicGlossMap:

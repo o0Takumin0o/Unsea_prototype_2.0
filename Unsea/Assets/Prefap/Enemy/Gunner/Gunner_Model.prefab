@@ -1779,6 +1779,7 @@ MonoBehaviour:
   - {fileID: 0}
   speed: 5
   RunSpeed: 4
+  StopSpeed: 0
   viewDistance: 20
   spotlight: {fileID: 5409620112843594364}
   timeToSpotPlayer: 6
@@ -1809,7 +1810,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: -6254173536838133331, guid: a2293e0225afdd842a7f1ba572b342dc,
     type: 2}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1907,7 +1908,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   StepSound:
-  - {fileID: 8300000, guid: c36505810f62ba440a1a1978ce898767, type: 3}
+  - {fileID: 8300000, guid: 046640e5c62d08e449bb1c5c198210a6, type: 3}
 --- !u!1 &3683473923207407210
 GameObject:
   m_ObjectHideFlags: 0

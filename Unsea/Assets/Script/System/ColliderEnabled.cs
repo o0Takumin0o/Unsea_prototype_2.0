@@ -9,7 +9,8 @@ public class ColliderEnabled : MonoBehaviour
     public GameObject VfxWin;
     public GameObject Compass;
     private GameManager GM;
-    private Game game;
+    //private Game game;
+    SoundFx soundFX;
 
     void Start()
     {//Fetch the GameObject's Collider 
@@ -17,17 +18,20 @@ public class ColliderEnabled : MonoBehaviour
         VfxWin.SetActive(false);
         Compass.SetActive(false);
         GM = GameObject.FindGameObjectWithTag("GameManager").GetComponent<GameManager>();
-        game = GameObject.FindGameObjectWithTag("Game").GetComponent<Game>();
+        //game = GameObject.Find("Game").GetComponent<Game>();
+        soundFX = GameObject.Find("SoundCtrl").GetComponent<SoundFx>();
     }
 
     void Update()
     {
         if (collector.mainPoint == 3)
         {//enable collider when player get 3 point
+            
             F_Collider.enabled = true;
             //Debug.Log("Collider.enabled = true");
             VfxWin.SetActive(true);
             Compass.SetActive(true);
+            soundFX.CollectedAllpointSound();
         }
     }
     /*public void OnTriggerEnter(Collider hitCollider)

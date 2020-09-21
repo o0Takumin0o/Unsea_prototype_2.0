@@ -10,7 +10,9 @@ public class SoundFx : MonoBehaviour
     public AudioClip ClickFx;
     public AudioClip PickupSound;
     public AudioClip SwimSound;
-    
+    public AudioClip GetAllpoint;
+    public AudioClip Goal;
+
     [Header("GamePlay")]
     public AudioClip ShootingSound;
     private float coolDown = 1.5f;
@@ -44,7 +46,15 @@ public class SoundFx : MonoBehaviour
     {
         GameSfx.PlayOneShot(ShootingSound);
     }
-    private float SoundCountdown = 0f;
+    public void CollectedAllpointSound()
+    {
+        GameSfx.PlayOneShot(GetAllpoint);
+    }
+    public void WinLevel()
+    {
+        GameSfx.PlayOneShot(Goal);
+    }
+    /*private float SoundCountdown = 0f;
 
     private void Update()
     {
@@ -60,5 +70,5 @@ public class SoundFx : MonoBehaviour
             }
             SoundCountdown -= Time.deltaTime;
         }
-    }
+    }*/
 }
