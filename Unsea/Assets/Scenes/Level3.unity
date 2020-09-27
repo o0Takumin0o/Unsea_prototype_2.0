@@ -763,7 +763,7 @@ GameObject:
   - component: {fileID: 144338086}
   - component: {fileID: 144338088}
   m_Layer: 0
-  m_Name: Cut down Net
+  m_Name: CrapArmor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -826,7 +826,8 @@ MonoBehaviour:
   dialogue:
     name: Player
     sentences:
-    - I might be able to use this.
+    - This thing might be useful.
+    - Press (SPACEBAR) to lure enemy
 --- !u!1 &180487178
 GameObject:
   m_ObjectHideFlags: 0
