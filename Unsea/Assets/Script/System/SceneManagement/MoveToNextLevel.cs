@@ -27,27 +27,5 @@ public class MoveToNextLevel : MonoBehaviour
             Debug.Log(nextSceneLoad);
         }
     }
-    /*public void OnTriggerEnter(Collider other)
-    {
-        if(other.gameObject.tag == "Player")
-        {
-            if(SceneManager.GetActiveScene().buildIndex == 7) // int value = last level 
-            {
-                Debug.Log("You Completed ALL Levels");
-                
-                //Show Win Screen or Somethin.
-            }
-            else
-            {
-                //Move to next level
-                SceneManager.LoadScene(nextSceneLoad);
-
-                //Setting Int for Index
-                if (nextSceneLoad > PlayerPrefs.GetInt("levelAt"))
-                {
-                    PlayerPrefs.SetInt("levelAt", nextSceneLoad);
-                }
-            }
-        }
-    }*/
+    
 }

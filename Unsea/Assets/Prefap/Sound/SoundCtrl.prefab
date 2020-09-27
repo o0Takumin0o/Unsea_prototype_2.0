@@ -195,6 +195,8 @@ MonoBehaviour:
   ClickFx: {fileID: 8300000, guid: 5e0780021a3af264a82824c267f9c884, type: 3}
   PickupSound: {fileID: 8300000, guid: 5d588f891236a1a4380a481d9c0d1d73, type: 3}
   SwimSound: {fileID: 8300000, guid: 51b937a899a911b4e992ffdfb31a3077, type: 3}
+  GetAllpoint: {fileID: 8300000, guid: b7a316df9e55bb24c99d3af3a1f83337, type: 3}
+  Goal: {fileID: 8300000, guid: 7667c7dac9d3f4d4e86b6aec102b93b2, type: 3}
   ShootingSound: {fileID: 8300000, guid: 906c6d2d48b712e41bed94a4fde9031a, type: 3}
 --- !u!114 &4279597076429252487
 MonoBehaviour:
@@ -210,8 +212,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   MusicVolume: {fileID: 7202472324502222451}
   Bgm: {fileID: 8300000, guid: 6d9c3781e7449e9439bd74e459d35d30, type: 3}
-  PanicSound: {fileID: 8300000, guid: f0714b969c4142f4aba8bb59dbb7b97e, type: 3}
-  Gameover: {fileID: 0}
+  PanicSound: {fileID: 8300000, guid: 89896f48bf6c48f48800d03e921f997d, type: 3}
+  Gameover: {fileID: 8300000, guid: 45c575a2ee16bf44bb15a0f6dfc2b5a2, type: 3}
 --- !u!1 &2146998730540960723
 GameObject:
   m_ObjectHideFlags: 0

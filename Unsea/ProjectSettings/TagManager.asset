@@ -18,6 +18,8 @@ TagManager:
   - Bullet
   - PlayerNoise
   - NoiseMakerTrap
+  - CutsceenTriger
+  - Hammer
   layers:
   - Default
   - TransparentFX

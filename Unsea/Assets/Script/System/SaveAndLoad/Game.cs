@@ -21,6 +21,11 @@ public class Game : MonoBehaviour
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
         }
+        if (Input.GetKeyDown(KeyCode.Y))
+        {
+            ResetCheckpoint();
+        }
+
     }
 
     public void ResetAll()

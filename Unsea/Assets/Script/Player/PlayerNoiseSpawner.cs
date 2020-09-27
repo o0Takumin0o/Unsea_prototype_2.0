@@ -6,13 +6,14 @@ using UnityEngine.SceneManagement;
 public class PlayerNoiseSpawner : MonoBehaviour
 {
     public GameObject NoiseMakerPrefab;
+    public SoundFx soundFX;
     // Start is called before the first frame update
     public Transform spawnPoint;
     public GameObject CrabArmor;
     GameObject NoiseMaker;
     public int DestroyAfter;
-    public int hasCrabArmor;
-    public int NumberOfArmor;
+    int hasCrabArmor;
+    int NumberOfArmor;
     int CurrentLevel;
 
     private void Start()
@@ -20,7 +21,9 @@ public class PlayerNoiseSpawner : MonoBehaviour
         CrabArmor.SetActive(false);
         CurrentLevel = SceneManager.GetActiveScene().buildIndex;
         NumberOfArmor = PlayerPrefs.GetInt("hasCrabArmor" + CurrentLevel.ToString());
+        soundFX = GameObject.Find("SoundCtrl").GetComponent<SoundFx>();
     }
+
     // Update is called once per frame
     void Update()
     {
@@ -55,6 +58,7 @@ public class PlayerNoiseSpawner : MonoBehaviour
         {
             NumberOfArmor += 1;
             Destroy(other.gameObject);
+            soundFX.Pickup();
         }
     }
     public void SaveArmor()

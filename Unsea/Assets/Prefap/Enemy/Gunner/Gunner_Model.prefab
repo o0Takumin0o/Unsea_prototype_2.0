@@ -1771,11 +1771,17 @@ MonoBehaviour:
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
   Player: {fileID: 0}
+  respawn: {fileID: 0}
   slowTime: {fileID: 0}
   LookAt: {fileID: 0}
   LookRotationSpeed: 5
   pathHolder: {fileID: 0}
   patrolPoints:
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
   - {fileID: 0}
   speed: 5
   RunSpeed: 4
@@ -1818,11 +1824,11 @@ AudioSource:
   Spatialize: 0
   SpatializePostEffects: 0
   Priority: 128
-  DopplerLevel: 1
-  MinDistance: 5
-  MaxDistance: 20
+  DopplerLevel: 0
+  MinDistance: 1
+  MaxDistance: 50
   Pan2D: 0
-  rolloffMode: 0
+  rolloffMode: 1
   BypassEffects: 0
   BypassListenerEffects: 0
   BypassReverbZones: 0
@@ -1830,23 +1836,23 @@ AudioSource:
     serializedVersion: 2
     m_Curve:
     - serializedVersion: 3
-      time: 0
+      time: 0.19230652
       value: 1
-      inSlope: 0
-      outSlope: 0
+      inSlope: -2.0008
+      outSlope: -2.0008
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     - serializedVersion: 3
       time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
+      value: 0.5
+      inSlope: -0.5002
+      outSlope: -0.5002
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0.33333334
-      outWeight: 0.33333334
+      inWeight: 0
+      outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
@@ -1885,7 +1891,7 @@ AudioSource:
     m_Curve:
     - serializedVersion: 3
       time: 0
-      value: 1
+      value: 1.1
       inSlope: 0
       outSlope: 0
       tangentMode: 0
@@ -1907,8 +1913,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f78b98100ba17d4a8ef95241d71639e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  StepSound:
-  - {fileID: 8300000, guid: 046640e5c62d08e449bb1c5c198210a6, type: 3}
+  StepSound: {fileID: 8300000, guid: 046640e5c62d08e449bb1c5c198210a6, type: 3}
 --- !u!1 &3683473923207407210
 GameObject:
   m_ObjectHideFlags: 0

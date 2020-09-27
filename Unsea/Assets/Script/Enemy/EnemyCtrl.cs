@@ -14,7 +14,7 @@ public class EnemyCtrl : MonoBehaviour
 
     public GameObject Player;
     PlayerCtrl playerCtrl;
-    public Respawn respawn;
+    Respawn respawn;
     public SlowTime slowTime;
     public Transform LookAt;
     public float LookRotationSpeed = 5f;
@@ -47,6 +47,7 @@ public class EnemyCtrl : MonoBehaviour
 
     public GameObject StopTarget;
     GameObject Target;
+
     /*void Awake()//protected override
     {
         navMeshAgent = GetComponent<NavMeshAgent>();
@@ -76,13 +77,12 @@ public class EnemyCtrl : MonoBehaviour
 
     public void OnTriggerEnter(Collider hitCollider)
     {
-        if (hitCollider.tag == "Player")
+        /*if (hitCollider.tag == "Player")
         {
             respawn.RespawnPlayer();
-            /*navMeshAgent.SetDestination(Player.transform.position);
-            LookAtPlayer();*/
             anim.SetInteger("Stage", 2);
-        }
+        }*/
+
         //neet to make enemy go to noise
         if (hitCollider.tag == "NoiseMakerTrap")
         {

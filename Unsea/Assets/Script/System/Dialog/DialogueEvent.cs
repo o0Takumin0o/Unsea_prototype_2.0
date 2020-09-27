@@ -40,7 +40,7 @@ public class DialogueEvent : MonoBehaviour
             dialogueManager.DisplayNextSentence();
         }*/
 
-        /*switch (dialogStage)
+        switch (dialogStage)
         {
             case 0:
                 dialogueTrigger.TriggerDialogue();
@@ -50,6 +50,6 @@ public class DialogueEvent : MonoBehaviour
             case 1:
                 dialogueManager.DisplayNextSentence();
                 break;
-        }*/
+        }
     }
 }

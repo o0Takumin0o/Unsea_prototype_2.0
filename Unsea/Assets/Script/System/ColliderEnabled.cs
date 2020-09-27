@@ -11,6 +11,7 @@ public class ColliderEnabled : MonoBehaviour
     private GameManager GM;
     //private Game game;
     SoundFx soundFX;
+    private bool lamcalled =  false;
 
     void Start()
     {//Fetch the GameObject's Collider 
@@ -31,8 +32,21 @@ public class ColliderEnabled : MonoBehaviour
             //Debug.Log("Collider.enabled = true");
             VfxWin.SetActive(true);
             Compass.SetActive(true);
-            soundFX.CollectedAllpointSound();
+            //soundFX.CollectedAllpointSound();
+            if(!lamcalled)
+            {
+                exitSound();
+                lamcalled = true;
+            }
+            //exitSound();
         }
+    }
+    void exitSound()
+    {
+
+        soundFX.CollectedAllpointSound();
+        
+        Debug.Log("playFinishSound");
     }
     /*public void OnTriggerEnter(Collider hitCollider)
     {

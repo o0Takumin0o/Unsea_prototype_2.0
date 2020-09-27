@@ -8,6 +8,7 @@ public class PlayerCtrl : MonoBehaviour
 {
     private GameManager GM;
     Animator animator;
+    public Animator HidingAnimator;
     [Header("Movement")]
     public float moveSpeed = 8;
     public float smoothMoveTime = .1f;
@@ -27,7 +28,7 @@ public class PlayerCtrl : MonoBehaviour
     public Timer timer;
     EnemyCtrl enemyCtrl; 
     public SoundFx soundFX;
-    public PlayerSound playerSound;
+    //public PlayerSound playerSound;
 
     public event System.Action OnReachedEndOfLevel;
     [SerializeField]
@@ -39,7 +40,6 @@ public class PlayerCtrl : MonoBehaviour
     public GameObject WinScreen;
     public GameObject GameplayUI;
     private float SoundCountdown = 0f;
-    
 
     Game game;
 
@@ -77,13 +77,13 @@ public class PlayerCtrl : MonoBehaviour
             || Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.A)
             || Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.D))
         {
-            animator.SetInteger("Walk", 1);
+            animator.SetInteger("Stage", 1);
             playerNoise.SetActive(true);
 
         }
         else
         {
-            animator.SetInteger("Walk", 0);
+            animator.SetInteger("Stage", 0);
             SoundCountdown = 0;
             playerNoise.SetActive(false);
         }
@@ -111,6 +111,7 @@ public class PlayerCtrl : MonoBehaviour
         if (hitCollider.tag == "HidingSpots")
         {
             PlayerVisible = true;
+            HidingAnimator.SetInteger("FadeIN", 0);
         }
     }
     void OnTriggerEnter(Collider hitCollider)
@@ -142,6 +143,7 @@ public class PlayerCtrl : MonoBehaviour
         if (hitCollider.tag == "HidingSpots")
         {
             PlayerVisible = false;
+            HidingAnimator.SetInteger("FadeIN", 1);
         }
         if (hitCollider.tag == "KeyItem")
         {
@@ -163,6 +165,7 @@ public class PlayerCtrl : MonoBehaviour
             moveSpeed = 4;
             StartCoroutine(resetSpeed());
         }
+        
     }
     IEnumerator resetSpeed()
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
-[SerializeField]
+//[SerializeField]
 public class Respawn : MonoBehaviour
 {
     SlowTime slowTime;
@@ -17,10 +17,12 @@ public class Respawn : MonoBehaviour
         
         gameoverScreen.SetActive(true);
         slowTime.Endlevel = true;
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.R))
         {
-            gameoverScreen.SetActive(false);
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+            Debug.Log("key R wasPress");
+            //gameoverScreen.SetActive(false);
+            //SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
             slowTime.TimeSpeedReset();
         }
     }
