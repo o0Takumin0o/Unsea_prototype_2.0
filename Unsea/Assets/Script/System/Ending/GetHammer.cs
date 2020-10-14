@@ -8,9 +8,10 @@ public class GetHammer : MonoBehaviour
     EndGameButton endGameButton;
     public AudioSource PlayerAudioSource;
     public AudioClip HammerSound;
-    public Animator PlayAnim;
+    //public Animator PlayAnim;
     SoundFx soundFX;
-
+    public PlayerCtrl playerCtrl;
+    bool oneTime;
 
     // Start is called before the first frame update
     void Start()
@@ -18,14 +19,25 @@ public class GetHammer : MonoBehaviour
         hammer.SetActive(false);
         endGameButton = GameObject.Find("EndingButton").GetComponent<EndGameButton>();
         soundFX = GameObject.Find("SoundCtrl").GetComponent<SoundFx>();
+        playerCtrl = GameObject.Find("Player").GetComponent<PlayerCtrl>();
     }
 
     private void Update()
     {
-        if (endGameButton.GoodEnd == true)
+        
+        if (endGameButton.GoodEnd == true && !oneTime)
         {
-            PlayAnim.SetInteger("Stage", 3);
+            playerCtrl.enabled = false;
+            playerCtrl.animator.SetInteger("Stage", 3);
+            oneTime = true;
+            StartCoroutine(PlayerCtrlOn());
         }
+
+    }
+    IEnumerator PlayerCtrlOn()
+    {
+        yield return new WaitForSeconds(1);
+        playerCtrl.enabled = true;
     }
 
     private void OnTriggerEnter(Collider collision)

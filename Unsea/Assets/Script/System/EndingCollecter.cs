@@ -21,18 +21,23 @@ public class EndingCollecter : MonoBehaviour
     void Start()
     {
         subCollector = GameObject.Find("CollectorManager").GetComponent<SubCollector>();
-        tradeHammer = GameObject.Find("TradeHammer").GetComponent<TradeHammer>();
+        tradeHammer = GameObject.Find("HammerTrade").GetComponent<TradeHammer>();
         PointLevel1 = PlayerPrefs.GetInt("HightScore" + 3.ToString());
         PointLevel2 = PlayerPrefs.GetInt("HightScore" + 4.ToString());
         PointLevel3 = PlayerPrefs.GetInt("HightScore" + 5.ToString());
         PointLevel4 = PlayerPrefs.GetInt("HightScore" + 6.ToString());
+
+        /*PointLevel1 = 10;
+        PointLevel2 = 10;
+        PointLevel3 = 10;
+        PointLevel4 = 10;*/
         //PointLevel5 = PlayerPrefs.GetInt("collectorPoint" + 5.ToString());
         //GoodEnd = false;
-        
+
     }
     void endingOption()
     {
-        if(totalpoint >= 50)
+        if(totalpoint == 50)
         {
             //GoodEnd = true;
             //CanGetHammer = true;

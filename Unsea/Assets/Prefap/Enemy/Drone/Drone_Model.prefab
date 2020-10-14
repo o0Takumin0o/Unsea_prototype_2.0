@@ -780,8 +780,8 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.9786186, g: 1, b: 0, a: 1}
   m_Intensity: 5
-  m_Range: 20
-  m_SpotAngle: 120
+  m_Range: 25
+  m_SpotAngle: 130
   m_InnerSpotAngle: 1
   m_CookieSize: 10
   m_Shadows:
@@ -844,6 +844,7 @@ GameObject:
   - component: {fileID: 7325962462446326654}
   - component: {fileID: 64512392}
   - component: {fileID: 64512398}
+  - component: {fileID: 6381384109421959573}
   m_Layer: 0
   m_Name: Drone_Model
   m_TagString: Enemy
@@ -911,7 +912,7 @@ CapsuleCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7595995708839386233}
   m_Material: {fileID: 0}
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_Enabled: 1
   m_Radius: 0.5
   m_Height: 0
@@ -963,7 +964,7 @@ NavMeshAgent:
   m_GameObject: {fileID: 7595995708839386233}
   m_Enabled: 1
   m_AgentTypeID: 0
-  m_Radius: 3
+  m_Radius: 2
   m_Speed: 3.5
   m_Acceleration: 8
   avoidancePriority: 50
@@ -1088,6 +1089,19 @@ MonoBehaviour:
   IdelSound: {fileID: 8300000, guid: 7b24e9a92181ab645b4a742318f02fd0, type: 3}
   MoveSound: {fileID: 8300000, guid: 3decedc083e139c47be447ccaad50479, type: 3}
   MakeSound: {fileID: 8300000, guid: 8d1c4d0218c40cb47bcac849891ad459, type: 3}
+--- !u!135 &6381384109421959573
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7595995708839386233}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &8231425928846930394
 GameObject:
   m_ObjectHideFlags: 0

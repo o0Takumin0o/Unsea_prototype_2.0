@@ -47,6 +47,7 @@ public class EnemyCtrl : MonoBehaviour
 
     public GameObject StopTarget;
     GameObject Target;
+    bool playerDead;
 
     /*void Awake()//protected override
     {
@@ -75,13 +76,15 @@ public class EnemyCtrl : MonoBehaviour
     }
     
 
+
     public void OnTriggerEnter(Collider hitCollider)
     {
-        /*if (hitCollider.tag == "Player")
+        if (hitCollider.tag == "Player")
         {
-            respawn.RespawnPlayer();
+            playerDead = true;
+            //respawn.RespawnPlayer();
             anim.SetInteger("Stage", 2);
-        }*/
+        }
 
         //neet to make enemy go to noise
         if (hitCollider.tag == "NoiseMakerTrap")
@@ -116,7 +119,7 @@ public class EnemyCtrl : MonoBehaviour
             StartCoroutine(resetNavmesh());
         }
     }
-
+    
    
     IEnumerator resetNavmesh()
     {
@@ -154,6 +157,7 @@ public class EnemyCtrl : MonoBehaviour
     {
         if (CanSeePlayer())
         {
+            gameObject.GetComponent<NavMeshAgent>().enabled = true;
             playerVisibleTimer += Time.deltaTime;
             navMeshAgent.speed = RunSpeed;
             navMeshAgent.SetDestination(Player.transform.position);
@@ -170,17 +174,18 @@ public class EnemyCtrl : MonoBehaviour
         playerVisibleTimer = Mathf.Clamp(playerVisibleTimer, 0, timeToSpotPlayer);
         spotlight.color = Color.Lerp(originalSpotlightColour, Color.red, playerVisibleTimer / timeToSpotPlayer);
 
-        if (playerVisibleTimer >= timeToSpotPlayer)
+        if (playerVisibleTimer >= timeToSpotPlayer|| playerDead == true)
         {//GameObject.Find("Player").SendMessage("Finnish");
             if (OnGuardHasSpottedPlayer != null)
             {
                 OnGuardHasSpottedPlayer();
-                musicCtrl.GameOverSound();
+                
                 slowTime.Endlevel = false;
 
                 if (waitToRespawn <= 0f)
                 {
                     respawn.RespawnPlayer();
+                    musicCtrl.GameOverSound();
                     //slowTime.TimeSpeedReset();
                 }
                 waitToRespawn  -= Time.deltaTime;

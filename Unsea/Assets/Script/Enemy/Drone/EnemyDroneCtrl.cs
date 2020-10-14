@@ -81,12 +81,11 @@ public class EnemyDroneCtrl : MonoBehaviour
 
     public void OnTriggerEnter(Collider hitCollider)
     {
-        if (hitCollider.tag == "Player")
+        /*if (hitCollider.tag == "Player")
         {
             navMeshAgent.SetDestination(Player.transform.position);
-            LookAtPlayer();
             anim.SetInteger("Stage", 2);
-        }
+        }*/
         //neet to make enemy go to noise
         if (hitCollider.tag == "NoiseMaker")
         {
@@ -232,10 +231,5 @@ public class EnemyDroneCtrl : MonoBehaviour
         Quaternion rotation = Quaternion.LookRotation(direction);
         transform.rotation = Quaternion.Lerp(transform.rotation, rotation, LookRotationSpeed * Time.deltaTime);
     }
-    public void LookAtPlayer()
-    {
-        Vector3 direction = Player.transform.position - transform.position;
-        Quaternion rotation = Quaternion.LookRotation(direction);
-        transform.rotation = Quaternion.Lerp(transform.rotation, rotation, LookRotationSpeed * Time.deltaTime);
-    }
+    
 }

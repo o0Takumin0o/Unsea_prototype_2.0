@@ -7,7 +7,8 @@ using UnityEngine.SceneManagement;
 public class PlayerCtrl : MonoBehaviour
 {
     private GameManager GM;
-    Animator animator;
+    [HideInInspector]
+    public Animator animator;
     public Animator HidingAnimator;
     [Header("Movement")]
     public float moveSpeed = 8;
@@ -137,7 +138,8 @@ public class PlayerCtrl : MonoBehaviour
             //GM.resetCheckPoint();
             game.ResetCheckpoint();
             //soundFX.WinLevel();
-            soundFX.CollectedAllpointSound();
+            //soundFX.CollectedAllpointSound();
+            soundFX.WinLevel();
         }
 
         if (hitCollider.tag == "HidingSpots")

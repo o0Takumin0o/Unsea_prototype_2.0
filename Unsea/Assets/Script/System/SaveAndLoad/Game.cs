@@ -31,6 +31,7 @@ public class Game : MonoBehaviour
     public void ResetAll()
     {//Resetevery every thing that playerPrefs saved
         PlayerPrefs.DeleteAll();
+        DeleteAllProgress();
     }
 
     public void ResetHightScore()

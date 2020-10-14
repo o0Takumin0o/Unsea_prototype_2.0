@@ -926,7 +926,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 1, g: 0.94291973, b: 0, a: 1}
   m_Intensity: 5
-  m_Range: 20
+  m_Range: 25
   m_SpotAngle: 84
   m_InnerSpotAngle: 8
   m_CookieSize: 10
@@ -1399,6 +1399,7 @@ GameObject:
   - component: {fileID: 6889196486971942640}
   - component: {fileID: 1706777193}
   - component: {fileID: 7696128638941739771}
+  - component: {fileID: 727579205155747801}
   m_Layer: 0
   m_Name: Charger_Model2
   m_TagString: Enemy
@@ -1511,7 +1512,6 @@ MonoBehaviour:
   anim: {fileID: 0}
   navMeshAgent: {fileID: 0}
   Player: {fileID: 0}
-  respawn: {fileID: 0}
   slowTime: {fileID: 0}
   LookAt: {fileID: 0}
   LookRotationSpeed: 5
@@ -1544,9 +1544,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 691ad1a7df494164e888418047a0f8d6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  IdelSound: {fileID: 8300000, guid: 91aed7a0a7c8c2d4c9ea59ed0650adb0, type: 3}
-  MoveSound: {fileID: 8300000, guid: 91aed7a0a7c8c2d4c9ea59ed0650adb0, type: 3}
-  ChaseSound: {fileID: 8300000, guid: 91aed7a0a7c8c2d4c9ea59ed0650adb0, type: 3}
+  IdelSound: {fileID: 8300000, guid: 4dae4f29923c5df41bd9382b094cd77f, type: 3}
+  MoveSound: {fileID: 8300000, guid: 947be7332b356ce43801635122dc3997, type: 3}
 --- !u!82 &7696128638941739771
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1643,6 +1642,19 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!135 &727579205155747801
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3379998107255824546}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.5
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &3383495543559998398
 GameObject:
   m_ObjectHideFlags: 0

@@ -8,8 +8,7 @@ public class ChargerSound : MonoBehaviour
     AudioClip IdelSound;
     [SerializeField]
     AudioClip MoveSound;
-    [SerializeField]
-    AudioClip ChaseSound;
+    
     private AudioSource audioSource;
 
     private void Awake()
@@ -27,8 +26,4 @@ public class ChargerSound : MonoBehaviour
         audioSource.PlayOneShot(MoveSound);
     }
 
-    private void ChaseNoise()
-    {
-        audioSource.PlayOneShot(ChaseSound);
-    }
 }

@@ -9,6 +9,7 @@ public class DialogueManager : MonoBehaviour {
 	public Text dialogueText;
 
 	public Animator animator;
+    public bool endDialog = false;
 
 	private Queue<string> sentences;
 
@@ -38,7 +39,9 @@ public class DialogueManager : MonoBehaviour {
 		if (sentences.Count == 0)
 		{
 			EndDialogue();
-			return;
+            endDialog = true;
+
+            return;
 		}
 
 		string sentence = sentences.Dequeue();

@@ -4,42 +4,54 @@ using UnityEngine;
 
 public class DialogueEvent : MonoBehaviour
 {
+    //public GameObject GuideTxt;
+    //public GameObject pushButtonText;
     public DialogueTrigger dialogueTrigger;
     public DialogueManager dialogueManager;
-    Collector Collector;
     private int dialogStage;
-    public int ItemNeed;
-    bool onetime = false;
-    // Start is called before the first frame update
-    void Start()
+    private bool isInRange;
+    private void Start()
     {
+        //GuideTxt.SetActive(false);
+        //pushButtonText.gameObject.SetActive(false);
         //dialogStage = 0;
-        Collector = GameObject.Find("CollectorManager").GetComponent<Collector>();
-        dialogStage = 0;
+        //dialogueManager = GameObject.Find("DialogManager").GetComponent<DialogueManager>();
     }
-
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        if (ItemNeed == Collector.mainPoint && !onetime)
+        if (isInRange)
         {
-            DialogueEventCtrl();
-            onetime = true;
+            //Debug.Log("E key was pressed.");
+            //GuideTxt.gameObject.SetActive(true);
+            //pushButtonText.gameObject.SetActive(false);
+            dialogueTrigger.TriggerDialogue();
+            //DialogueCtrl();
+            if (Input.GetKeyDown(KeyCode.E))
+            {
+                dialogueManager.DisplayNextSentence();
+            }
         }
-        if (Input.GetKeyDown(KeyCode.E))
+        
+    }
+    private void OnTriggerEnter(Collider collision)
+    {
+        //GuideTxt.gameObject.SetActive(true);
+        if (collision.tag == "Player")
         {
-            dialogueManager.DisplayNextSentence();
+            isInRange = true;
         }
     }
-
-    void DialogueEventCtrl()
+    private void OnTriggerExit(Collider collision)
     {
-        dialogueTrigger.TriggerDialogue();
-        /*if(Input.GetKeyDown(KeyCode.E))
+        if (collision.tag == "Player")
         {
-            dialogueManager.DisplayNextSentence();
-        }*/
-
+            isInRange = false;
+            //dialogManager.EndDialogue();
+            dialogueManager.EndDialogue();
+        }
+    }
+    /*void DialogueCtrl()
+    {
         switch (dialogStage)
         {
             case 0:
@@ -51,5 +63,5 @@ public class DialogueEvent : MonoBehaviour
                 dialogueManager.DisplayNextSentence();
                 break;
         }
-    }
+    }*/
 }

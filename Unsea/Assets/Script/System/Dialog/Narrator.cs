@@ -1,21 +1,21 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class Narrator : MonoBehaviour
 {
     //public GameObject pushButtonText;
-    public DialogueTrigerEnding dialogueTrigger;
-    public DialogueManagerEnding dialogueManager;
+    public DialogueTrigger dialogueTrigger;
+    public DialogueManager dialogueManager;
+    public GameObject fadeOutScreen;
     //private int dialogStage;
     //private bool isInRange;
     private void Start()
     {
-        //GuideTxt.SetActive(false);
-        //pushButtonText.gameObject.SetActive(false);
-        //dialogStage = 0;
-        dialogueTrigger.TriggerDialogue();
-        //dialogueManager = GameObject.Find("DialogManager").GetComponent<DialogueManager>();
+        //dialogueTrigger.TriggerDialogue();
+        StartCoroutine(StartDialog());
+        fadeOutScreen.SetActive(false);
     }
     private void Update()
     {
@@ -24,6 +24,20 @@ public class Narrator : MonoBehaviour
             dialogueManager.DisplayNextSentence();
             //DialogueCtrl();
         }
+        if (dialogueManager.endDialog == true)
+        {
+            fadeOutScreen.SetActive(true);
+            StartCoroutine(GoToTitleScreen());
+        }
     }
-    
+    IEnumerator StartDialog()
+    {
+        yield return new WaitForSeconds(4);
+        dialogueTrigger.TriggerDialogue();
+    }
+    IEnumerator GoToTitleScreen()
+    {
+        yield return new WaitForSeconds(2);
+        SceneManager.LoadScene(0);
+    }
 }

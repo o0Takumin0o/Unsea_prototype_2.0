@@ -1,12 +1,43 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!81 &17976872
+--- !u!1 &1522040955
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1522040956}
+  - component: {fileID: 1522040957}
+  m_Layer: 0
+  m_Name: AudioLisener
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1522040956
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1522040955}
+  m_LocalRotation: {x: -0.36317903, y: -0, z: -0, w: 0.9317194}
+  m_LocalPosition: {x: 0, y: -0.15874481, z: 18.578371}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 1308919540734421655}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!81 &1522040957
 AudioListener:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1308919540734421650}
+  m_GameObject: {fileID: 1522040955}
   m_Enabled: 1
 --- !u!114 &1558232172
 MonoBehaviour:
@@ -119,74 +150,6 @@ AudioListener:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6992923042825707970}
   m_Enabled: 0
---- !u!114 &713539692
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6992923042825707970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fdf87c1579419fc499cff233f153fd83, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  NoiseMakerPrefab: {fileID: 5381985051854142291, guid: 5ebb5f620cc8a8d42886ed9797891eaf,
-    type: 3}
-  spawnPoint: {fileID: 6291673462697350097}
-  CrabArmor: {fileID: 2227978562548317694}
-  DestroyAfter: 3
---- !u!114 &978070767
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6992923042825707970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: bd81324c715f70043aef2d5c9cb01f8c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  moveSpeed: 8
-  smoothMoveTime: 0.1
-  turnSpeed: 8
-  collector: {fileID: 0}
-  subcCollector: {fileID: 0}
-  slowTime: {fileID: 0}
-  timer: {fileID: 0}
-  soundFX: {fileID: 0}
-  playerSound: {fileID: 0}
-  LevelEnd: 0
-  PlayerVisible: 1
-  playerNoise: {fileID: 4866785801003441787}
-  WinScreen: {fileID: 0}
-  GameplayUI: {fileID: 0}
---- !u!114 &978070772
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6992923042825707970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 8b697086749ff114ca6146c846d03084, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &3649217588961862081
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6992923042825707970}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8844cf3b4f5b384f8d16edfb1b9dccf, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  database: {fileID: 0}
 --- !u!82 &978070775
 AudioSource:
   m_ObjectHideFlags: 0
@@ -284,6 +247,63 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &713539692
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992923042825707970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fdf87c1579419fc499cff233f153fd83, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  NoiseMakerPrefab: {fileID: 5381985051854142291, guid: 5ebb5f620cc8a8d42886ed9797891eaf,
+    type: 3}
+  soundFX: {fileID: 0}
+  spawnPoint: {fileID: 6291673462697350097}
+  CrabArmor: {fileID: 2227978562548317694}
+  DestroyAfter: 3
+--- !u!114 &978070767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992923042825707970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd81324c715f70043aef2d5c9cb01f8c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  animator: {fileID: 0}
+  HidingAnimator: {fileID: 0}
+  moveSpeed: 8
+  smoothMoveTime: 0.1
+  turnSpeed: 8
+  collector: {fileID: 0}
+  subcCollector: {fileID: 0}
+  slowTime: {fileID: 0}
+  timer: {fileID: 0}
+  soundFX: {fileID: 0}
+  LevelEnd: 0
+  PlayerVisible: 1
+  playerNoise: {fileID: 4866785801003441787}
+  WinScreen: {fileID: 0}
+  GameplayUI: {fileID: 0}
+--- !u!114 &978070772
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992923042825707970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 8b697086749ff114ca6146c846d03084, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &978070776
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -297,6 +317,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SwimSound: {fileID: 8300000, guid: 51b937a899a911b4e992ffdfb31a3077, type: 3}
+--- !u!114 &3649217588961862081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6992923042825707970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d8844cf3b4f5b384f8d16edfb1b9dccf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  database: {fileID: 0}
 --- !u!1001 &1284087319546235400
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -423,7 +456,9 @@ PrefabInstance:
       propertyPath: m_Name
       value: Compass
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6438561190419818, guid: 41935ad2ed2562d4e9ba615091d3751e, type: 3}
+    - {fileID: 6438559850904793, guid: 41935ad2ed2562d4e9ba615091d3751e, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 41935ad2ed2562d4e9ba615091d3751e, type: 3}
 --- !u!1001 &1308919542114318539
 PrefabInstance:
@@ -1058,12 +1093,12 @@ PrefabInstance:
     - target: {fileID: 8145571774630155283, guid: c017b4d9cb89a6d47a1aa9c2411bda3b,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.09
+      value: -0.08
       objectReference: {fileID: 0}
     - target: {fileID: 8145571774630155283, guid: c017b4d9cb89a6d47a1aa9c2411bda3b,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0.18
+      value: 0.42
       objectReference: {fileID: 0}
     - target: {fileID: 8145571774630155283, guid: c017b4d9cb89a6d47a1aa9c2411bda3b,
         type: 3}

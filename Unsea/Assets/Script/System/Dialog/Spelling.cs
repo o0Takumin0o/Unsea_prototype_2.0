@@ -20,11 +20,7 @@ public class Spelling : MonoBehaviour
         StartCoroutine(Type());
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    
     IEnumerator Type()
     {
         foreach(char letter in sentences[index].ToCharArray())

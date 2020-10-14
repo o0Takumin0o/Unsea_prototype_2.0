@@ -5,6 +5,8 @@ using UnityEngine;
 public class EndGameButton : MonoBehaviour
 {
     public GameObject pushButtonText;
+    public GameObject NeedHammerText;
+    public GameObject questionmark;
     EndingCollecter endingCollecter;
     public Animator anim;
     public Animator playerAnim;
@@ -20,18 +22,29 @@ public class EndGameButton : MonoBehaviour
         //anim = GetComponent<Animator>();
         anim.SetInteger("Stage", 0);
         endingCollecter = GameObject.Find("CollectorManager").GetComponent<EndingCollecter>();
+        NeedHammerText.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (hasHammer == true && isInRange && Input.GetKeyDown(KeyCode.E))
+        if (isInRange && Input.GetKeyDown(KeyCode.E))
         {
-            pushButtonText.gameObject.SetActive(false);
-            anim.SetInteger("Stage", 1);
-            playerAnim.SetInteger("Stage", 3);
-            GoodEnd = true;
-            Debug.Log("GoodEnd");
+            if (hasHammer == true)
+            {
+                pushButtonText.gameObject.SetActive(false);
+                //playerAnim.SetInteger("Stage", 3);
+                anim.SetInteger("Stage", 1);
+                GoodEnd = true;
+                Debug.Log("GoodEnd");
+                questionmark.SetActive(false);
+            }
+            if (hasHammer == false)
+            {
+                pushButtonText.gameObject.SetActive(false);
+                NeedHammerText.SetActive(true);
+                questionmark.SetActive(false);
+            }
         }
     }
     private void OnTriggerEnter(Collider collision)
@@ -43,5 +56,11 @@ public class EndGameButton : MonoBehaviour
             
         }
     }
-    
+    private void OnTriggerExit(Collider other)
+    {
+        NeedHammerText.SetActive(false);
+        pushButtonText.gameObject.SetActive(false);
+        questionmark.SetActive(true);
+    }
+
 }
